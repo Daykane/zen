@@ -19,14 +19,14 @@ public class GestionTestJDBC extends HttpServlet {
     public static final String VUE          = "/WEB-INF/test_jdbc.jsp";
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        /* Initialisation de l'objet Java et récupération des messages */
+        /* Initialisation de l'objet Java et recuperation des messages */
         TestJDBC test = new TestJDBC();
         List<String> messages = test.executerTests( request );
 
-        /* Enregistrement de la liste des messages dans l'objet requête */
+        /* Enregistrement de la liste des messages dans l'objet requete */
         request.setAttribute( ATT_MESSAGES, messages );
 
-        /* Transmission vers la page en charge de l'affichage des résultats */
+        /* Transmission vers la page en charge de l'affichage des resultats */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 }
