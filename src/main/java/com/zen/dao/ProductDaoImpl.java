@@ -28,18 +28,10 @@ public class ProductDaoImpl  implements ProductDao {
             connexion = daoFactory.getConnection();
             preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, product.getProductName(), product.getProductDescr(), product.getAvailableQuantity(),product.getMemberReduction() );
             int statut = preparedStatement.executeUpdate();
-            /* Analyse du statut retourné par la requête d'insertion */
+            /* Analyse du statut retourne par la requete d'insertion */
             if ( statut == 0 ) {
-                throw new DAOException( "Échec de la création de l'utilisateur, aucune ligne ajoutée dans la table." );
+                throw new DAOException( "Echec de la creation de l'utilisateur, aucune ligne ajoutEe dans la table." );
             }
-            /*
-            valeursAutoGenerees = preparedStatement.getGeneratedKeys();
-            if ( valeursAutoGenerees.next() ) {
-                product.setId( valeursAutoGenerees.getLong( 1 ) );
-            } else {
-                throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
-            }
-            */
         } catch ( SQLException e ) {
             throw new DAOException( e );
         } finally {
@@ -57,11 +49,11 @@ public class ProductDaoImpl  implements ProductDao {
         Product product = null;
 
         try {
-            /* Récupération d'une connexion depuis la Factory */
+            /* Recuperation d'une connexion depuis la Factory */
             connexion = daoFactory.getConnection();
             preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ID, false, id );
             resultSet = preparedStatement.executeQuery();
-            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
             if ( resultSet.next() ) {
                 product = map( resultSet );
             }
@@ -84,11 +76,11 @@ public class ProductDaoImpl  implements ProductDao {
         List<Product> products = new ArrayList<Product>();
 
         try {
-            /* Récupération d'une connexion depuis la Factory */
+            /* Recuperation d'une connexion depuis la Factory */
             connexion = daoFactory.getConnection();
             preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT, false );
             resultSet = preparedStatement.executeQuery();
-            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
             while ( resultSet.next() ) {           
                 product = map( resultSet );
                 products.add(product);   
@@ -124,7 +116,7 @@ public class ProductDaoImpl  implements ProductDao {
             connexion = daoFactory.getConnection();
             preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, true, product.getProductId() );
             int statut = preparedStatement.executeUpdate();
-            /* Analyse du statut retourné par la requête d'insertion */
+            /* Analyse du statut retourne par la requete d'insertion */
             if ( statut == 0 ) {
                 throw new DAOException( "Deleted failed" );
             }
@@ -147,7 +139,7 @@ public class ProductDaoImpl  implements ProductDao {
             preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true,product.getProductName(), product.getProductDescr(),product.getAvailableQuantity(),product.getMemberReduction() ,id );
             System.out.println(preparedStatement);
             int statut = preparedStatement.executeUpdate();
-            /* Analyse du statut retourné par la requête d'update */
+            /* Analyse du statut retourne par la requete d'update */
             if ( statut == 0 ) {
                 throw new DAOException( "Update failed" );
             }

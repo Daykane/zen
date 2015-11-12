@@ -28,11 +28,11 @@ public class UserDaoImpl implements UserDao {
         User user = null;
 
         try {
-            /* Récupération d'une connexion depuis la Factory */
+            /* Recuperation d'une connexion depuis la Factory */
             connexion = daoFactory.getConnection();
             preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ID, false, id );
             resultSet = preparedStatement.executeQuery();
-            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
             if ( resultSet.next() ) {
                 user = map( resultSet );
             }
@@ -58,7 +58,7 @@ public class UserDaoImpl implements UserDao {
             int statut = preparedStatement.executeUpdate();
            
             if ( statut == 0 ) {
-                throw new DAOException( "Échec de la création de l'utilisateur, aucune ligne ajoutée dans la table." );
+                throw new DAOException( "echec de la creation de l'utilisateur, aucune ligne ajoutee dans la table." );
             }
       
         } catch ( SQLException e ) {
@@ -70,7 +70,7 @@ public class UserDaoImpl implements UserDao {
     
     
     /*
-     * Simple méthode utilitaire permettant de faire la correspondance (le
+     * Simple methode utilitaire permettant de faire la correspondance (le
      * mapping) entre une ligne issue de la table des utilisateurs (un
      * ResultSet) et un bean Utilisateur.
      */
@@ -100,11 +100,11 @@ public class UserDaoImpl implements UserDao {
         List<User> users = new ArrayList<User>();
 
         try {
-            /* Récupération d'une connexion depuis la Factory */
+            /* Recuperation d'une connexion depuis la Factory */
             connexion = daoFactory.getConnection();
             preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT, false );
             resultSet = preparedStatement.executeQuery();
-            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
             while ( resultSet.next() ) {           
                 user = map( resultSet );
                 users.add(user);   
@@ -127,11 +127,11 @@ public class UserDaoImpl implements UserDao {
         User user = null;
 
         try {
-            /* Récupération d'une connexion depuis la Factory */
+            /* Recuperation d'une connexion depuis la Factory */
             connexion = daoFactory.getConnection();
             preparedStatement = initialisationRequetePreparee( connexion, SQL_CONNECTION, false, mail,password );
             resultSet = preparedStatement.executeQuery();
-            /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
             if ( resultSet.next() ) {
                 user = map( resultSet );
             }
@@ -157,7 +157,7 @@ public class UserDaoImpl implements UserDao {
 	            int statut = preparedStatement.executeUpdate();
 	           
 	            if ( statut == 0 ) {
-	                throw new DAOException( "Échec de la suppression de l'utilisateur." );
+	                throw new DAOException( "Echec de la suppression de l'utilisateur." );
 	            }
 	      
 	        } catch ( SQLException e ) {

@@ -11,7 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 public class TestJDBC {
-    /* La liste qui contiendra tous les résultats de nos essais */
+    /* La liste qui contiendra tous les rï¿½sultats de nos essais */
     private List<String> messages = new ArrayList<String>();
 
     public List<String> executerTests( HttpServletRequest request ) {
@@ -19,13 +19,13 @@ public class TestJDBC {
         try {
             messages.add( "Chargement du driver..." );
             Class.forName( "com.mysql.jdbc.Driver" );
-            messages.add( "Driver chargé !" );
+            messages.add( "Driver chargï¿½ !" );
         } catch ( ClassNotFoundException e ) {
-            messages.add( "Erreur lors du chargement : le driver n'a pas été trouvé dans le classpath ! <br/>"
+            messages.add( "Erreur lors du chargement : le driver n'a pas Ã©tÃ© trouvÃ© dans le classpath ! <br/>"
                     + e.getMessage() );
         }
 
-        /* Connexion à la base de données */
+        /* Connexion ï¿½ la base de donnï¿½es */
         String url = "jdbc:mysql://localhost:3306/abcd";
         String utilisateur = "root";
         String motDePasse = "";
@@ -33,26 +33,26 @@ public class TestJDBC {
         Statement statement = null;
         ResultSet resultat = null;
         try {
-            messages.add( "Connexion à la base de données..." );
+            messages.add( "Connexion Ã  la base de donnees..." );
             connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
-            messages.add( "Connexion réussie !" );
+            messages.add( "Connexion reussie !" );
 
-            /* Création de l'objet gérant les requêtes */
+            /* Crï¿½ation de l'objet gï¿½rant les requï¿½tes */
             statement = connexion.createStatement();
-            messages.add( "Objet requête créé !" );
+            messages.add( "Objet requete cree !" );
 
-            /* Exécution d'une requête de lecture */
+            /* Exï¿½cution d'une requï¿½te de lecture */
             resultat = statement.executeQuery( "SELECT id, email, mot_de_passe, nom FROM Utilisateur;" );
-            messages.add( "Requête \"SELECT id, email, mot_de_passe, nom FROM Utilisateur;\" effectuée !" );
+            messages.add( "Requï¿½te \"SELECT id, email, mot_de_passe, nom FROM Utilisateur;\" effectuee !" );
      
-            /* Récupération des données du résultat de la requête de lecture */
+            /* Rï¿½cupï¿½ration des donnï¿½es du rï¿½sultat de la requï¿½te de lecture */
             while ( resultat.next() ) {
                 int idUtilisateur = resultat.getInt( "id" );
                 String emailUtilisateur = resultat.getString( "email" );
                 String motDePasseUtilisateur = resultat.getString( "mot_de_passe" );
                 String nomUtilisateur = resultat.getString( "nom" );
-                /* Formatage des données pour affichage dans la JSP finale. */
-                messages.add( "Données retournées par la requête : id = " + idUtilisateur + ", email = " + emailUtilisateur
+                /* Formatage des donnï¿½es pour affichage dans la JSP finale. */
+                messages.add( "Donnees retournees par la requete : id = " + idUtilisateur + ", email = " + emailUtilisateur
                         + ", motdepasse = "
                         + motDePasseUtilisateur + ", nom = " + nomUtilisateur + "." );
             }
