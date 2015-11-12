@@ -37,11 +37,6 @@ public class DAOFactory {
         String nomUtilisateur = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
         String motDePasse = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
         
-        //Développement en local
-//        String url = "jdbc:mysql://localhost:3306/abcd";
-//        String nomUtilisateur = "root";
-//        String motDePasse = "";
-        
 
 //        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 //        InputStream fichierProperties = classLoader.getResourceAsStream( FICHIER_PROPERTIES );
