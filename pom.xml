@@ -36,6 +36,7 @@
             <configuration>
               <outputDirectory>deployments</outputDirectory>
               <warName>ROOT</warName>
+              <failOnMissingWebXml>false</failOnMissingWebXml>
             </configuration>
           </plugin>
         </plugins>
