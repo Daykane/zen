@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "­//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<title>indexTest</title>
+
+</head>
+	<body>
+<button id="test">click me</button>
+	    
+	   <!-- 
+	   <a> <input type="button" value="Test"> </a>
+	    <a href="Rooms.html" target="_blank"> <input type="button" value="Rooms"> </a>
+	    <a href="TestParameters" target="_blank"> <input type="button" value="Parameters"> </a>
+		-->
+	</body>
+
+<script type="text/javascript">
+$(function(){
+	  $("#test").click(function(){
+	    $.ajax({
+	    	  method: "GET",
+	    	  url: "Test",
+	    	})
+	    	.done(function(data){
+		    	console.log(data)})
+		    	.fail(function(data){
+			    	alert("fail")});
+	  });
+
+	  
+	});
+</script>
+</html>
