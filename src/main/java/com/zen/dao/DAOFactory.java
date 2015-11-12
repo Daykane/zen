@@ -28,7 +28,7 @@ public class DAOFactory {
     
     public static DAOFactory getInstance() throws DAOConfigurationException {
 //        Properties properties = new Properties();
-//    	String driver = "com.mysql.jdbc.Driver";
+    	String driver = "com.mysql.jdbc.Driver";
     	
     	String url = "jdbc:" + System.getenv("OPENSHIFT_MYSQL_DB_URL") + "/" + System.getenv("OPENSHIFT_MYSQL_DB_NAME");
         String nomUtilisateur = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
@@ -52,11 +52,11 @@ public class DAOFactory {
 //            throw new DAOConfigurationException( "Impossible de charger le fichier properties " + FICHIER_PROPERTIES, e );
 //        }
 //
-//        try {
-//            Class.forName( driver );
-//        } catch ( ClassNotFoundException e ) {
-//            throw new DAOConfigurationException( "Le driver est introuvable dans le classpath.", e );
-//        }
+        try {
+            Class.forName( driver );
+        } catch ( ClassNotFoundException e ) {
+            throw new DAOConfigurationException( "Le driver est introuvable dans le classpath.", e );
+        }
 
         DAOFactory instance = new DAOFactory( url, nomUtilisateur, motDePasse );
         return instance;
