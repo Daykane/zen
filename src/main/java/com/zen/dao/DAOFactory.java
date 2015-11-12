@@ -30,7 +30,7 @@ public class DAOFactory {
 //        Properties properties = new Properties();
 //    	String driver = "com.mysql.jdbc.Driver";
     	
-    	String url = "jdbc:" + System.getenv("OPENSHIFT_MYSQL_DB_URL");
+    	String url = System.getenv("OPENSHIFT_MYSQL_DB_URL");
         String nomUtilisateur = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
         String motDePasse = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
         
