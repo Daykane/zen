@@ -9,11 +9,11 @@ import java.util.Properties;
 
 public class DAOFactory {
 
-    private static final String FICHIER_PROPERTIES       = "/com/zen/dao/dao.properties";
-    private static final String PROPERTY_URL             = "url";
-    private static final String PROPERTY_DRIVER          = "driver";
-    private static final String PROPERTY_NOM_UTILISATEUR = "nomutilisateur";
-    private static final String PROPERTY_MOT_DE_PASSE    = "motdepasse";
+//    private static final String FICHIER_PROPERTIES       = "/com/zen/dao/dao.properties";
+//    private static final String PROPERTY_URL             = "url";
+//    private static final String PROPERTY_DRIVER          = "driver";
+//    private static final String PROPERTY_NOM_UTILISATEUR = "nomutilisateur";
+//    private static final String PROPERTY_MOT_DE_PASSE    = "motdepasse";
 
     private String              url;
     private String              username;
@@ -30,34 +30,41 @@ public class DAOFactory {
      * données, charger le driver JDBC et retourner une instance de la Factory
      */
     public static DAOFactory getInstance() throws DAOConfigurationException {
-        Properties properties = new Properties();
-        String url;
-        String driver;
-        String nomUtilisateur;
-        String motDePasse;
+//        Properties properties = new Properties();
+//    	String driver = "com.mysql.jdbc.Driver";
+    	
+    	String url = System.getenv("OPENSHIFT_MYSQL_DB_URL");
+        String nomUtilisateur = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+        String motDePasse = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+        
+        //Développement en local
+//        String url = "jdbc:mysql://localhost:3306/abcd";
+//        String nomUtilisateur = "root";
+//        String motDePasse = "";
+        
 
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream fichierProperties = classLoader.getResourceAsStream( FICHIER_PROPERTIES );
-
-        if ( fichierProperties == null ) {
-            throw new DAOConfigurationException( "Le fichier properties " + FICHIER_PROPERTIES + " est introuvable." );
-        }
-
-        try {
-            properties.load( fichierProperties );
-            url = properties.getProperty( PROPERTY_URL );
-            driver = properties.getProperty( PROPERTY_DRIVER );
-            nomUtilisateur = properties.getProperty( PROPERTY_NOM_UTILISATEUR );
-            motDePasse = properties.getProperty( PROPERTY_MOT_DE_PASSE );
-        } catch ( IOException e ) {
-            throw new DAOConfigurationException( "Impossible de charger le fichier properties " + FICHIER_PROPERTIES, e );
-        }
-
-        try {
-            Class.forName( driver );
-        } catch ( ClassNotFoundException e ) {
-            throw new DAOConfigurationException( "Le driver est introuvable dans le classpath.", e );
-        }
+//        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+//        InputStream fichierProperties = classLoader.getResourceAsStream( FICHIER_PROPERTIES );
+//
+//        if ( fichierProperties == null ) {
+//            throw new DAOConfigurationException( "Le fichier properties " + FICHIER_PROPERTIES + " est introuvable." );
+//        }
+//
+//        try {
+//            properties.load( fichierProperties );
+//            url = properties.getProperty( PROPERTY_URL );
+//            driver = properties.getProperty( PROPERTY_DRIVER );
+//            nomUtilisateur = properties.getProperty( PROPERTY_NOM_UTILISATEUR );
+//            motDePasse = properties.getProperty( PROPERTY_MOT_DE_PASSE );
+//        } catch ( IOException e ) {
+//            throw new DAOConfigurationException( "Impossible de charger le fichier properties " + FICHIER_PROPERTIES, e );
+//        }
+//
+//        try {
+//            Class.forName( driver );
+//        } catch ( ClassNotFoundException e ) {
+//            throw new DAOConfigurationException( "Le driver est introuvable dans le classpath.", e );
+//        }
 
         DAOFactory instance = new DAOFactory( url, nomUtilisateur, motDePasse );
         return instance;
