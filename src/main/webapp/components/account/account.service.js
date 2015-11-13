@@ -1,6 +1,6 @@
 //TODO
 
-(function(window, angular){
+(function(window, angular, _){
     'use strict';
 
     function accountService(authenticationService, $state){
@@ -12,9 +12,8 @@
         function reset(){}
 
         function logout(){
-            authenticationService.clearToken();
+            authenticationService.reset();
             $state.go('root.home');
-            console.log("home45");
         }
         
         function goToSettings(){
@@ -34,4 +33,4 @@
     angular.module('zen.components.account')
     .factory('accountService', accountService);
     
-})(window, window.angular);
+})(window, window.angular, window._);

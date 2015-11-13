@@ -1,10 +1,11 @@
 <li id="zenAccount" class="dropdown" data-ng-if="authentication.isConnected()">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{authentication.getCurrentUserName()}} 
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li><a class="btn-link" data-ng-click="account.goToSettings()">Settings</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a class="btn-link" data-ng-click="account.logout()">Logout</a></li>
-  </ul>
+  	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+  		{{authentication.getCurrentUserName()}}
+  		<span class="caret"></span>
+  	</a>
+  	<ul class="dropdown-menu">
+	    <li><a class="btn-link" data-ng-click="account.goToSettings()">Settings</a></li>
+	    <li role="separator" class="divider"></li>
+	    <li><a class="btn-link" data-ng-click="account.logout()">Logout</a></li>
+  	</ul>
 </li>

@@ -1,6 +1,6 @@
 (function(window, angular){
     'use strict';
-    function navigation(){
+    function navigationDirective(){
         return {
             restrict: 'E',
             replace: true,
@@ -30,5 +30,5 @@
             'ui.router',
             'zen.services',
             'zen.components.account'
-        ]).directive('zenNavigation', navigation);
+        ]).directive('zenNavigation', navigationDirective);
 })(window, window.angular);

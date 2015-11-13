@@ -11,10 +11,14 @@
         return {
             activate: function(){
             },
-            
+
+            reset: function(){
+            },
+
             isMember: function(){
                 return true // TODO
             },
+            
             isAdmin: function(){
                 return true // TODO
             },

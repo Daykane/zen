@@ -45,6 +45,12 @@
         function login(){
             $state.go('root.login');
         }
+        function logout(){
+            $state.go('root.home');
+        }
+        function goToSettings(){
+            $state.go('root.settings');
+        }
         
 
         // Public
@@ -52,6 +58,8 @@
             activate: activate,
             reset: reset,
             login: login,
+            logout: logout,
+            goToSettings: goToSettings,
             goToStore: goToStore,
             goToMyActivities: goToMyActivities,
             goToBasket: goToBasket,
