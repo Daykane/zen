@@ -8,7 +8,7 @@
             restrict: 'E',
             replace: true,
             templateUrl: 'components/account/account.html',
-            scope: {},
+            scope: false,
             controller: accountController
         };
     }

@@ -12,6 +12,6 @@
     }
 
     angular.module('zen.api.events', [
-            'signal.services'
+            'zen.services'
         ]).factory('Events', events);
 })(window, window.angular, window._);

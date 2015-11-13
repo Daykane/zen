@@ -12,24 +12,25 @@
 	
 	function rootRun(){}
 
-    function rootController(authenticationService){
+    function rootController(authenticationService, $scope){
         // Private variables
 
         // Private methods
 
         // Public variables
-
+        
         // Public methods
 
         // Initialization
         authenticationService.activate();
     }
-    rootController.$inject = ['authenticationService'];
+    rootController.$inject = ['authenticationService', '$scope'];
 
     angular.module('zen.states.root', [
         'ui.router',
         'zen.services',
-        'zen.components.navigation'
+        'zen.components.navigation',
+        'zen.components.account'
     ])
     .config(rootConfig)
 	.run(rootRun)
