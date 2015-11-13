@@ -1,5 +1,7 @@
 package com.zen.beans;
 
+import java.util.ArrayList;
+
 public class User {
 	private int id;
 	private String password;
@@ -11,6 +13,7 @@ public class User {
 	private String town;
 	private String phone;
 	private String mail;
+	private ArrayList<AbstractRole> roles;
 	
 	public User() {		
 	}
@@ -30,7 +33,7 @@ public class User {
 	}
 
 	public User(String password, String lastName, String firstName, String adr1, String adr2, String pc, String town,
-			String phone, String mail) {
+			String phone, String mail, ArrayList<AbstractRole> roles) {
 		super();
 		this.password = password;
 		this.lastName = lastName;
@@ -41,6 +44,7 @@ public class User {
 		this.town = town;
 		this.phone = phone;
 		this.mail = mail;
+		this.roles = roles;
 	}
 
 	public int getId() {
@@ -122,6 +126,15 @@ public class User {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+	public ArrayList<AbstractRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(ArrayList<AbstractRole> roles) {
+		this.roles = roles;
+	}
+	
 	
 	
 
