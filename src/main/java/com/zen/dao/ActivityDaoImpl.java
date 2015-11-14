@@ -1,7 +1,6 @@
 package com.zen.dao;
 
 import com.zen.beans.Activity;
-import com.zen.beans.User;
 import static com.zen.dao.DAOUtilitaire.*;
 
 import java.sql.Connection;
@@ -19,7 +18,7 @@ public class ActivityDaoImpl implements ActivityDao {
         this.daoFactory = daoFactory;
     }
     
-    private static final String SQL_SELECT_BY_ID = "SELECT * FROM Activity WHERE id = ?";
+    private static final String SQL_SELECT_BY_ID = "SELECT * FROM Activity WHERE activityId = ?";
     @Override
 	public
     Activity findById( String id ) throws DAOException {
@@ -77,7 +76,7 @@ public class ActivityDaoImpl implements ActivityDao {
      */
     private static Activity map( ResultSet resultSet ) throws SQLException {
         Activity activity = new Activity();
-        activity.setActivityId(resultSet.getInt( "id" ));
+        activity.setActivityId(resultSet.getInt( "activityId" ));
         activity.setActivityName(resultSet.getString("activityName"));
         activity.setActivityShortDescr(resultSet.getString("activityShortDesc"));
         activity.setActivityLongDescr(resultSet.getString("activityLongDesc"));
@@ -116,7 +115,7 @@ public class ActivityDaoImpl implements ActivityDao {
 
 	
 
-	private static final String SQL_DELETE = "DELETE FROM Activity WHERE id = ?";
+	private static final String SQL_DELETE = "DELETE FROM Activity WHERE activityId = ?";
 	@Override
 	public void delete(int id) throws DAOException {
 		 Connection connexion = null;
