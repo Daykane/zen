@@ -74,7 +74,7 @@ public class DAOFactory {
 	public ProductDao getProductDao() {
 		return new ProductDaoImpl( this );
 	}
-	public CategoryDao getCatgeoryDao() {
+	public CategoryDao getCategoryDao() {
 		return new CategoryDaoImpl(this);
 	}
 	public ActivityDao getActivityDao() {
