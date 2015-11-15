@@ -16,7 +16,7 @@ import com.zen.dao.CategoryDao;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.ProductDao;
 
-@Path("/Products")
+@Path("/Categories")
 @Produces({ "application/json" })
 @Consumes({ "application/json" })
 public class CategoryServlet {
@@ -24,6 +24,7 @@ public class CategoryServlet {
 	private UriInfo context;
 	//private UtilisateurDao  utilisateurDao;
 	private CategoryDao  categoryDao;
+	private ProductDao  productDao;
 
 	
 	@GET
@@ -48,6 +49,24 @@ public class CategoryServlet {
 		this.categoryDao = DAOFactory.getInstance().getCategoryDao();
 		Category category = this.categoryDao.find(id);
 		return category;
+	}
+	
+	@GET
+	@Path("{id}/Products")
+	public List<Product> getProductCategories(@PathParam("id") String id) {
+		this.productDao = DAOFactory.getInstance().getProductDao();
+		List<Product>  products = this.productDao.findByCategory(id);
+
+		return products;
+	}
+	
+	@GET
+	@Path("{id}/Products/{idP}")
+	public Product getProductCategoriesId(@PathParam("id") String id,@PathParam("idP") String idP) {
+		this.productDao = DAOFactory.getInstance().getProductDao();
+		Product  product = this.productDao.findByCategoryById(id,idP);
+
+		return product;
 	}
 	/*
 	@GET ok

@@ -84,8 +84,29 @@ public class CategoryDaoImpl  implements CategoryDao {
 	private static final String SQL_SELECT = "SELECT * FROM Category";
 	@Override
 	public List<Category> findAll() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Category category = null;
+        List<Category> categories = new ArrayList<Category>();
+
+        try {
+            /* Recuperation d'une connexion depuis la Factory */
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT, false );
+            resultSet = preparedStatement.executeQuery();
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+            while ( resultSet.next() ) {           
+                category = map( resultSet );
+                categories.add(category);   
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+
+        return categories;
 	}
 	
 	private static Category map( ResultSet resultSet ) throws SQLException {

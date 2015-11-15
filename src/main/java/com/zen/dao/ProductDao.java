@@ -16,4 +16,8 @@ public interface ProductDao {
     
     List<Product> findAll() throws DAOException;
 
+    List<Product> findByCategory(String id);
+
+	Product findByCategoryById(String id, String idP);
+
 }
