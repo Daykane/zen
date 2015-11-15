@@ -33,6 +33,9 @@ public class DAOFactory {
 		String url = "jdbc:mysql://" + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":" + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/" + System.getenv("OPENSHIFT_APP_NAME");
 		String nomUtilisateur = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
 		String motDePasse = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+		System.out.println("1:"+url);
+		System.out.println("2:"+nomUtilisateur);
+		System.out.println("3:"+motDePasse);
 
 
 		//        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -79,6 +82,9 @@ public class DAOFactory {
 	}
 	public ActivityDao getActivityDao() {
 		return new ActivityDaoImpl(this);
+	}
+	public EventDao getEventDao() {
+		return new EventDaoImpl(this);
 	}
 	
 
