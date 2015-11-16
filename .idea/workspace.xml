@@ -1,7 +1,362 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5402b37-bec6-466e-8b2c-b23516c30c25" name="Default" comment="" />
+    <list default="true" id="d5402b37-bec6-466e-8b2c-b23516c30c25" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zen/servlets/LoginServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/components/product-list/product-list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/components/product-list/product-list.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/components/product-list/product-list.service.js" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\bin\eslint.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\conf\blank-script.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\conf\environments.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\conf\eslint.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\conf\json-schema-schema.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\conf\replacements.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\api.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\ast-utils.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\cli-engine.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\cli.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\config-initializer.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\config-validator.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\config.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\eslint.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\file-finder.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\checkstyle.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\compact.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\html-template.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\html.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\jslint-xml.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\json.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\junit.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\stylish.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\tap.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\formatters\unix.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\ignored-paths.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\load-rules.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\logging.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\options.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rule-context.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\accessor-pairs.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\array-bracket-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\arrow-body-style.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\arrow-parens.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\arrow-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\block-scoped-var.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\block-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\brace-style.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\callback-return.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\camelcase.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\comma-dangle.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\comma-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\comma-style.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\complexity.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\computed-property-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\consistent-return.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\consistent-this.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\constructor-super.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\curly.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\default-case.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\dot-location.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\dot-notation.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\eol-last.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\eqeqeq.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\func-names.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\func-style.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\generator-star-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\global-require.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\guard-for-in.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\handle-callback-err.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\id-length.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\id-match.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\indent.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\init-declarations.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\jsx-quotes.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\key-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\linebreak-style.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\lines-around-comment.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\max-depth.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\max-len.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\max-nested-callbacks.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\max-params.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\max-statements.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\new-cap.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\new-parens.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\newline-after-var.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-alert.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-array-constructor.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-arrow-condition.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-bitwise.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-caller.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-case-declarations.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-catch-shadow.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-class-assign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-cond-assign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-console.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-const-assign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-constant-condition.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-continue.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-control-regex.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-debugger.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-delete-var.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-div-regex.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-dupe-args.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-dupe-class-members.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-dupe-keys.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-duplicate-case.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-else-return.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-empty-character-class.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-empty-label.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-empty-pattern.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-empty.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-eq-null.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-eval.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-ex-assign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-extend-native.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-extra-bind.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-extra-boolean-cast.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-extra-parens.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-extra-semi.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-fallthrough.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-floating-decimal.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-func-assign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-implicit-coercion.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-implied-eval.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-inline-comments.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-inner-declarations.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-invalid-regexp.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-invalid-this.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-irregular-whitespace.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-iterator.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-label-var.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-labels.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-lone-blocks.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-lonely-if.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-loop-func.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-magic-numbers.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-mixed-requires.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-mixed-spaces-and-tabs.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-multi-spaces.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-multi-str.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-multiple-empty-lines.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-native-reassign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-negated-condition.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-negated-in-lhs.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-nested-ternary.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-new-func.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-new-object.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-new-require.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-new-wrappers.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-new.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-obj-calls.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-octal-escape.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-octal.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-param-reassign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-path-concat.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-plusplus.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-process-env.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-process-exit.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-proto.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-redeclare.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-regex-spaces.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-restricted-modules.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-restricted-syntax.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-return-assign.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-script-url.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-self-compare.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-sequences.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-shadow-restricted-names.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-shadow.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-spaced-func.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-sparse-arrays.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-sync.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-ternary.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-this-before-super.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-throw-literal.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-trailing-spaces.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-undef-init.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-undef.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-undefined.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-underscore-dangle.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-unexpected-multiline.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-unneeded-ternary.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-unreachable.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-unused-expressions.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-unused-vars.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-use-before-define.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-useless-call.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-useless-concat.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-var.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-void.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-warning-comments.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\no-with.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\object-curly-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\object-shorthand.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\one-var.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\operator-assignment.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\operator-linebreak.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\padded-blocks.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\prefer-arrow-callback.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\prefer-const.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\prefer-reflect.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\prefer-spread.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\prefer-template.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\quote-props.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\quotes.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\radix.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\require-jsdoc.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\require-yield.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\semi-spacing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\semi.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\sort-vars.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-after-keywords.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-before-blocks.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-before-function-paren.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-before-keywords.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-in-parens.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-infix-ops.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-return-throw-case.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\space-unary-ops.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\spaced-comment.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\strict.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\use-isnan.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\valid-jsdoc.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\valid-typeof.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\vars-on-top.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\wrap-iife.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\wrap-regex.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\rules\yoda.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\testers\event-generator-tester.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\testers\rule-tester.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\timing.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\token-store.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\comment-event-generator.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\estraverse.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\glob-util.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\keywords.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\node-event-generator.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\rule-fixer.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\source-code-fixer.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\lib\util\source-code.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\eslint\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\CODE_OF_CONDUCT.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\bin\karma" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\config.tpl.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\config.tpl.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\config.tpl.ls" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\gruntfile.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\karma-completion.sh" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\binary-extensions.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\browser.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\browser_collection.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\browser_result.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\cli.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\completion.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\config.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\constants.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\emitter_wrapper.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\events.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\executor.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\file-list.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\file.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\helper.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\index.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\init.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\init\color_schemes.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\init\formatters.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\init\state_machine.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\launcher.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\launchers\base.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\launchers\capture_timeout.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\launchers\process.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\launchers\retry.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\logger.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\middleware\common.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\middleware\karma.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\middleware\proxy.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\middleware\runner.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\middleware\source_files.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\middleware\strip_host.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\plugin.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\preprocessor.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporter.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporters\base.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporters\base_color.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporters\dots.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporters\dots_color.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporters\multi.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporters\progress.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\reporters\progress_color.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\runner.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\server.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\temp_dir.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\url.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\watcher.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\lib\web-server.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\ReadMe.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\examples\normal-usage.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\examples\safe-string.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\colors.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\custom\trap.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\custom\zalgo.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\extendStringPrototype.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\index.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\maps\america.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\maps\rainbow.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\maps\random.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\maps\zebra.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\styles.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\lib\system\supports-colors.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\safe.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\colors\themes\generic-logging.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\dist\source-map.debug.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\dist\source-map.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\dist\source-map.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\dist\source-map.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\array-set.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\base64-vlq.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\base64.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\binary-search.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\mapping-list.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\quick-sort.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\source-map-consumer.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\source-map-generator.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\source-node.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\lib\util.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\node_modules\source-map\source-map.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\requirejs.config.tpl.coffee" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\requirejs.config.tpl.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\static\client.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\static\context.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\static\debug.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\static\favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\static\karma.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\JC\Desktop\AIOP\zen\src\main\webapp\node_modules\karma\wallaby.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zen/servlets/UsersServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/zen/servlets/UsersServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app.js" afterPath="$PROJECT_DIR$/src/main/webapp/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/services/authentication/authentication.js" afterPath="$PROJECT_DIR$/src/main/webapp/services/authentication/authentication.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/states/root.login/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/states/root.login/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.html" afterPath="$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.service.js" afterPath="$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/package.json" afterPath="$PROJECT_DIR$/src/main/webapp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/domain/products/products.js" afterPath="$PROJECT_DIR$/src/main/webapp/domain/products/products.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/states/root.register/register.html" afterPath="$PROJECT_DIR$/src/main/webapp/states/root.register/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/states/root.register/register.js" afterPath="$PROJECT_DIR$/src/main/webapp/states/root.register/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/states/root.store/store.html" afterPath="$PROJECT_DIR$/src/main/webapp/states/root.store/store.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/states/root.store/store.js" afterPath="$PROJECT_DIR$/src/main/webapp/states/root.store/store.js" />
+    </list>
     <ignored path="zen.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +380,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-2.85">
-              <caret line="11" column="75" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="75" />
+              <caret line="14" column="8" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -34,18 +389,48 @@
       <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.register/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231">
-              <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+            <state vertical-scroll-proportion="-16.538462">
+              <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.register/register.js">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.login/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23544973">
-              <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product-list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/components/product-list/product-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/domain/products/products.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigation.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.50455374">
+              <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -78,11 +463,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/webapp/domain/users/users.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/app.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/states/root.register/register.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/states/root.register/register.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/states/root.login/login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/components/product-list/product-list.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/states/root.register/register.html" />
       </list>
     </option>
   </component>
@@ -204,6 +591,92 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="states" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root.register" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navigation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -286,14 +759,23 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1032" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973711" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13009922" sideWeight="0.50210303" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.49789694" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296582" sideWeight="0.4957939" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296582" sideWeight="0.5042061" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12679163" sideWeight="0.49789694" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.49789694" order="-1" side_tool="false" content_ui="tabs" />
@@ -315,7 +797,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pas grd chose" />
-    <option name="LAST_COMMIT_MESSAGE" value="pas grd chose" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/Daykane/zen&#10;&#10;Conflicts:&#10;&#9;src/main/webapp/components/navigation/navigation.html&#10;&#9;src/main/webapp/states/root.register/register.html&#10;&#9;src/main/webapp/states/root.register/register.js&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/Daykane/zen&#10;&#10;Conflicts:&#10;&#9;src/main/webapp/components/navigation/navigation.html&#10;&#9;src/main/webapp/states/root.register/register.html&#10;&#9;src/main/webapp/states/root.register/register.js&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -326,14 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7741348">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -358,14 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5652175">
-          <caret line="37" column="86" selection-start-line="37" selection-start-column="86" selection-end-line="37" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -405,7 +872,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.85">
-          <caret line="11" column="75" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="75" />
+          <caret line="14" column="8" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -418,14 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.register/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/domain/users/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -434,10 +893,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/components/product-list/product-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/domain/products/products.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.register/register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23544973">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.4973913">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/states/root.register/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.538462">
+          <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/components/navigation/navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50455374">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
           <folding />
         </state>
       </provider>
