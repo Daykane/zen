@@ -57,6 +57,7 @@
         'zen.states.accessories'
     ])
     .constant('apiUrl', 'http://aiop-alaboureur.rhcloud.com/api/')
+    //.constant('apiUrl', 'http://localhost:8080/zen/api/')
     .config(zenConfig)
     .run(zenRun);
 
