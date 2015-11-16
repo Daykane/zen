@@ -1,14 +1,19 @@
 <div id="zenStoryList">
     <!--div ng-repeat="product in productList.items track by product.id" ng-click="storyList.selectStory(story)"-->
+        {{products}}
+        <br></br>
+        {{product7}}
+        <br></br>
+        {{product8}}
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Hey
             </div>
             <div class="panel-body">
                 <tr>
-                    <td>{{product}} </td>
-                    <td>2 </td>
-                    <td>3 </td>
+                    <td>{{product7.productName}} </td>
+                    <td>{{product7.productDescr}} </td>
+                    <td>{{product7.availableQuantity}}</td>
                 </tr>
             </div>
         <!--/div-->

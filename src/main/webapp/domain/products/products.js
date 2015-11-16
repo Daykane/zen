@@ -20,23 +20,26 @@
 
      // Private methods
        function get(productId){
-            productFactory.get({productId: productId});
+          return productFactory.get({productId: productId});
        }
 
        function getAll(){
-            productFactory.query({productId: productId});
+           return productFactory.query();
        }
 
        function create(signature, userId, lastName, firstName, adr1, adr2, pc, town, phone, email, password){
-            productFactory.save();
+            // productFactory.save();
+            //TODO
        }
 
        function update(signature, userId, lastName, firstName, adr1, adr2, pc, town, phone, email, password, id){
-            productFactory.update({productId: productId});
+            // productFactory.update();
+            //TODO
        }
 
        function remove(signature, userId, productId){
-            productFactory.delete({productId: productId});
+            // productFactory.delete();
+            //TODO
        }
 
         // Public API
@@ -48,7 +51,6 @@
             remove: remove
         }
     }
-
     Products.$inject = ['productFactory', 'apiUrl'];
 
     angular.module('zen.api.products', [

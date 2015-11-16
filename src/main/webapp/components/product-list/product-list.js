@@ -18,7 +18,8 @@
 
         // Private methods
         $scope.products = productFactory.query();
-        
+        $scope.product7 = productFactory.get({productId: 7});
+        $scope.product8 = productFactory.get({productId: 8});
         // Public variables
         self.items = items;
 
