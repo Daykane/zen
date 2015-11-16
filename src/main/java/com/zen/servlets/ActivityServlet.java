@@ -10,8 +10,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
+import com.zen.beans.AbstractEvent;
 import com.zen.beans.Activity;
 import com.zen.dao.DAOFactory;
+import com.zen.dao.EventDao;
 import com.zen.dao.ActivityDao;
 
 
@@ -23,6 +25,7 @@ public class ActivityServlet {
 	@Context
 	private UriInfo context;
 	private ActivityDao  activityDao;
+	private EventDao eventDao;
 
 
 	@GET
@@ -50,7 +53,25 @@ public class ActivityServlet {
 		return activity;
 
 	}
+	
+	@GET
+	@Path("{id}/Events")
+	public List<AbstractEvent> getEventActivities(@PathParam("id") String id) {
+		this.eventDao = DAOFactory.getInstance().getEventDao();
+		List<AbstractEvent>  events = this.eventDao.findByActivity(id);
 
+		return events;
+	}
+	
+	@GET
+	@Path("{id}/Events/{idE}")
+	public AbstractEvent getEventActivitiesId(@PathParam("id") String id,@PathParam("idE") String idE) {
+		this.eventDao = DAOFactory.getInstance().getEventDao();
+		AbstractEvent  event = this.eventDao.findByActivityById(id,idE);
+
+		return event;
+	}
+	
 	/* ok
 	@GET
 	@Path("{id}")

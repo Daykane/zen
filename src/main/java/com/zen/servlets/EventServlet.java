@@ -48,8 +48,9 @@ public class EventServlet {
 		this.eventDao = DAOFactory.getInstance().getEventDao();
 		AbstractEvent event = this.eventDao.findById(id);
 		return event;
-
 	}
+	
+	
 
 	/* ok
 	@GET

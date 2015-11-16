@@ -1,6 +1,8 @@
 package com.zen.dao;
 
 import com.zen.beans.AbstractEvent;
+
+
 import static com.zen.dao.DAOUtilitaire.*;
 
 import java.sql.Connection;
@@ -81,6 +83,7 @@ public class EventDaoImpl implements EventDao {
 		event.setEventPrice(resultSet.getDouble("eventPrice"));
 		event.setMaxNubr(resultSet.getInt("maxNbr"));
 		event.setDurationHours(resultSet.getDouble("durationHours"));
+		event.setActivityId(resultSet.getInt("activityId"));
 		
 		return event;
 	}
@@ -136,6 +139,67 @@ public class EventDaoImpl implements EventDao {
 		} finally {
 			fermeturesSilencieuses(preparedStatement, connexion );
 		}
+	}
+
+
+	@Override
+	public void update(int id, AbstractEvent abstractEvent) throws DAOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static final String SQL_SELECT_BY_ACTIVITY = "SELECT * FROM Event WHERE activityId = ?";
+	@Override
+	public List<AbstractEvent> findByActivity(String id) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        AbstractEvent event = null;
+        List<AbstractEvent> events = new ArrayList<AbstractEvent>();
+
+        try {
+            /* Recuperation d'une connexion depuis la Factory */
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ACTIVITY, false,id );
+            resultSet = preparedStatement.executeQuery();
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+            while ( resultSet.next() ) {           
+                event = map( resultSet );
+                events.add(event);   
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+
+        return events;
+	}
+
+	private static final String SQL_SELECT_BY_ACT_BY_ID = "SELECT * FROM Event WHERE activityId = ? AND eventId = ?";
+	@Override
+	public AbstractEvent findByActivityById(String id, String idE) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        AbstractEvent event = null;
+
+        try {
+            /* Recuperation d'une connexion depuis la Factory */
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ACT_BY_ID, false, id,idE);
+            resultSet = preparedStatement.executeQuery();
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+            if ( resultSet.next() ) {
+                event = map( resultSet );
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+
+        return event;
 	}
 
 }
