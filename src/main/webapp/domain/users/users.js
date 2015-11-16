@@ -5,35 +5,55 @@
 
     function users(){
         // Init
-
+        var users = $resource(apiUrl + 'users', {}, {
+            get: {
+                method: 'GET'
+            },
+            post: {
+                method: 'POST'
+            },
+            put: {
+                method: 'PUT'
+            },
+            delete: {
+                method: 'DELETE'
+            }
+        });
         // Private variables
 
         // Private methods
        function getId(email, password){
-            return 1;
+            //TODO
        }
 
        function getUser(id, signature){
+            //TODO
+       }
 
-            var deferred = $q.defer();
+       function getUsers(){
+            //TODO
+       }
 
-            var user = {
-                userName : 'Toto',
-                userEmail : 'toto@toto.com',
-                userId: 1,
-                isMember : true,
-                isAdmin : true,
-                isContributor : true,
-                isManager : true
-            }
-            deferred.resolve(user);
-            return deferred.promise;
+       function postUser(lastName, firstName, adr1, adr2, pc, town, phone, email, password){
+            //TODO
+       }
+
+       function putUser(lastName, firstName, adr1, adr2, pc, town, phone, email, password){
+            //TODO
+       }
+
+       function deleteUser(){
+            //TODO
        }
 
         // Public API
         return {
             getId: getId,
-            getUser: getUser
+            getUser: getUser,
+            getUsers: getUsers,
+            postUser: postUser,
+            putUser: putUser,
+            deleteUser: deleteUser
         };
     }
     users.$inject = [];
