@@ -1,64 +1,61 @@
-//MOCK
-
 (function(window, angular, _){
     'use strict';
 
-    function users(){
+    function userFactory($resource, apiUrl){
+
         // Init
-        var users = $resource(apiUrl + 'users', {}, {
-            get: {
-                method: 'GET'
-            },
-            post: {
-                method: 'POST'
-            },
-            put: {
-                method: 'PUT'
-            },
-            delete: {
-                method: 'DELETE'
+        var data = $resource(apiUrl + 'Users/:userId', null, {
+            'update': {
+                method: 'PUT',
+                params: {userId: '@userId'}
             }
         });
-        // Private variables
+        return data;
+    }
+    userFactory.$inject = ['$resource', 'apiUrl'];
+
+    function Users(authenticationService){
 
         // Private methods
-       function getId(email, password){
-            //TODO
-       }
+        function get(userId){
+            return userFactory.get({userId: userId});
+        }
 
-       function getUser(id, signature){
-            //TODO
-       }
+        function getAll(){
+            return userFactory.query();
+        }
 
-       function getUsers(){
-            //TODO
-       }
+        function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
+            userFactory.save({mail: email, password: password, firstName: firstName, lastName: lastName, adr1: adress, adr2: additionalAdress, town: town, pc: postalCode, phone: phoneNumber });
 
-       function postUser(lastName, firstName, adr1, adr2, pc, town, phone, email, password){
-            //TODO
-       }
+        }
 
-       function putUser(lastName, firstName, adr1, adr2, pc, town, phone, email, password){
+        function update(signature, userId, lastName, firstName, adr1, adr2, pc, town, phone, email, password, id){
+            // userFactory.update();
             //TODO
-       }
+        }
 
-       function deleteUser(){
+        function remove(signature, userId){
+            // userFactory.delete();
             //TODO
-       }
+        }
 
         // Public API
         return {
-            getId: getId,
-            getUser: getUser,
-            getUsers: getUsers,
-            postUser: postUser,
-            putUser: putUser,
-            deleteUser: deleteUser
-        };
+            get: get,
+            getAll: getAll,
+            create: create,
+            update: update,
+            remove: remove
+        }
     }
-    users.$inject = [];
+    Users.$inject = ['userFactory', 'apiUrl'];
 
     angular.module('zen.api.users', [
-            'zen.services'
-        ]).factory('Users', users);
+        'ngResource',
+        'zen.services'
+    ])
+        .factory('Users', Users)
+        .factory('userFactory', userFactory);
+
 })(window, window.angular, window._);
