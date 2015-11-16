@@ -34,7 +34,10 @@
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a ui-sref="root.basket">Basket</a></li>
-	        <li data-ng-if="authentication.isNotConnected()"><a ui-sref="root.login">Login</a></li>
+	        <li data-ng-if="authentication.isNotConnected()">
+	        		<button ui-sref="root.login" type="button" class="btn btn-primary center">Login</button>
+					<button ui-sref="root.register" type="button" class="btn btn-warning center">Sign up</button>
+			</li>
 	        <zen-account data-ng-if="authentication.isConnected()"><zen-account>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
