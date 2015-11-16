@@ -31,14 +31,6 @@ public class ProductsServlet {
 		List<Product> products = this.productDao.findAll();
 		return products;
     }
-	/* ok
-	@GET 
-	public void create(){
-		Product product = new Product("productNameServlet", "productDescrServlet", 0, 0.0);
-		this.productDao = DAOFactory.getInstance().getProductDao();
-		this.productDao.create(product);
-	}
-	*/
 	
 	@GET
 	@Path("{id}")
@@ -47,6 +39,15 @@ public class ProductsServlet {
 		Product product = this.productDao.find(id);
 		return product;
 	}
+	/* ok
+	@GET 
+	public void create(){
+		Product product = new Product("productNameServlet", "productDescrServlet", 0, 0.0);
+		this.productDao = DAOFactory.getInstance().getProductDao();
+		this.productDao.create(product);
+	}
+	*/	
+	
 	/*
 	@GET ok
 	@Path("{id}")
