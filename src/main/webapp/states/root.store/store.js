@@ -26,6 +26,7 @@
 
     angular.module('zen.states.store', [
         'ui.router',
+        'zen.components.productList',
         'zen.states.root',
         'zen.services'
     ])

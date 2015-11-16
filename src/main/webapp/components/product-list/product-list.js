@@ -7,35 +7,31 @@
             replace: true,
             templateUrl: 'components/product-list/product-list.html',
             scope: {},
-            bindToController: true,
-            controller: productListController,
-            controllerAs: productList,
+            controller: productListController
         };
     }
 
-    function productListController($scope, productListService){
+    function productListController($scope, productListService, productFactory){
         // Private variables
         var self = this,
-            items;
+            items = null;
 
         // Private methods
-        function loadProducts(){
-            self.items = productListService.loadProducts();
-        }
-
+        $scope.products = productFactory.query();
+        
         // Public variables
         self.items = items;
 
         // Public methods
 
         // Init
-        productListService.activate();
-        loadProducts();
     }
+    productListController.$inject = ['$scope', 'productListService', 'productFactory'];
 
     angular.module('zen.components.productList', [
+            'zen.api.products',
             'zen.services'
         ])
-        .directive('zenStoryList', productList)
+        .directive('zenProductList', productList)
         .controller('productListController', productListController);
 })(window, window.angular, window._);

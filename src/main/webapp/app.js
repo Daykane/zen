@@ -13,8 +13,7 @@
 
         $resourceProvider.defaults.stripTrailingSlashes = false;
     }
-
-    zenConfig.$inject=["$urlRouterProvider", '$locationProvider'];
+    zenConfig.$inject=["$urlRouterProvider", '$locationProvider', '$resourceProvider'];
 
     function zenRun($state, $rootScope){
 
@@ -28,7 +27,6 @@
             }
         });
     }
-
     zenRun.$inject=['$state', '$rootScope'];
 
     angular.module('zen.helpers', [
@@ -41,9 +39,9 @@
     ]);
 
     angular.module('zen', [
-
         'ipCookie',
         'ui.router',
+        'ngResource',
         'zen.states.root',
         'zen.states.home',
         'zen.states.login',

@@ -1,21 +1,25 @@
 (function(window, angular, _){
     'use strict';
 
-    function productListService(Products){
+    function productListService(){
         // Private variables
-        function activate(){}
+        
         // Private methods
+        function activate(){}
 
+        function reset(){}
         // Public variables
 
         // Public methods
 
-        function loadStories(items){
-
-            items = Products.getProducts()
+        return{
+            activate: activate
         }
 
-    angular.module('zen.components.storyList')
-        .config(duplicateExceptionHandler)
-        .factory('productListService', productListService);
+    }
+    productListService.$inject = [];
+
+    angular.module('zen.components.productList')
+    .factory('productListService', productListService);
+
 })(window, window.angular, window._);
