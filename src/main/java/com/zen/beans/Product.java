@@ -6,17 +6,19 @@ public class Product {
 	private String productDescr;
 	private int availableQuantity;
 	private Double memberReduction;
+	private Category categoryProduct;
 
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(String productName, String productDescr, int availableQuantity, Double memberReduction) {
+	public Product(String productName, String productDescr, int availableQuantity, Double memberReduction, Category categoryProduct) {
 		super();
 		this.productName = productName;
 		this.productDescr = productDescr;
 		this.availableQuantity = availableQuantity;
 		this.memberReduction = memberReduction;
+		this.categoryProduct = categoryProduct;
 	}
 
 	public int getProductId() {
@@ -59,5 +61,14 @@ public class Product {
 		this.memberReduction = memberReduction;
 	}
 
+	public Category getCategoryProduct() {
+		return categoryProduct;
+	}
+
+	public void setCategoryProduct(Category categoryProduct) {
+		this.categoryProduct = categoryProduct;
+	}
+
+	
 	
 }

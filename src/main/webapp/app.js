@@ -1,7 +1,7 @@
 (function(window, angular, FastClick){
     'use strict';
     
-    function zenConfig($urlRouterProvider, $locationProvider){
+    function zenConfig($urlRouterProvider, $locationProvider, $resourceProvider){
         $urlRouterProvider.otherwise('/');
 
         $locationProvider.html5Mode({
@@ -10,9 +10,10 @@
         });
 
         $locationProvider.hashPrefix('!');
-    }
 
-    zenConfig.$inject=["$urlRouterProvider", '$locationProvider'];
+        $resourceProvider.defaults.stripTrailingSlashes = false;
+    }
+    zenConfig.$inject=["$urlRouterProvider", '$locationProvider', '$resourceProvider'];
 
     function zenRun($state, $rootScope){
 
@@ -26,7 +27,6 @@
             }
         });
     }
-
     zenRun.$inject=['$state', '$rootScope'];
 
     angular.module('zen.helpers', [
@@ -41,9 +41,11 @@
     angular.module('zen', [
         'ipCookie',
         'ui.router',
+        'ngResource',
         'zen.states.root',
         'zen.states.home',
         'zen.states.login',
+        'zen.states.register',
         'zen.states.settings',
         'zen.states.store',
         'zen.states.basket',
@@ -54,6 +56,7 @@
         'zen.states.rooms',
         'zen.states.accessories'
     ])
+    .constant('apiUrl', 'http://aiop-alaboureur.rhcloud.com/api/')
     .config(zenConfig)
     .run(zenRun);
 

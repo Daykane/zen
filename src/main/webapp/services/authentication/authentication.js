@@ -41,6 +41,12 @@
 
             getCurrentUserName: function(){
                 return "Toto"; //TODO
+            },
+            getId: function(){
+                return 1; //TODO
+            },
+            getSignature: function(){
+                return "Toto"; //TODO
             }
         };
     }

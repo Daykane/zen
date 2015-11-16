@@ -1,6 +1,6 @@
 package com.zen.beans;
 
-
+import java.util.ArrayList;
 
 public class Activity {
 	
@@ -8,6 +8,7 @@ public class Activity {
 	private String activityName;
 	private String activityShortDesc;
 	private String activityLongDesc;
+	private ArrayList<AbstractEvent> listEvent;
 	
 	
 	public Activity() {
@@ -15,12 +16,13 @@ public class Activity {
 	}
 
 
-	public Activity(int activityId, String activityName, String activityShortDesc, String activityLongDesc) {
+	public Activity(int activityId, String activityName, String activityShortDesc, String activityLongDesc, ArrayList<AbstractEvent> listEvent) {
 		super();
 		this.activityId = activityId;
 		this.activityName = activityName;
 		this.activityShortDesc = activityShortDesc;
 		this.activityLongDesc = activityLongDesc;
+		this.listEvent = listEvent;
 	}
 
 
@@ -62,6 +64,17 @@ public class Activity {
 	public void setActivityLongDescr(String activityLongDesc) {
 		this.activityLongDesc = activityLongDesc;
 	}
+
+
+	public ArrayList<AbstractEvent> getListEvent() {
+		return listEvent;
+	}
+
+
+	public void setListEvent(ArrayList<AbstractEvent> listEvent) {
+		this.listEvent = listEvent;
+	}
+	
 	
 
 }

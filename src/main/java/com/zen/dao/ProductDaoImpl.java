@@ -151,4 +151,58 @@ public class ProductDaoImpl  implements ProductDao {
 		
 	}
 
+	private static final String SQL_SELECT_BY_CATEGORY = "SELECT * FROM Product WHERE categoryId = ?";
+	@Override
+	public List<Product> findByCategory(String id) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Product product = null;
+        List<Product> products = new ArrayList<Product>();
+
+        try {
+            /* Recuperation d'une connexion depuis la Factory */
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_CATEGORY, false,id );
+            resultSet = preparedStatement.executeQuery();
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+            while ( resultSet.next() ) {           
+                product = map( resultSet );
+                products.add(product);   
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+
+        return products;
+	}
+
+	private static final String SQL_SELECT_BY_CAT_BY_ID = "SELECT * FROM Product WHERE categoryId = ? AND productId = ?";
+	@Override
+	public Product findByCategoryById(String id, String idP) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Product product = null;
+
+        try {
+            /* Recuperation d'une connexion depuis la Factory */
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_CAT_BY_ID, false, id,idP);
+            resultSet = preparedStatement.executeQuery();
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+            if ( resultSet.next() ) {
+                product = map( resultSet );
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+
+        return product;
+	}
+
 }

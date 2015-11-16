@@ -42,17 +42,19 @@
         function goToAccessories(){
             $state.go('root.management.accessories');
         }
+
         function login(){
             $state.go('root.login');
         }
+
         function logout(){
             $state.go('root.home');
         }
+        
         function goToSettings(){
             $state.go('root.settings');
         }
         
-
         // Public
         return {
             activate: activate,
