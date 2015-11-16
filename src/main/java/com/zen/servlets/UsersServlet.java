@@ -3,7 +3,9 @@ package com.zen.servlets;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -30,26 +32,32 @@ public class UsersServlet {
 				List<User> users = this.userDao.findAll();
 				return users;
     }
-    
-	/* OK
-	@GET
-	public void create(){
-		User user = new User("passwordServlt","lastNameServlt", "firstNameServlt", "adr1Servlt","adr2Servlt", "pcServlt","townServlt",
-				"phoneServlt", "mailServlt");
+	
+	@POST
+	public void create(@FormParam("password") String password,
+			@FormParam("lastName") String lastName,
+			@FormParam("firstName") String firstName,
+			@FormParam("adr1") String adr1,
+			@FormParam("adr2") String adr2,			
+			@FormParam("pc") String pc,
+			@FormParam("town") String town,
+			@FormParam("phone") String phone,
+			@FormParam("mail") String mail
+			){
+		User user = new User();
+		user.setPassword(password);
+		user.setLastName(lastName);
+		user.setFirstName(firstName);
+		user.setAdr1(adr1);
+		user.setAdr2(adr2);
+		user.setPc(pc);
+		user.setTown(town);
+		user.setPhone(phone);
+		user.setMail(mail);
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		this.userDao.create(user);
 	}
-	*/	
-	/*
-	@GET ok
-	public User connection(){
-		String mail = "mail";
-		String password = "password";
-		this.userDao = DAOFactory.getInstance().getUserDao();
-		User user = this.userDao.connection(mail, password);
-		return user;
-	}
-	*/
+	
 	
 	@GET
 	@Path("{id}")
