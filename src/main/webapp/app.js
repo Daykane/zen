@@ -44,6 +44,7 @@
         'zen.states.root',
         'zen.states.home',
         'zen.states.login',
+        'zen.states.register',
         'zen.states.settings',
         'zen.states.store',
         'zen.states.basket',
