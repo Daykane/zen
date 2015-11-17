@@ -1,9 +1,9 @@
 <div id="loginState">
 <form class="form-signin">
         <h3 class="form-signin-heading">Login with zen account</h3>
-        <br></br>
-        <input data-ng-model="loginState.credentials.email" type="email" class="form-control" placeholder="Email address" autofocus></input>
-        <input data-ng-model="loginState.credentials.password" type="password" class="form-control" placeholder="Password"></input>
+        <br/>
+        <input data-ng-model="loginState.credentials.email" type="email" class="form-control" placeholder="Email address" autofocus/>
+        <input data-ng-model="loginState.credentials.password" type="password" class="form-control" placeholder="Password"/>
         <div class="alert alert-danger" data-ng-show="loginState.status === 'invalidCredentials'" role="alert">
   			<a class="alert-link">
   				Incorrect email or password.
@@ -18,7 +18,7 @@
         	<input data-ng-model="loginState.rememberMe" type="checkbox" aria-label="..."></input>
         	<span> RememberMe</span>
     	</div>
-    	<br></br>
+    	<br/>
         <!--label>Sign up</label><br/>
         <label>Lost password?</label-->
         <button data-ng-click="loginState.login()" class="btn btn-lg btn-primary btn-block">Login</button>

@@ -1,6 +1,6 @@
 (function(window, angular){
     'use strict';
-    
+
     function registerConfig($stateProvider){
         $stateProvider.state('root.register', {
             url: '/register',
@@ -12,22 +12,33 @@
 
     function registerRun(){}
 
-    function registerController(authenticationService, $state){
-        // Private variables
-        var self = this;
+    function registerController($state, $scope, Users){
 
-        // Private methods
+        //var self = this;
+        $scope.passwordMatch=true;
+
+        $scope.register = function(){
+            if($scope.password == $scope.confirmPassword ){
+                $scope.passwordMatch=true;
+                Users.create($scope.email, $scope.password, $scope.firstName, $scope.lastName, $scope.adress, $scope.additionalAdress, $scope.town, $scope.postalCode, $scope.phoneNumber).then(registerSuccess, registerFailure);
+            }
+            else{
+                $scope.passwordMatch=false;
+            }
+        };
 
 
-        // Public variables
-        self.credentials = null;
 
-        // Public methods
+        $scope.registerSuccess= function(){
+            $state.go('root.home');
+        }
 
-        // Initialization
-        authenticationService.activate();
+        $scope.registerFailure = function(error){
+                self.status = error;
+        }
+
     }
-    registerController.$inject = ['authenticationService', '$state'];
+    registerController.$inject = ['$state', '$scope', 'Users'];
 
     angular.module('zen.states.register', [
         'zen.services'
