@@ -17,9 +17,7 @@
             items = null;
 
         // Private methods
-        $scope.events = eventFactory.query();
-        $scope.event7 = eventFactory.get({eventId: 7});
-        $scope.event8 = eventFactory.get({eventId: 8});
+        
         // Public variables
         self.items = items;
 
