@@ -20,7 +20,7 @@
         $scope.register = function(){
             if($scope.password == $scope.confirmPassword ){
                 $scope.passwordMatch=true;
-                Users.create($scope.email, $scope.password, $scope.firstName, $scope.lastName, $scope.adress, $scope.additionalAdress, $scope.town, $scope.postalCode, $scope.phoneNumber).then(registerSuccess, registerFailure);
+                Users.create($scope.email, $scope.password, $scope.firstName, $scope.lastName, $scope.adress, $scope.additionalAdress, $scope.town, $scope.postalCode, $scope.phoneNumber);
             }
             else{
                 $scope.passwordMatch=false;
