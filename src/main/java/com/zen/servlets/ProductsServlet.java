@@ -26,7 +26,6 @@ public class ProductsServlet {
 	
 	@GET
     public List<Product> getAll() {
-
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		List<Product> products = this.productDao.findAll();
 		return products;

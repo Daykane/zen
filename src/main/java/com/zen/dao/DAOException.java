@@ -10,14 +10,17 @@ public class DAOException extends RuntimeException {
      * Constructeurs
      */
     public DAOException( String message ) {
-        super( message );
+        //super( message );
+    	System.out.println("erroraazaz");
     }
 
     public DAOException( String message, Throwable cause ) {
-        super( message, cause );
+        //super( message, cause );
+    	System.out.println("errorazazaz");
     }
 
     public DAOException( Throwable cause ) {
-        super( cause );
+        //super( cause );
+    	System.out.println("errorazazaz");
     }
 }
