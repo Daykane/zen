@@ -1,20 +1,7 @@
 (function(window, angular, _){
     'use strict';
 
-    function userFactory($resource, apiUrl){
-
-        // Init
-        var data = $resource(apiUrl + 'Users/:userId', null, {
-            'update': {
-                method: 'PUT',
-                params: {userId: '@userId'}
-            }
-        });
-        return data;
-    }
-    userFactory.$inject = ['$resource', 'apiUrl'];
-
-    function Users(authenticationService){
+    function Users(apiUrl, $http){
 
         // Private methods
         function get(userId){
@@ -26,8 +13,25 @@
         }
 
         function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
-            userFactory.save({mail: email, password: password, firstName: firstName, lastName: lastName, adr1: adress, adr2: additionalAdress, town: town, pc: postalCode, phone: phoneNumber });
-
+            var user = {mail: email, password: password, firstName: firstName, lastName: lastName, adr1: adress, adr2: additionalAdress, town: town, pc: postalCode, phone: phoneNumber };
+            console.log(JSON.stringify(user));
+            $http({
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                dataType: "json",
+                url: apiUrl+'Users',
+                data: JSON.stringify(user),
+            }).then(function successCallback(response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                alert("done");
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                alert("error");
+            });
         }
 
         function update(signature, userId, lastName, firstName, adr1, adr2, pc, town, phone, email, password, id){
@@ -49,13 +53,12 @@
             remove: remove
         }
     }
-    Users.$inject = ['userFactory', 'apiUrl'];
+    Users.$inject = ['apiUrl', '$http'];
 
     angular.module('zen.api.users', [
         'ngResource',
         'zen.services'
     ])
         .factory('Users', Users)
-        .factory('userFactory', userFactory);
 
 })(window, window.angular, window._);
