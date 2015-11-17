@@ -33,6 +33,15 @@ public class UsersServlet {
 				return users;
     }
 	
+	@GET
+	@Path("{id}")
+	public User getOneJSON(@PathParam("id") String id) {
+		this.userDao = DAOFactory.getInstance().getUserDao();
+		User user = this.userDao.findById(id);
+		return user;
+
+	}
+	
 	@POST
 	public void create(@FormParam("password") String password,
 			@FormParam("lastName") String lastName,
@@ -59,14 +68,7 @@ public class UsersServlet {
 	}
 	
 	
-	@GET
-	@Path("{id}")
-	public User getOneJSON(@PathParam("id") String id) {
-		this.userDao = DAOFactory.getInstance().getUserDao();
-		User user = this.userDao.findById(id);
-		return user;
 
-	}
 	
 	/* ok
 	@GET
