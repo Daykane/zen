@@ -18,7 +18,7 @@
             $http({
                 method: 'POST',
                 url: apiUrl,
-                data: user,
+                data: user+'Users',
             }).then(function successCallback(response) {
                 // this callback will be called asynchronously
                 // when the response is available
