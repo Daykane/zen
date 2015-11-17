@@ -17,6 +17,10 @@
             console.log(JSON.stringify(user));
             $http({
                 method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                dataType: "json",
                 url: apiUrl+'Users',
                 data: JSON.stringify(user),
             }).then(function successCallback(response) {

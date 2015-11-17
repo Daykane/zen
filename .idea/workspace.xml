@@ -57,8 +57,8 @@
       <file leaf-file-name="users.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/domain/users/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33580247">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.41975307">
+              <caret line="20" column="53" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -383,7 +383,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447759536306</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Merge branch 'master' of https://github.com/Daykane/zen&#10;&#10;Conflicts:&#10;&#9;src/main/webapp/components/navigation/navigation.html&#10;&#9;src/main/webapp/states/root.register/register.html&#10;&#9;src/main/webapp/states/root.register/register.js&#10;">
+      <created>1447759649507</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1447759649507</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -616,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/domain/users/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33580247">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.41975307">
+          <caret line="20" column="53" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="53" />
           <folding />
         </state>
       </provider>
