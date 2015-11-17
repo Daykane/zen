@@ -19,7 +19,9 @@
         function goToSettings(){
             $state.go('root.settings');
         }
-
+        function goToCart(){
+            $state.go('root.cart');
+        }
         // Public
         return {
             activate: activate,

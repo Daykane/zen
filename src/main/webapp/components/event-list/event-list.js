@@ -11,7 +11,7 @@
         };
     }
 
-    function eventListController($scope, eventListService, eventFactory){
+    function eventListController($scope, eventListService){
         // Private variables
         var self = this,
             items = null;
@@ -25,7 +25,7 @@
 
         // Init
     }
-    eventListController.$inject = ['$scope', 'eventListService', 'eventFactory'];
+    eventListController.$inject = ['$scope', 'eventListService'];
 
     angular.module('zen.components.eventList', [
             'zen.api.events',
