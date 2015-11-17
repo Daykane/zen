@@ -1,11 +1,12 @@
-<li id="zenAccount" class="dropdown" data-ng-if="authentication.isConnected()">
-  	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-  		{{authentication.getCurrentUserName()}}
-  		<span class="caret"></span>
-  	</a>
-  	<ul class="dropdown-menu">
-	    <li><a class="btn-link" data-ng-click="account.goToSettings()">Settings</a></li>
+<div id="zenAccount" data-ng-if="authentication.isConnected()" class="btn-group dropdown" uib-dropdown>
+	<button class="btn btn-primary navbar-btn" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
+    	{{authentication.getCurrentUserName()}} <span class="caret"></span>
+  	</button>
+  	<ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
+  		<li role="menuitem"><a href="#" class="btn-link" data-ng-click="account.goToBasket()">Cart <span class="badge">2</span></a></li>
 	    <li role="separator" class="divider"></li>
-	    <li><a class="btn-link" data-ng-click="account.logout()">Logout</a></li>
+	    <li role="menuitem"><a href="#" class="btn-link" data-ng-click="account.goToSettings()">Settings</a></li>
+	    <li role="separator" class="divider"></li>
+	    <li role="menuitem"><a href="#" class="btn-link" data-ng-click="account.logout()">Logout</a></li>
   	</ul>
-</li>
+</div>

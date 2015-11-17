@@ -41,6 +41,7 @@
     angular.module('zen', [
         'ipCookie',
         'ui.router',
+        'ui.bootstrap',
         'ngResource',
         'zen.states.root',
         'zen.states.home',

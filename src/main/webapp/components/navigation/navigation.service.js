@@ -20,6 +20,7 @@
         }
 
         function goToBasket(){
+            console.log("cart");
             $state.go('root.basket');
         }
 
