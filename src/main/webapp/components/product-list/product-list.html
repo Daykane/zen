@@ -1,21 +1,167 @@
-<div id="zenStoryList">
-    <!--div ng-repeat="product in productList.items track by product.id" ng-click="storyList.selectStory(story)"-->
-        {{products}}
-        <br/>
-        {{product7}}
-        <br/>
-        {{product8}}
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                Hey
+<div id="zenProductList" class="container">
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <p class="lead">Sort by</p>
+            <div class="list-group">
+                <label class="label label-info">Names</label>
+                <br/>
+                <label class="label label-success">Categories</label>
+                <br/>
+                <label class="label label-warning">Prices</label>
             </div>
-            <div class="panel-body">
-                <tr>
-                    <td>{{product7.productName}} </td>
-                    <td>{{product7.productDescr}} </td>
-                    <td>{{product7.availableQuantity}}</td>
-                </tr>
+            <p class="lead">Filters</p>
+            <div class="list-group">
+                <label class="label label-success">Categories</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Yoga
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Kendo
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Dance
+                    </label>
+                </div>
             </div>
-        <!--/div-->
+            <div class="list-group">
+                <label class="label label-warning">Prices</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> 0 < 10 €
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> 10 < 100 €
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> > 100 € 
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Mat
+                            </label>
+                            <label class="pull-right">
+                                Category : Yoga
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <label class="pull-left text-center">
+                                Yoga mat description
+                            </label>
+                            <button class="btn btn-warning pull-right" type="button">
+                              Add to cart <span class="badge">20 €</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Boken
+                            </label>
+                            <label class="pull-right">
+                                Category : Kendo
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <label class="pull-left text-center">
+                                Boken description
+                            </label>
+                            <button class="btn btn-warning pull-right" type="button">
+                              Add to cart <span class="badge">200 €</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Shinai
+                            </label>
+                            <label class="pull-right">
+                                Category : Kendo
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <label class="pull-left text-center">
+                                Shinai description
+                            </label>
+                            <button class="btn btn-warning pull-right" type="button">
+                              Add to cart <span class="badge">100 €</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Tutu
+                            </label>
+                            <label class="pull-right">
+                                Category : Dance
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <label class="pull-left text-center">
+                                Tutu description
+                            </label>
+                            <button class="btn btn-warning pull-right" type="button">
+                              Add to cart <span class="badge">30 €</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <nav>
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </div>
