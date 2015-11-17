@@ -82,7 +82,7 @@ public class UsersServlet {
 			this.userDao.create(user);
 		} catch (DAOExceptionMail e) {
 
-			return Response.status(400).entity("adresse mail already exist").build();
+			return Response.status(400).entity("{\"mailError\": \"adresse mail already exists\"}").build();
 		} catch (DAOException e) {
 			return Response.status(500).build();
 		}
