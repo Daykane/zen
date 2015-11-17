@@ -1,7 +1,5 @@
 <div id="zenProductList" class="container">
-
     <div class="row">
-
         <div class="col-md-2">
             <p class="lead">Sort by</p>
             <div class="list-group">
@@ -52,99 +50,131 @@
 
         <div class="col-md-9">
             <div class="row">
-
-                <div class="panel panel-primary">
+                <div class="panel panel-default" data-ng-if="false">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                <input type="text" class="form-control" aria-label="..." placeholder="name..."/>
+                            </label>
+                            <label class="pull-right">
+                                <input type="text" class="form-control" aria-label="..." placeholder="price..."/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
+                            </p>
+                            <button class="btn btn-success pull-right" type="button">
+                              Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
                                 Mat
                             </label>
                             <label class="pull-right">
-                                Category : Yoga
+                                20 €
                             </label>
                         </div>
                     </div>
                     <div class="panel-body">
                        <div class="nav">
-                            <label class="pull-left text-center">
-                                Yoga mat description
-                            </label>
-                            <button class="btn btn-warning pull-right" type="button">
-                              Add to cart <span class="badge">20 €</span>
+                            <p class="pull-left">
+                                Mat description
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
                                 Boken
                             </label>
                             <label class="pull-right">
-                                Category : Kendo
+                                200 €
                             </label>
                         </div>
                     </div>
                     <div class="panel-body">
                        <div class="nav">
-                            <label class="pull-left text-center">
+                            <p class="pull-left">
                                 Boken description
-                            </label>
-                            <button class="btn btn-warning pull-right" type="button">
-                              Add to cart <span class="badge">200 €</span>
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
                                 Shinai
                             </label>
                             <label class="pull-right">
-                                Category : Kendo
+                                100 €
                             </label>
                         </div>
                     </div>
                     <div class="panel-body">
                        <div class="nav">
-                            <label class="pull-left text-center">
+                            <p class="pull-left">
                                 Shinai description
-                            </label>
-                            <button class="btn btn-warning pull-right" type="button">
-                              Add to cart <span class="badge">100 €</span>
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
                                 Tutu
                             </label>
                             <label class="pull-right">
-                                Category : Dance
+                                25 €
                             </label>
                         </div>
                     </div>
                     <div class="panel-body">
                        <div class="nav">
-                            <label class="pull-left text-center">
-                                Tutu description
-                            </label>
-                            <button class="btn btn-warning pull-right" type="button">
-                              Add to cart <span class="badge">30 €</span>
+                            <p class="pull-left">
+                                Tutu description Tutu description Tutu description Tutu description Tutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
                             </button>
                         </div>
                     </div>
                 </div>
-
 
                 <nav>
                     <ul class="pagination">
