@@ -14,11 +14,11 @@
 
         function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
             var user = {mail: email, password: password, firstName: firstName, lastName: lastName, adr1: adress, adr2: additionalAdress, town: town, pc: postalCode, phone: phoneNumber };
-
+            console.log(user);
             $http({
                 method: 'POST',
                 url: apiUrl+'Users',
-                data: user,
+                data: JSON.stringify(user),
             }).then(function successCallback(response) {
                 // this callback will be called asynchronously
                 // when the response is available
