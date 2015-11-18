@@ -1,204 +1,204 @@
-<div id="activitiesState" class="container">
-	<div panel panel-default>
-	<div class="well well-sm">Event Management</div>
-	<div id="zenEventList">
-	    <div class="row">
-	        <div class="col-md-2">
-	            <p class="lead">Sort by</p>
-	            <div class="list-group">
-	                <label href="#" class="label label-info">Name</label>
-	                <br/>
-	                <label href="#" class="label label-success">Contributor</label>
-	            </div>
-	            <p class="lead">Filters</p>
-	            <div class="list-group">
-	                <label class="label label-success">Contributors</label>
-	                <div class="checkbox">
-	                    <label>
-	                        <input type="checkbox"> Toto
-	                    </label>
-	                </div>
-	                <div class="checkbox">
-	                    <label>
-	                        <input type="checkbox"> Larry
-	                    </label>
-	                </div>
-	            </div>
-	        </div>
+<div id="activitiesState">
+	<div class="container">
+		<div class="well well-sm"><label>Activity Management</label></div>
+		<div id="zenEventList">
+		    <div class="row">
+		        <div class="col-md-2">
+		            <p class="lead">Sort by</p>
+		            <div class="list-group">
+		                <label href="#" class="label label-info">Name</label>
+		                <br/>
+		                <label href="#" class="label label-success">Manager</label>
+		            </div>
+		            <p class="lead">Filters</p>
+		            <div class="list-group">
+		                <label class="label label-success">Managers</label>
+		                <div class="checkbox">
+		                    <label>
+		                        <input type="checkbox" checked> Toto
+		                    </label>
+		                </div>
+		                <div class="checkbox">
+		                    <label>
+		                        <input type="checkbox" checked> Larry
+		                    </label>
+		                </div>
+		            </div>
+		        </div>
 
-	        <div class="col-md-9">
-	            <div class="row">
+		        <div class="col-md-10">
+		            <div class="row">
 
-	                <div class="panel panel-default" data-ng-if="true">
-	                    <div class="panel-heading text-right">
-	                        <div class="nav">
-	                            <input type="text" class="form-control pull-left" aria-label="..." placeholder="activity name..."/>
-	                        </div>
-	                    </div>
-	                    <div class="panel-body">
-	                            <p class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="short description..."/>
-	                            </p>
-	                            <p class="">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="full description..."/>
-	                            </p>
-	                            <div class="input-group pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="manager..."/>
-	                                <div class="input-group-btn" uib-dropdown>
-	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
-	                                        <span class="caret"></span>
-	                                    </button>
-	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
-	                                        <li role="menuitem"><a href="#">Toto</a></li>
-	                                        <li role="menuitem"><a href="#">Larry</a></li>
-	                                    </ul>
-	                                </div><!-- /btn-group -->
-	                            </div><!-- /input-group -->
-	                            <button class="btn btn-success pull-right navbar-btn" type="button">
-	                              Create
-	                            </button>
-	                    </div>
-	                </div>
+		                <div class="panel panel-default" data-ng-if="true">
+		                    <div class="panel-heading text-right">
+		                        <div class="nav">
+		                            <input type="text" class="form-control pull-left" aria-label="..." placeholder="activity name..."/>
+		                        </div>
+		                    </div>
+		                    <div class="panel-body">
+		                            <p class="pull-left">
+		                                <input type="text" class="form-control" aria-label="..." placeholder="short description..."/>
+		                            </p>
+		                            <p class="">
+		                                <input type="text" class="form-control" aria-label="..." placeholder="full description..."/>
+		                            </p>
+		                            <div class="input-group pull-left">
+		                                <input type="text" class="form-control" aria-label="..." placeholder="manager..."/>
+		                                <div class="input-group-btn" uib-dropdown>
+		                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
+		                                        <span class="caret"></span>
+		                                    </button>
+		                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+		                                        <li role="menuitem"><a href="#">Toto</a></li>
+		                                        <li role="menuitem"><a href="#">Larry</a></li>
+		                                    </ul>
+		                                </div><!-- /btn-group -->
+		                            </div><!-- /input-group -->
+		                            <button class="btn btn-success pull-right navbar-btn" type="button">
+		                              Create
+		                            </button>
+		                    </div>
+		                </div>
 
-	                <div class="panel panel-default">
-	                    <div class="panel-heading text-right">
-	                        <div class="nav">
-	                            <label class="pull-left">
-	                                Yoga
-	                            </label>
-	                            <label class="pull-right">
-	                                0 event(s)
-	                            </label>
-	                        </div>
-	                    </div>
-	                    <div class="panel-body">
-	                       <div class="nav">
-	                            <p class="pull-left">
-	                                Kendo Senior Description
-	                            </p>
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
-	                              Subscribe
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Unsubscribe
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Delete
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
-	                              Modify
-	                            </button>
-	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
-	                              Save
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
-	                              Discard
-	                            </button>
-	                            
-	                        </div>
-	                    </div>
-	                </div>
+		                <div class="panel panel-default">
+		                    <div class="panel-heading text-right">
+		                        <div class="nav">
+		                            <label class="pull-left">
+		                                <input type="text" class="form-control" aria-label="..." value="Yoga"/>
+		                            </label>
+		                            <label class="pull-right">
+		                                0 event(s)
+		                            </label>
+		                        </div>
+		                    </div>
+		                    <div class="panel-body">
+		                       <div class="nav">
+		                            <p class="pull-left">
+		                                <input type="text" class="form-control" aria-label="..." value="Kendo Senior description"/>
+		                            </p>
+		                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+		                              Subscribe
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+		                              Unsubscribe
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+		                              Delete
+		                            </button>
+		                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
+		                              Modify
+		                            </button>
+		                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+		                              Save
+		                            </button>
+		                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+		                              Discard
+		                            </button>
+		                            
+		                        </div>
+		                    </div>
+		                </div>
 
-	                <div class="panel panel-default">
-	                    <div class="panel-heading text-right">
-	                        <div class="nav">
-	                            <label class="pull-left">
-	                                Kendo
-	                            </label>
-	                            <label class="pull-right">
-	                                2 event(s)
-	                            </label>
-	                        </div>
-	                    </div>
-	                    <div class="panel-body">
-	                       <div class="nav">
-	                            <p class="pull-left">
-	                                Kendo Junior Description
-	                            </p>
-	                            <!-- <p class="pull-left">
-	                                Contributor(s) : Toto
-	                            </p> -->
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
-	                              Subscribe
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Unsubscribe
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
-	                              Delete
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
-	                              Modify
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Save
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Discard
-	                            </button>
-	                        </div>
-	                    </div>
-	                </div>
+		                <div class="panel panel-default">
+		                    <div class="panel-heading text-right">
+		                        <div class="nav">
+		                            <label class="pull-left">
+		                                Kendo
+		                            </label>
+		                            <label class="pull-right">
+		                                2 event(s)
+		                            </label>
+		                        </div>
+		                    </div>
+		                    <div class="panel-body">
+		                       <div class="nav">
+		                            <p class="pull-left">
+		                                Kendo Junior Description
+		                            </p>
+		                            <!-- <p class="pull-left">
+		                                Contributor(s) : Toto
+		                            </p> -->
+		                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+		                              Subscribe
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+		                              Unsubscribe
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
+		                              Delete
+		                            </button>
+		                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+		                              Modify
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+		                              Save
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+		                              Discard
+		                            </button>
+		                        </div>
+		                    </div>
+		                </div>
 
-	                <div class="panel panel-default">
-	                    <div class="panel-heading text-right">
-	                        <div class="nav">
-	                            <label class="pull-left">
-	                                Dance
-	                            </label>
-	                            <label class="pull-right">
-	                                1 event(s)
-	                            </label>
-	                        </div>
-	                    </div>
-	                    <div class="panel-body">
-	                       <div class="nav">
-	                            <p class="pull-left">
-	                                Eurhytmics description
-	                            </p>
-	                            <!-- <p class="pull-left">
-	                                Contributor(s) : Toto
-	                            </p> -->
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
-	                              Subscribe
-	                            </button>
-	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
-	                              Unsubscribe
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
-	                              Delete
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
-	                              Modify
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Discard
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Save
-	                            </button>
-	                        </div>
-	                    </div>
-	                </div>
+		                <div class="panel panel-default">
+		                    <div class="panel-heading text-right">
+		                        <div class="nav">
+		                            <label class="pull-left">
+		                                Dance
+		                            </label>
+		                            <label class="pull-right">
+		                                1 event(s)
+		                            </label>
+		                        </div>
+		                    </div>
+		                    <div class="panel-body">
+		                       <div class="nav">
+		                            <p class="pull-left">
+		                                Eurhytmics description
+		                            </p>
+		                            <!-- <p class="pull-left">
+		                                Contributor(s) : Toto
+		                            </p> -->
+		                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+		                              Subscribe
+		                            </button>
+		                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
+		                              Unsubscribe
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
+		                              Delete
+		                            </button>
+		                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+		                              Modify
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+		                              Discard
+		                            </button>
+		                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+		                              Save
+		                            </button>
+		                        </div>
+		                    </div>
+		                </div>
 
-	                <nav>
-	                    <ul class="pagination">
-	                        <li>
-	                            <a href="#" aria-label="Previous">
-	                                <span aria-hidden="true">&laquo;</span>
-	                            </a>
-	                        </li>
-	                        <li><a href="#">1</a></li>
-	                        <li>
-	                            <a href="#" aria-label="Next">
-	                                <span aria-hidden="true">&raquo;</span>
-	                            </a>
-	                        </li>
-	                    </ul>
-	                </nav>
-	            </div>
-	        </div>
-	    </div>
+		                <nav>
+		                    <ul class="pagination">
+		                        <li>
+		                            <a href="#" aria-label="Previous">
+		                                <span aria-hidden="true">&laquo;</span>
+		                            </a>
+		                        </li>
+		                        <li><a href="#">1</a></li>
+		                        <li>
+		                            <a href="#" aria-label="Next">
+		                                <span aria-hidden="true">&raquo;</span>
+		                            </a>
+		                        </li>
+		                    </ul>
+		                </nav>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 	</div>
-</div>
 </div>

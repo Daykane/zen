@@ -1,9 +1,9 @@
 <div id="eventsState" class="container">
-	<div class="well well-sm">Event Management</div>
+	<div class="well well-sm"><label>Event Management</label></div>
 	<div id="zenEventList">
 	    <div class="row">
 	        <div class="col-md-2">
-	            <p class="lead">Sort by</p>
+	        	<p class="lead">Sort by</p>
 	            <div class="list-group">
 	                <label href="#" class="label label-info">Name</label>
 	                <br/>
@@ -16,17 +16,17 @@
 	                <label class="label label-success">Activities</label>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Yoga
+	                        <input type="checkbox" checked> Yoga
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Kendo
+	                        <input type="checkbox" checked> Kendo
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Dance
+	                        <input type="checkbox" checked> Dance
 	                    </label>
 	                </div>
 	            </div>
@@ -34,43 +34,43 @@
 	                <label class="label label-warning">Days</label>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Monday
+	                        <input type="checkbox" checked> Monday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Tuesday
+	                        <input type="checkbox" checked> Tuesday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Wednesday
+	                        <input type="checkbox" checked> Wednesday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Thursday
+	                        <input type="checkbox" checked> Thursday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Friday
+	                        <input type="checkbox" checked> Friday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Saturday
+	                        <input type="checkbox" checked> Saturday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Sunday
+	                        <input type="checkbox" checked> Sunday
 	                    </label>
 	                </div>
 	            </div>
 	        </div>
 
-	        <div class="col-md-9">
+	        <div class="col-md-10">
 	            <div class="row">
 	                <div class="panel panel-default" data-ng-if="true">
 	                    <div class="panel-heading text-right">
@@ -106,18 +106,28 @@
 	                                    </ul>
 	                                </div><!-- /btn-group -->
 	                            </div><!-- /input-group -->
-	                            <input type="text" class="form-control  pull-left" aria-label="..." placeholder="start time..."/>
-	                            <input type="text" class="form-control  pull-left" aria-label="..." placeholder="end time..."/>
-
-
+	                            <input type="text" class="form-control" aria-label="..." placeholder="start time..."/>
+	                            <input type="text" class="form-control" aria-label="..." placeholder="end time..."/>
 	                        </div>
 	                    </div>
 	                    <div class="panel-body">
 	                       <div class="nav">
-	                            <p class="pull-left">
+	                            <p class="">
 	                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
 	                            </p>
-	                            <button class="btn btn-success pull-right" type="button">
+	                            <div class="input-group pull-left">
+	                                <input type="text" class="form-control" aria-label="..." placeholder="contributor..."/>
+	                                <div class="input-group-btn" uib-dropdown>
+	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
+	                                        <span class="caret"></span>
+	                                    </button>
+	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+	                                        <li role="menuitem"><a href="#">Toto</a></li>
+	                                        <li role="menuitem"><a href="#">Elie</a></li>
+	                                    </ul>
+	                                </div><!-- /btn-group -->
+	                            </div><!-- /input-group -->
+	                            <button class="btn btn-success pull-right navbar-btn" type="button">
 	                              Create
 	                            </button>
 	                        </div>
@@ -145,17 +155,17 @@
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
 	                              Unsubscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
 	                              Delete
 	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
 	                              Modify
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Discard
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
 	                              Save
+	                            </button>
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+	                              Discard
 	                            </button>
 	                        </div>
 	                    </div>
@@ -180,16 +190,16 @@
 	                            <!-- <p class="pull-left">
 	                                Contributor(s) : Toto
 	                            </p> -->
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
 	                              Subscribe
 	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
 	                              Unsubscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
 	                              Delete
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
 	                              Modify
 	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
@@ -221,16 +231,16 @@
 	                            <!-- <p class="pull-left">
 	                                Contributor(s) : Toto
 	                            </p> -->
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
 	                              Subscribe
 	                            </button>
 	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
 	                              Unsubscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
 	                              Delete
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
 	                              Modify
 	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
