@@ -73,7 +73,8 @@
             goToUsers: goToUsers,
             goToProducts: goToProducts,
             goToRooms: goToRooms,
-            goToActivities: goToActivities
+            goToCategories: goToCategories,
+            goToActivities: goToActivities,
         };
     }
     navigationService.$inject = ['$state'];

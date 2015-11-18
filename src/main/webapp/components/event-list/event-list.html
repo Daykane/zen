@@ -7,7 +7,7 @@
                 <br/>
                 <label href="#" class="label label-success">Activity</label>
                 <br/>
-                <label href="#" class="label label-warning">Date</label>
+                <label href="#" class="label label-warning">Day</label>
             </div>
             <p class="lead">Filters</p>
             <div class="list-group">
@@ -28,10 +28,49 @@
                     </label>
                 </div>
             </div>
+            <div class="list-group">
+                <label class="label label-warning">Days</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Monday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Tuesday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Wednesday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Thursday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Friday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Saturday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Sunday
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-9">
             <div class="row">
+
                 <div class="panel panel-default" data-ng-if="false">
                     <div class="panel-heading text-right">
                         <div class="nav">
@@ -63,6 +102,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="panel panel-default">
                     <div class="panel-heading text-right">
                         <div class="nav">
@@ -79,10 +119,10 @@
                             <p class="pull-left">
                                 Kendo Senior Description
                             </p>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
                               Subscribe
                             </button>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
                               Unsubscribe
                             </button>
                             <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
@@ -120,10 +160,10 @@
                             <!-- <p class="pull-left">
                                 Contributor(s) : Toto
                             </p> -->
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                            <button class="btn btn-info pull-right" type="button" data-ng-if="true">
                               Subscribe
                             </button>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
                               Unsubscribe
                             </button>
                             <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
@@ -161,10 +201,10 @@
                             <!-- <p class="pull-left">
                                 Contributor(s) : Toto
                             </p> -->
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                            <button class="btn btn-info pull-right" type="button" data-ng-if="true">
                               Subscribe
                             </button>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
                               Unsubscribe
                             </button>
                             <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
