@@ -68,6 +68,9 @@ public class DAOFactory {
 	public EventDao getEventDao() {
 		return new EventDaoImpl(this);
 	}
+	public RoomDao getRoomDao() {
+		return new RoomDaoImpl(this);
+	}
 	
 
 }
