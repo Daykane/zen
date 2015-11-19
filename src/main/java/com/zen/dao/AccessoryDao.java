@@ -23,7 +23,5 @@ public interface AccessoryDao {
 
     Accessory findByRoomById(String id, String idA);
     
-    void addAccessoryInRoom(int idRoom, Accessory accessory , int quantity);
-    
-    void deleteAccessoryFromRoom (int idRoom, Accessory accessory );
+   
 }

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.zen.beans.AbstractEvent;
 import com.zen.beans.Accessory;
@@ -45,7 +46,7 @@ public class AccessoryDaoImpl implements AccessoryDao{
 	}
 
 
-	private static final String SQL_SELECT_BY_ID = "SELECT * FROM Accessory WHERE eventId = ?";
+	private static final String SQL_SELECT_BY_ID = "SELECT * FROM Accessory WHERE accessoryId = ?";
 	@Override
 	public
 	Accessory findById( String id ) throws DAOException {
@@ -81,7 +82,7 @@ public class AccessoryDaoImpl implements AccessoryDao{
 		Accessory accessory = new Accessory();
 		accessory.setAccessoryId(resultSet.getInt( "accessoryId" ));
 		accessory.setAccessoryName(resultSet.getString("accessoryName"));
-		
+		accessory.setQuantity(resultSet.getInt("quantity"));
 		return accessory;
 	}
 
@@ -125,28 +126,63 @@ public class AccessoryDaoImpl implements AccessoryDao{
 		
 	}
 
+	private static final String SQL_SELECT_BY_ROOM = "SELECT r.roomId, a.accessoryName , r.accessoryId, r.quantity"
+			+ " FROM Accessory a, roomAccessory r"
+			+ " WHERE r.roomId = ? and a.accessoryId = r.accessoryId" ;
+	
 	@Override
 	public List<Accessory> findByRoom(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Accessory accessory = null;
+        List<Accessory> accessories = new ArrayList<Accessory>();
+
+        try {
+            /* Recuperation d'une connexion depuis la Factory */
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ROOM, false,id );
+            resultSet = preparedStatement.executeQuery();
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+            while ( resultSet.next() ) {           
+                accessory = map( resultSet );
+                accessories.add(accessory);   
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+
+        return accessories;
 	}
 
+	private static final String SQL_SELECT_BY_ROOM_BY_ID = "SELECT roomAccessory.roomId, Accessory.accessoryName , roomAccessory.accessoryId, roomAccessory.quantity"
+			+ " FROM Accessory , roomAccessory "
+			+ " WHERE roomAccessory.roomId = ? and Accessory.accessoryId = ? and Accessory.accessoryId = roomAccessory.accessoryId";
 	@Override
 	public Accessory findByRoomById(String id, String idA) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Accessory accessory = null;
 
-	@Override
-	public void addAccessoryInRoom(int idRoom, Accessory accessory, int quantity) {
-		// TODO Auto-generated method stub
-		
-	}
+        try {
+            /* Recuperation d'une connexion depuis la Factory */
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ROOM_BY_ID, false, id,idA);
+            resultSet = preparedStatement.executeQuery();
+            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+            if ( resultSet.next() ) {
+                accessory = map( resultSet );
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
 
-	@Override
-	public void deleteAccessoryFromRoom(int idRoom, Accessory accessory) {
-		// TODO Auto-generated method stub
-		
+        return accessory;
 	}
 
 }

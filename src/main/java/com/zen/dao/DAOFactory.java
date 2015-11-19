@@ -71,6 +71,9 @@ public class DAOFactory {
 	public RoomDao getRoomDao() {
 		return new RoomDaoImpl(this);
 	}
+	public AccessoryDao getAccessoryDao() {
+		return new AccessoryDaoImpl(this);
+	}
 	
 
 }

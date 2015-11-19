@@ -1,6 +1,8 @@
 package com.zen.dao;
 
 import com.zen.beans.AbstractRoom;
+import com.zen.beans.Accessory;
+
 import static com.zen.dao.DAOUtilitaire.*;
 
 import java.sql.Connection;
@@ -138,9 +140,37 @@ public class RoomDaoImpl implements RoomDao {
 
 
 	@Override
-	public void update(int id, AbstractRoom abstractEvent) throws DAOException {
+	public void update(int id, AbstractRoom abstractRoom) throws DAOException {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public void addAccessoryInRoom(int idRoom, Accessory accessory, int quantity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void deleteAccessoryFromRoom(int idRoom, Accessory accessory) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public AbstractRoom findByIdWithAccesories(String id) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<AbstractRoom> findAllWithAccesories() throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
