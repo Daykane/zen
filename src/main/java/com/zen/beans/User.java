@@ -1,6 +1,8 @@
 package com.zen.beans;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class User {
 	private int id;
@@ -14,6 +16,8 @@ public class User {
 	private String phone;
 	private String mail;
 	private ArrayList<AbstractRole> roles;
+	private String token;
+	private Timestamp timetamps;
 	
 	public User() {		
 	}
@@ -133,6 +137,22 @@ public class User {
 
 	public void setRoles(ArrayList<AbstractRole> roles) {
 		this.roles = roles;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Timestamp getTimetamps() {
+		return timetamps;
+	}
+
+	public void setTimetamps(Timestamp timestamp) {
+		this.timetamps = timestamp;
 	}
 	
 	

@@ -1,5 +1,6 @@
 package com.zen.dao;
 
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface UserDao {
     
     void delete(int id) throws DAOException;
 
-	User connection(String mail, String password, String token, Calendar calendar);
+	User connection(String mail, String password, String token, Timestamp currentTimestamp);
 }

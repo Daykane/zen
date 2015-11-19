@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -107,8 +108,9 @@ public class UserDaoImpl implements UserDao {
 
 	private static final String SQL_CONNECTION = "SELECT * FROM User WHERE mail = ? AND password = ?";
 	private static final String SQL_INSERT_TOKEN_TIMESTAMP = "UPDATE user SET token=?,timetamps=? WHERE id=?;";
+	@SuppressWarnings("resource")
 	@Override
-	public User connection(String mail, String password,String token, Calendar calendar) throws DAOException {
+	public User connection(String mail, String password,String token, Timestamp currentTimestamp) throws DAOException {
 		Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -124,12 +126,10 @@ public class UserDaoImpl implements UserDao {
             if ( resultSet.next() ) {
                 user = map( resultSet );
             }
-            //preparedStatement.close();
-            //resultSet.close();
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_TOKEN_TIMESTAMP, false, token,calendar.getTimeInMillis(),user.getId() );
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_TOKEN_TIMESTAMP, false, token,currentTimestamp,user.getId() );
             preparedStatement.executeUpdate();
-            //user.setToken(resultSet.getString( "town" ));
-            //user.setTimestamps(resultSet.getString( "timetamps" ));
+            user.setToken( resultSet.getString( "token" ) );
+            user.setTimetamps( resultSet.getTimestamp("timetamps" ));
         } catch ( SQLException e ) {
             throw new DAOException( e );
         } finally {

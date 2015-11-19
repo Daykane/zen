@@ -11,7 +11,9 @@ import javax.ws.rs.core.UriInfo;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.Date;
 
 import com.zen.beans.User;
 import com.zen.dao.DAOFactory;
@@ -34,11 +36,10 @@ public class LoginServlet {
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		SecureRandom random = new SecureRandom();
 		String token = new BigInteger(130, random).toString(32);
-		//System.out.println("token :" + token);
-		 Calendar calendar = Calendar.getInstance();
-		// System.out.println("time in millis :" + calendar.getTimeInMillis());
-		 calendar.add(Calendar.HOUR, 8);
-		User user = this.userDao.connection(mail, password,token,calendar);
+		Calendar calendar = Calendar.getInstance();
+		Date now = calendar.getTime();		 
+		Timestamp currentTimestamp = new Timestamp(now.getTime());
+		User user = this.userDao.connection(mail, password,token,currentTimestamp);
 		return user;
 	}
 
