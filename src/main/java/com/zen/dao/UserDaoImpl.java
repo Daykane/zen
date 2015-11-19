@@ -7,8 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class UserDaoImpl implements UserDao {
 	
@@ -47,7 +49,7 @@ public class UserDaoImpl implements UserDao {
     
     private static final String SQL_INSERT = "INSERT INTO User (`password`, `lastName`, `firstName`, `adr1`, `adr2`, `pc`, `town`, `phone`, `mail`) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?);";
     @Override
-    public void create( User user ) throws DAOException {
+    public void create( User user ) throws DAOException, DAOExceptionMail {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
 
@@ -58,11 +60,15 @@ public class UserDaoImpl implements UserDao {
             int statut = preparedStatement.executeUpdate();
            
             if ( statut == 0 ) {
+            	System.out.println("mail already exist");
                 throw new DAOException( "echec de la creation de l'utilisateur, aucune ligne ajoutee dans la table." );
             }
       
-        } catch ( SQLException e ) {
-            throw new DAOException( e );
+        } catch (SQLIntegrityConstraintViolationException e) {
+        	throw new DAOExceptionMail(e);
+        }
+        catch ( SQLException e ) {
+            throw new DAOException(e);
         } finally {
             fermeturesSilencieuses(preparedStatement, connexion );
         }
