@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -68,27 +69,7 @@ public class UserDaoImpl implements UserDao {
         }
     }
     
-    
-    /*
-     * Simple methode utilitaire permettant de faire la correspondance (le
-     * mapping) entre une ligne issue de la table des utilisateurs (un
-     * ResultSet) et un bean Utilisateur.
-     */
-    private static User map( ResultSet resultSet ) throws SQLException {
-        User user = new User();
-        user.setId( resultSet.getInt( "id" ) );
-        user.setPassword( resultSet.getString("password"));
-        user.setLastName( resultSet.getString( "lastName" ) );
-        user.setFirstName( resultSet.getString( "firstName" ) );
-        user.setAdr1( resultSet.getString( "adr1" ) );
-        user.setAdr2( resultSet.getString( "adr2" ) );
-        user.setPc( resultSet.getString( "pc" ) );
-        user.setTown( resultSet.getString( "town" ) );
-        user.setPhone( resultSet.getString( "phone" ) );
-        user.setMail( resultSet.getString( "mail" ) );
-     
-        return user;
-    }
+ 
     
     private static final String SQL_SELECT = "SELECT * FROM User";
 	@Override
@@ -120,7 +101,7 @@ public class UserDaoImpl implements UserDao {
 
 	private static final String SQL_CONNECTION = "SELECT * FROM User WHERE mail = ? AND password = ?";
 	@Override
-	public User connection(String mail, String password) throws DAOException {
+	public User connection(String mail, String password,String token, Calendar calendar) throws DAOException {
 		Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -166,5 +147,28 @@ public class UserDaoImpl implements UserDao {
 	            fermeturesSilencieuses(preparedStatement, connexion );
 	        }
 	}
+	
+	   
+    /*
+     * Simple methode utilitaire permettant de faire la correspondance (le
+     * mapping) entre une ligne issue de la table des utilisateurs (un
+     * ResultSet) et un bean Utilisateur.
+     */
+    private static User map( ResultSet resultSet ) throws SQLException {
+        User user = new User();
+        user.setId( resultSet.getInt( "id" ) );
+        //user.setPassword( resultSet.getString("password"));
+        user.setLastName( resultSet.getString( "lastName" ) );
+        user.setFirstName( resultSet.getString( "firstName" ) );
+        user.setAdr1( resultSet.getString( "adr1" ) );
+        user.setAdr2( resultSet.getString( "adr2" ) );
+        user.setPc( resultSet.getString( "pc" ) );
+        user.setTown( resultSet.getString( "town" ) );
+        user.setPhone( resultSet.getString( "phone" ) );
+        user.setMail( resultSet.getString( "mail" ) );
+     
+        return user;
+    }
+
 
 }
