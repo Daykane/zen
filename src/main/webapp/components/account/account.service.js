@@ -19,13 +19,16 @@
         function goToSettings(){
             $state.go('root.settings');
         }
-
+        function goToCart(){
+            $state.go('root.cart');
+        }
         // Public
         return {
             activate: activate,
             reset: reset,
             logout: logout,
-            goToSettings: goToSettings
+            goToSettings: goToSettings,
+            goToCart: goToCart,
         };
     }
     accountService.$inject = ['authenticationService', '$state'];

@@ -19,17 +19,19 @@
             $state.go('root.store');
         }
 
-        function goToBasket(){
-            console.log("cart");
-            $state.go('root.basket');
-        }
-
         function goToUsers(){
             $state.go('root.management.users');
         }
 
         function goToActivities(){
             $state.go('root.management.activities');
+        }
+        function goToEvents(){
+            $state.go('root.management.events');
+        }
+
+        function goToCategories(){
+            $state.go('root.management.categories');
         }
 
         function goToProducts(){
@@ -65,12 +67,14 @@
             goToSettings: goToSettings,
             goToStore: goToStore,
             goToMyActivities: goToMyActivities,
-            goToBasket: goToBasket,
+            goToEvents: goToEvents,
+            goToProducts: goToProducts,
             goToAccessories: goToAccessories,
             goToUsers: goToUsers,
             goToProducts: goToProducts,
             goToRooms: goToRooms,
-            goToActivities: goToActivities
+            goToCategories: goToCategories,
+            goToActivities: goToActivities,
         };
     }
     navigationService.$inject = ['$state'];

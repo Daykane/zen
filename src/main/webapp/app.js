@@ -49,11 +49,13 @@
         'zen.states.register',
         'zen.states.settings',
         'zen.states.store',
-        'zen.states.basket',
+        'zen.states.cart',
         'zen.states.myActivities',
         'zen.states.products',
+        'zen.states.categories',
         'zen.states.users',
         'zen.states.activities',
+        'zen.states.events',
         'zen.states.rooms',
         'zen.states.accessories'
     ])
