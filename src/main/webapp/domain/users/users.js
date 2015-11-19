@@ -1,64 +1,64 @@
-//MOCK
-
 (function(window, angular, _){
     'use strict';
 
-    function users(){
-        // Init
-        var users = $resource(apiUrl + 'users', {}, {
-            get: {
-                method: 'GET'
-            },
-            post: {
-                method: 'POST'
-            },
-            put: {
-                method: 'PUT'
-            },
-            delete: {
-                method: 'DELETE'
-            }
-        });
-        // Private variables
+    function Users(apiUrl, $http){
 
         // Private methods
-       function getId(email, password){
-            //TODO
-       }
+        function get(userId){
+            return userFactory.get({userId: userId});
+        }
 
-       function getUser(id, signature){
-            //TODO
-       }
+        function getAll(){
+            return userFactory.query();
+        }
 
-       function getUsers(){
-            //TODO
-       }
+        function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
+            var user = {mail: email, password: password, firstName: firstName, lastName: lastName, adr1: adress, adr2: additionalAdress, town: town, pc: postalCode, phone: phoneNumber };
+            console.log(JSON.stringify(user));
+            $http({
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                dataType: "json",
+                url: apiUrl+'Users',
+                data: JSON.stringify(user),
+            }).then(function successCallback(response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                alert("done");
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                alert("error");
+            });
+        }
 
-       function postUser(lastName, firstName, adr1, adr2, pc, town, phone, email, password){
+        function update(signature, userId, lastName, firstName, adr1, adr2, pc, town, phone, email, password, id){
+            // userFactory.update();
             //TODO
-       }
+        }
 
-       function putUser(lastName, firstName, adr1, adr2, pc, town, phone, email, password){
+        function remove(signature, userId){
+            // userFactory.delete();
             //TODO
-       }
-
-       function deleteUser(){
-            //TODO
-       }
+        }
 
         // Public API
         return {
-            getId: getId,
-            getUser: getUser,
-            getUsers: getUsers,
-            postUser: postUser,
-            putUser: putUser,
-            deleteUser: deleteUser
-        };
+            get: get,
+            getAll: getAll,
+            create: create,
+            update: update,
+            remove: remove
+        }
     }
-    users.$inject = [];
+    Users.$inject = ['apiUrl', '$http'];
 
     angular.module('zen.api.users', [
-            'zen.services'
-        ]).factory('Users', users);
+        'ngResource',
+        'zen.services'
+    ])
+        .factory('Users', Users)
+
 })(window, window.angular, window._);

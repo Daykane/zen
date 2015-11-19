@@ -1,0 +1,244 @@
+<div id="zenEventList">
+    <div class="row">
+        <div class="col-md-2">
+            <p class="lead">Sort by</p>
+            <div class="list-group">
+                <label href="#" class="label label-info">Name</label>
+                <br/>
+                <label href="#" class="label label-success">Activity</label>
+                <br/>
+                <label href="#" class="label label-warning">Day</label>
+            </div>
+            <p class="lead">Filters</p>
+            <div class="list-group">
+                <label class="label label-success">Activities</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Yoga
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Kendo
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Dance
+                    </label>
+                </div>
+            </div>
+            <div class="list-group">
+                <label class="label label-warning">Days</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Monday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Tuesday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Wednesday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Thursday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Friday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Saturday
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Sunday
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div class="row">
+
+                <div class="panel panel-default" data-ng-if="false">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <input type="text" class="form-control pull-left" aria-label="..." placeholder="name..."/>
+                            <div class="input-group">
+                                <input type="text" class="form-control" aria-label="..." placeholder="activity..."/>
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">    
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#">Yoga</a></li>
+                                        <li><a href="#">Kendo</a></li>
+                                        <li><a href="#">Dance</a></li>
+                                    </ul>
+                                </div><!-- /btn-group -->
+                            </div><!-- /input-group -->
+                            <input type="text" class="form-control  pull-left" aria-label="..." placeholder="price..."/>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
+                            </p>
+                            <button class="btn btn-success pull-right" type="button">
+                              Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel panel-default">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Kendo Senior
+                            </label>
+                            <label class="pull-right">
+                                Monday 8pm-10pm
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                Kendo Senior Description
+                            </p>
+                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+                              Subscribe
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
+                              Unsubscribe
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Modify
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Discard
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Kendo Junior
+                            </label>
+                            <label class="pull-right">
+                                Wednesday 3pm-7pm
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                Kendo Junior Description
+                            </p>
+                            <!-- <p class="pull-left">
+                                Contributor(s) : Toto
+                            </p> -->
+                            <button class="btn btn-info pull-right" type="button" data-ng-if="true">
+                              Subscribe
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Unsubscribe
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Modify
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Discard
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Eurhythmics
+                            </label>
+                            <label class="pull-right">
+                                Thursday 6pm-8pm
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                Eurhytmics description
+                            </p>
+                            <!-- <p class="pull-left">
+                                Contributor(s) : Toto
+                            </p> -->
+                            <button class="btn btn-info pull-right" type="button" data-ng-if="true">
+                              Subscribe
+                            </button>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
+                              Unsubscribe
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Modify
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Discard
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <nav>
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

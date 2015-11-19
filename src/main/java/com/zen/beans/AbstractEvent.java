@@ -8,6 +8,7 @@ public class AbstractEvent {
 	private Double durationHours;
 	private int maxNubr;
 	private EventType eventType;
+	private int activityId;
 	
 
 
@@ -15,7 +16,7 @@ public class AbstractEvent {
 		super();
 	}
 	
-	public AbstractEvent(int eventId, String eventName, Double eventPrice, Double durationHours, int maxNubr, EventType eventType) {
+	public AbstractEvent(int eventId, String eventName, Double eventPrice, Double durationHours, int maxNubr, EventType eventType, int activityId) {
 		super();
 		this.eventId = eventId;
 		this.eventName = eventName;
@@ -23,6 +24,7 @@ public class AbstractEvent {
 		this.durationHours = durationHours;
 		this.maxNubr = maxNubr;
 		this.eventType = eventType;
+		this.activityId = activityId;
 	}
 
 	public int getEventId() {
@@ -72,5 +74,15 @@ public class AbstractEvent {
 	public void setEventType(EventType eventType) {
 		this.eventType = eventType;
 	}
+
+	public int getActivityId() {
+		return activityId;
+	}
+
+	public void setActivityId(int activityId) {
+		this.activityId = activityId;
+	}
+	
+	
 	
 }

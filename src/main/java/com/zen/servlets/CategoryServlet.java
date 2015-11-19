@@ -68,23 +68,5 @@ public class CategoryServlet {
 
 		return product;
 	}
-	/*
-	@GET ok
-	@Path("{id}")
-	public void delete(@PathParam("id") String id) {
-		this.productDao = DAOFactory.getInstance().getProductDao();
-		Product product = this.productDao.find(id);
-		this.productDao.delete(product);
-	}
-	*/
-	/*
-	@GET ok
-	@Path("{id}")
-	public void update(@PathParam("id") String id) {
-		Product product = new Product("productNameServletUpdate", "productDescrServletUpdate", 0, 0.0);
-		this.productDao = DAOFactory.getInstance().getProductDao();
-		int idInt = Integer.parseInt(id);
-		this.productDao.update(idInt,product);
-	}
-	*/
+	
 }

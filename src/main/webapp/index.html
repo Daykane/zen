@@ -18,9 +18,9 @@
         <div class="app" ui-view></div>
 
         <!-- nodes -->
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <script src="node_modules/angular/angular.js"></script>
+        <!--script src="node_modules/bootstrap/dist/js/bootstrap.js"></script-->
+        <script src="node_modules/angular-ui-bootstrap/ui-bootstrap.js"></script>
         <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="node_modules/angular-cookie/angular-cookie.js"></script>
         <script src="node_modules/angular-resource/angular-resource.js"></script>
@@ -36,10 +36,17 @@
         <script src="components/account/account.service.js"></script>
         <script src="components/product-list/product-list.js"></script>
         <script src="components/product-list/product-list.service.js"></script>
+        <script src="components/event-list/event-list.js"></script>
+        <script src="components/event-list/event-list.service.js"></script>
 
         <!-- api -->
         <script src="domain/users/users.js"></script>
         <script src="domain/products/products.js"></script>
+        <script src="domain/events/events.js"></script>
+        <script src="domain/activities/activities.js"></script>
+        <script src="domain/categories/categories.js"></script>
+        <script src="domain/accessories/accessories.js"></script>
+        <script src="domain/rooms/rooms.js"></script>
 
         <!-- services -->
         <script src="services/authentication/authentication.js"></script>
@@ -51,12 +58,14 @@
         <script src="states/root.register/register.js"></script>
         <script src="states/root.settings/settings.js"></script>
         <script src="states/root.store/store.js"></script>
-        <script src="states/root.basket/basket.js"></script>
+        <script src="states/root.cart/cart.js"></script>
         <script src="states/root.my-activities/my-activities.js"></script>
         <script src="states/root.management/management.js"></script>
         <script src="states/root.management.products/products.js"></script>
+        <script src="states/root.management.categories/categories.js"></script>
         <script src="states/root.management.users/users.js"></script>
         <script src="states/root.management.activities/activities.js"></script>
+        <script src="states/root.management.events/events.js"></script>
         <script src="states/root.management.rooms/rooms.js"></script>
         <script src="states/root.management.accessories/accessories.js"></script>
 

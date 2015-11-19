@@ -1,21 +1,202 @@
-<div id="zenStoryList">
-    <!--div ng-repeat="product in productList.items track by product.id" ng-click="storyList.selectStory(story)"-->
-        {{products}}
-        <br></br>
-        {{product7}}
-        <br></br>
-        {{product8}}
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                Hey
+<div id="zenProductList">
+    <div class="row">
+        <div class="col-md-2">
+            <p class="lead">Sort by</p>
+            <div class="list-group">
+                <label href="#" class="label label-info">Name</label>
+                <br/>
+                <label href="#" class="label label-success">Category</label>
+                <br/>
+                <label href="#" class="label label-warning">Price</label>
             </div>
-            <div class="panel-body">
-                <tr>
-                    <td>{{product7.productName}} </td>
-                    <td>{{product7.productDescr}} </td>
-                    <td>{{product7.availableQuantity}}</td>
-                </tr>
+            <p class="lead">Filters</p>
+            <div class="list-group">
+                <label class="label label-success">Categories</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Yoga
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Kendo
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Dance
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> Misc.
+                    </label>
+                </div>
             </div>
-        <!--/div-->
+            <div class="list-group">
+                <label class="label label-warning">Prices</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> 0 < 10 €
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> 10 < 100 €
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked> > 100 € 
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div class="row">
+                <div class="panel panel-default" data-ng-if="false">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                <input type="text" class="form-control" aria-label="..." placeholder="name..."/>
+                            </label>
+                            <label class="pull-right">
+                                <input type="text" class="form-control" aria-label="..." placeholder="price..."/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
+                            </p>
+                            <button class="btn btn-success pull-right" type="button">
+                              Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Mat
+                            </label>
+                            <label class="pull-right">
+                                20 €
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                Mat description
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Boken
+                            </label>
+                            <label class="pull-right">
+                                200 €
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                Boken description
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Shinai
+                            </label>
+                            <label class="pull-right">
+                                100 €
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                Shinai description
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading text-right">
+                        <div class="nav">
+                            <label class="pull-left">
+                                Tutu
+                            </label>
+                            <label class="pull-right">
+                                25 €
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       <div class="nav">
+                            <p class="pull-left">
+                                Tutu description
+                            </p>
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                              Add to cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                              Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <nav>
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </div>

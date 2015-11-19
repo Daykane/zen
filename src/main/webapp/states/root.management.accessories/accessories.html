@@ -1,3 +1,112 @@
-<div id="accessoriesState">
-	ACCESSORIES STATE TODO
+<div id="productsState" class="container">
+	<div class="well well-sm"><label>Product Management</label></div>
+	<div id="zenProductList">
+	    <div class="row">
+	        <div class="col-md-2">
+	            <p class="lead">Sort by</p>
+	            <div class="list-group">
+	                <label class="label label-info">Names</label>
+	            </div>
+	        </div>
+
+	        <div class="col-md-10">
+	            <div class="row">
+
+	            	<div class="panel panel-default" data-ng-if="true">
+	                    <div class="panel-heading text-right">
+	                        <div class="nav">
+	                            <label class="pull-left">
+	                                <input type="text" class="form-control" aria-label="..." placeholder="name..."/>
+	                            </label>
+		                    </div>
+	                    </div>
+	                    <div class="panel-body">
+	                        <div class="nav">
+	                            <p class="pull-left">
+	                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
+	                            </p>
+	                            <button class="btn btn-success pull-right" type="button">
+	                              Create
+	                            </button>
+	                        </div>
+	                    </div>
+                	</div>
+
+	                <div class="panel panel-default">
+	                    <div class="panel-heading text-right">
+	                        <div class="nav">
+	                            <label class="pull-left">
+	                                <input type="text" class="form-control" aria-label="..." value="Mat"/>
+	                            </label>
+	                        </div>
+	                    </div>
+	                    <div class="panel-body">
+	                       <div class="nav">
+	                            <p class="pull-left">
+	                                <input type="text" class="form-control" aria-label="..." value="Mat description"/>
+	                            </p>
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                              Delete
+	                            </button>
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
+	                              Modify
+	                            </button>
+	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+	                              Save
+	                            </button>
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+	                              Discard
+	                            </button>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="panel panel-default">
+	                    <div class="panel-heading text-right">
+	                        <div class="nav">
+	                            <label class="pull-left">
+	                                Ball
+	                            </label>
+	                        </div>
+	                    </div>
+	                    <div class="panel-body">
+	                       <div class="nav">
+	                            <p class="pull-left">
+	                                Mat description
+	                            </p>
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
+	                              Delete
+	                            </button>
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+	                              Modify
+	                            </button>
+	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
+	                              Save
+	                            </button>
+	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
+	                              Discard
+	                            </button>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                
+	                <nav>
+	                    <ul class="pagination">
+	                        <li>
+	                            <a href="#" aria-label="Previous">
+	                                <span aria-hidden="true">&laquo;</span>
+	                            </a>
+	                        </li>
+	                        <li><a href="#">1</a></li>
+	                        <li>
+	                            <a href="#" aria-label="Next">
+	                                <span aria-hidden="true">&raquo;</span>
+	                            </a>
+	                        </li>
+	                    </ul>
+	                </nav>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </div>
