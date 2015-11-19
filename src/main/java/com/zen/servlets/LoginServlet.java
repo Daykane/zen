@@ -1,16 +1,17 @@
 package com.zen.servlets;
 
-import java.util.List;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
+
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.util.Calendar;
 
 import com.zen.beans.User;
 import com.zen.dao.DAOFactory;
@@ -25,13 +26,19 @@ public class LoginServlet {
 	private UriInfo context;
 	private UserDao  userDao;
 	
-	@POST 
-	public User connection(@FormParam("password") String password,
-			@FormParam("mail") String mail){
-		//String mail = "mail";
-		//String password = "password";
+	//@POST 
+	@GET
+	public User connection(){
+		String mail = "mail";
+		String password = "password";
 		this.userDao = DAOFactory.getInstance().getUserDao();
-		User user = this.userDao.connection(mail, password);
+		SecureRandom random = new SecureRandom();
+		String token = new BigInteger(130, random).toString(32);
+		//System.out.println("token :" + token);
+		 Calendar calendar = Calendar.getInstance();
+		// System.out.println("time in millis :" + calendar.getTimeInMillis());
+		 calendar.add(Calendar.HOUR, 8);
+		User user = this.userDao.connection(mail, password,token,calendar);
 		return user;
 	}
 
