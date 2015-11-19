@@ -38,8 +38,8 @@
 	      	</ul>
 	      	<ul class="nav navbar-nav navbar-right">
 	        <li>
-        		<button data-ng-show="true" data-ng-if="authentication.isNotConnected()" ui-sref="root.login" type="button" class="btn btn-default navbar-btn">Sign in</button>
-				<button data-ng-show="true" data-ng-if="authentication.isNotConnected()" ui-sref="root.register" type="button" class="btn btn-primary navbar-btn">Sign up</button>
+        		<button data-ng-show="false" data-ng-if="authentication.isNotConnected()" ui-sref="root.login" type="button" class="btn btn-default navbar-btn">Sign in</button>
+				<button data-ng-show="false" data-ng-if="authentication.isNotConnected()" ui-sref="root.register" type="button" class="btn btn-primary navbar-btn">Sign up</button>
 				<zen-account data-ng-show="true" data-ng-if="authentication.isConnected()"><zen-account>
 			</li>
 	      </ul>
