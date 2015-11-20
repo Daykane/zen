@@ -27,7 +27,8 @@
             activate: activate,
             reset: reset,
             logout: logout,
-            goToSettings: goToSettings
+            goToSettings: goToSettings,
+            goToCart: goToCart,
         };
     }
     accountService.$inject = ['authenticationService', '$state'];

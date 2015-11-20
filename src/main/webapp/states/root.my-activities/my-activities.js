@@ -23,6 +23,7 @@
 
         // Init
     }
+    myActivitiesController.$inject = [];
 
     angular.module('zen.states.myActivities', [
         'ui.router',

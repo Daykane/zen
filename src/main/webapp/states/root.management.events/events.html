@@ -1,111 +1,159 @@
-<div id="eventsState">
-	<div id="zenProductList" class="container">
+<div id="eventsState" class="container">
+	<div class="well well-sm"><label>Event Management</label></div>
+	<div id="zenEventList">
 	    <div class="row">
 	        <div class="col-md-2">
-	            <p class="lead">Sort by</p>
+	        	<p class="lead">Sort by</p>
 	            <div class="list-group">
-	                <label class="label label-info">Names</label>
+	                <label href="#" class="label label-info">Name</label>
 	                <br/>
-	                <label class="label label-success">Categories</label>
+	                <label href="#" class="label label-success">Activity</label>
 	                <br/>
-	                <label class="label label-warning">Prices</label>
+	                <label href="#" class="label label-warning">Day</label>
 	            </div>
 	            <p class="lead">Filters</p>
 	            <div class="list-group">
-	                <label class="label label-success">Categories</label>
+	                <label class="label label-success">Activities</label>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Yoga
+	                        <input type="checkbox" checked> Yoga
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Kendo
+	                        <input type="checkbox" checked> Kendo
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> Dance
+	                        <input type="checkbox" checked> Dance
 	                    </label>
 	                </div>
 	            </div>
 	            <div class="list-group">
-	                <label class="label label-warning">Prices</label>
+	                <label class="label label-warning">Days</label>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> 0 < 10 €
+	                        <input type="checkbox" checked> Monday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> 10 < 100 €
+	                        <input type="checkbox" checked> Tuesday
 	                    </label>
 	                </div>
 	                <div class="checkbox">
 	                    <label>
-	                        <input type="checkbox"> > 100 € 
+	                        <input type="checkbox" checked> Wednesday
+	                    </label>
+	                </div>
+	                <div class="checkbox">
+	                    <label>
+	                        <input type="checkbox" checked> Thursday
+	                    </label>
+	                </div>
+	                <div class="checkbox">
+	                    <label>
+	                        <input type="checkbox" checked> Friday
+	                    </label>
+	                </div>
+	                <div class="checkbox">
+	                    <label>
+	                        <input type="checkbox" checked> Saturday
+	                    </label>
+	                </div>
+	                <div class="checkbox">
+	                    <label>
+	                        <input type="checkbox" checked> Sunday
 	                    </label>
 	                </div>
 	            </div>
 	        </div>
 
-	        <div class="col-md-9">
+	        <div class="col-md-10">
 	            <div class="row">
-
-	            	<div class="panel panel-default" data-ng-if="true">
+	                <div class="panel panel-default" data-ng-if="true">
 	                    <div class="panel-heading text-right">
 	                        <div class="nav">
-	                            <label class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="name..."/>
-	                            </label>
-	                            <label class="pull-right">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="price..."/>
-	                            </label>
+	                            <input type="text" class="form-control pull-left" aria-label="..." placeholder="event name..."/>
 	                            <div class="input-group">
-							      	<input type="text" class="form-control" aria-label="..." placeholder="description..."/>
-						      		<div class="input-group-btn">
-							        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	
-							        		<span class="caret"></span>
-							        	</button>
-							        	<ul class="dropdown-menu dropdown-menu-right">
-								          	<li><a href="#">Yoga</a></li>
-								          	<li><a href="#">Kendo</a></li>
-								          	<li><a href="#">Dance</a></li>
-								        </ul>
-									</div><!-- /btn-group -->
-								</div><!-- /input-group -->
-		                    </div>
+	                                <input type="text" class="form-control" aria-label="..." placeholder="activity..."/>
+	                                <div class="input-group-btn" uib-dropdown>
+	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
+	                                        <span class="caret"></span>
+	                                    </button>
+	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+	                                        <li role="menuitem"><a href="#">Yoga</a></li>
+	                                        <li role="menuitem"><a href="#">Kendo</a></li>
+	                                        <li role="menuitem"><a href="#">Dance</a></li>
+	                                    </ul>
+	                                </div><!-- /btn-group -->
+	                            </div><!-- /input-group -->
+	                            <div class="input-group">
+	                                <input type="text" class="form-control" aria-label="..." placeholder="day..."/>
+	                                <div class="input-group-btn" uib-dropdown>
+	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
+	                                        <span class="caret"></span>
+	                                    </button>
+	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+	                                        <li role="menuitem"><a href="#">Monday</a></li>
+	                                        <li role="menuitem"><a href="#">Tuesday</a></li>
+	                                        <li role="menuitem"><a href="#">Wednesday</a></li>
+	                                        <li role="menuitem"><a href="#">Thursday</a></li>
+	                                        <li role="menuitem"><a href="#">Friday</a></li>
+	                                        <li role="menuitem"><a href="#">Saturday</a></li>
+	                                        <li role="menuitem"><a href="#">Sunday</a></li>
+	                                    </ul>
+	                                </div><!-- /btn-group -->
+	                            </div><!-- /input-group -->
+	                            <input type="text" class="form-control" aria-label="..." placeholder="start time..."/>
+	                            <input type="text" class="form-control" aria-label="..." placeholder="end time..."/>
+	                        </div>
 	                    </div>
 	                    <div class="panel-body">
-	                        <div class="nav">
-	                            <p class="pull-left">
+	                       <div class="nav">
+	                            <p class="">
 	                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
 	                            </p>
-	                            <button class="btn btn-success pull-right" type="button">
+	                            <div class="input-group pull-left">
+	                                <input type="text" class="form-control" aria-label="..." placeholder="contributor..."/>
+	                                <div class="input-group-btn" uib-dropdown>
+	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
+	                                        <span class="caret"></span>
+	                                    </button>
+	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+	                                        <li role="menuitem"><a href="#">Toto</a></li>
+	                                        <li role="menuitem"><a href="#">Elie</a></li>
+	                                    </ul>
+	                                </div><!-- /btn-group -->
+	                            </div><!-- /input-group -->
+	                            <button class="btn btn-success pull-right navbar-btn" type="button">
 	                              Create
 	                            </button>
 	                        </div>
 	                    </div>
-                	</div>
-
+	                </div>
 	                <div class="panel panel-default">
 	                    <div class="panel-heading text-right">
 	                        <div class="nav">
 	                            <label class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." value="Mat"/>
+	                                Kendo Senior
 	                            </label>
 	                            <label class="pull-right">
-	                                <input type="text" class="form-control" aria-label="..." value="20 €"/>
+	                                Monday 8pm-10pm
 	                            </label>
 	                        </div>
 	                    </div>
 	                    <div class="panel-body">
 	                       <div class="nav">
 	                            <p class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." value="Mat description"/>
+	                                Kendo Senior Description
 	                            </p>
+	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+	                              Subscribe
+	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Add to cart
+	                              Unsubscribe
 	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
 	                              Delete
@@ -127,20 +175,26 @@
 	                    <div class="panel-heading text-right">
 	                        <div class="nav">
 	                            <label class="pull-left">
-	                                Boken
+	                                Kendo Junior
 	                            </label>
 	                            <label class="pull-right">
-	                                200 €
+	                                Wednesday 3pm-7pm
 	                            </label>
 	                        </div>
 	                    </div>
 	                    <div class="panel-body">
 	                       <div class="nav">
 	                            <p class="pull-left">
-	                                Boken description
+	                                Kendo Junior Description
 	                            </p>
+	                            <!-- <p class="pull-left">
+	                                Contributor(s) : Toto
+	                            </p> -->
+	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+	                              Subscribe
+	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Add to cart
+	                              Unsubscribe
 	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
 	                              Delete
@@ -148,11 +202,11 @@
 	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
 	                              Modify
 	                            </button>
-	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
-	                              Save
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
 	                              Discard
+	                            </button>
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                              Save
 	                            </button>
 	                        </div>
 	                    </div>
@@ -162,20 +216,26 @@
 	                    <div class="panel-heading text-right">
 	                        <div class="nav">
 	                            <label class="pull-left">
-	                                Shinai
+	                                Eurhythmics
 	                            </label>
 	                            <label class="pull-right">
-	                                100 €
+	                                Thursday 6pm-8pm
 	                            </label>
 	                        </div>
 	                    </div>
 	                    <div class="panel-body">
 	                       <div class="nav">
 	                            <p class="pull-left">
-	                                Shinai description
+	                                Eurhytmics description
 	                            </p>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Add to cart
+	                            <!-- <p class="pull-left">
+	                                Contributor(s) : Toto
+	                            </p> -->
+	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+	                              Subscribe
+	                            </button>
+	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
+	                              Unsubscribe
 	                            </button>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
 	                              Delete
@@ -183,46 +243,11 @@
 	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
 	                              Modify
 	                            </button>
-	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
-	                              Save
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
-	                              Discard
-	                            </button>
-	                        </div>
-	                    </div>
-	                </div>
-
-	                <div class="panel panel-default">
-	                    <div class="panel-heading text-right">
-	                        <div class="nav">
-	                            <label class="pull-left">
-	                                Tutu
-	                            </label>
-	                            <label class="pull-right">
-	                                25 €
-	                            </label>
-	                        </div>
-	                    </div>
-	                    <div class="panel-body">
-	                       <div class="nav">
-	                            <p class="pull-left">
-	                                Tutu description Tutu description Tutu description Tutu description Tutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description Tutu descriptionTutu description Tutu description Tutu description
-	                            </p>
 	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-	                              Add to cart
-	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
-	                              Delete
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
-	                              Modify
-	                            </button>
-	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
-	                              Save
-	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
 	                              Discard
+	                            </button>
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                              Save
 	                            </button>
 	                        </div>
 	                    </div>
