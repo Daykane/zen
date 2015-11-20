@@ -35,7 +35,6 @@
         }
 
         $scope.registerFailure = function(error){
-            console.log(error);
             $scope.mailAlreadyExists= true;
         }
 
