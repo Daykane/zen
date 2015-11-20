@@ -14,7 +14,7 @@
 
     function homeController(authenticationService, $scope){
         // Private variables
-
+        var self = this;
         // Private methods
 
         // Public variables
@@ -24,7 +24,7 @@
         // Initialization
         authenticationService.activate();
     }
-    homeController.$inject = ['authenticationService', '$scope'];
+    homeController.$inject = ['authenticationService', '$scope', 'sha1'];
 
 
     angular.module('zen.states.home', [

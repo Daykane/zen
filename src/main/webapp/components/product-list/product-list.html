@@ -1,14 +1,22 @@
 <div id="zenProductList">
+
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2" >
+
+            <p class="lead">Search</p>
+            <div class="list-group">
+                <input ng-model='searchBar' class="form-control">
+            </div>
+
             <p class="lead">Sort by</p>
             <div class="list-group">
-                <label href="#" class="label label-info">Name</label>
-                <br/>
-                <label href="#" class="label label-success">Category</label>
-                <br/>
-                <label href="#" class="label label-warning">Price</label>
+                <select ng-model='orderProps' class="form-control">
+                    <option value='productName'>Name</option>
+                    <option value='productCategory'>Category</option>
+                    <option value='price'>Price</option>
+                </select>
             </div>
+
             <p class="lead">Filters</p>
             <div class="list-group">
                 <label class="label label-success">Categories</label>
@@ -52,10 +60,11 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-10">
+        <div class="col-md-10" style="border: 2px solid #ccc; border-radius: 10px;">
             <div class="row">
-                <div class="panel panel-default" data-ng-if="false">
+
+
+                <div class="panel panel-default" data-ng-if="zenProductList.isManagement()">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
@@ -69,7 +78,7 @@
                     <div class="panel-body">
                        <div class="nav">
                             <p class="pull-left">
-                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
+                                <input type="text" class="form-control" aria-label="..." placeholder="..."/>
                             </p>
                             <button class="btn btn-success pull-right" type="button">
                               Create
@@ -77,120 +86,45 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+
+                <div class="panel panel-default" ng-repeat="product in products | filter:searchBar | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
-                                Mat
+                                {{product.productName}}
                             </label>
                             <label class="pull-right">
-                                20 €
+                                {{product.price}}
                             </label>
                         </div>
                     </div>
                     <div class="panel-body">
                        <div class="nav">
                             <p class="pull-left">
-                                Mat description
+                                {{product.productDescr}}
                             </p>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="context === 'store'">
                               Add to cart
                             </button>
-                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+                            <button class="btn btn-warning pull-right" type="button" data-ng-if="context === 'cart'">
+                              Remove from cart
+                            </button>
+                            <button class="btn btn-danger pull-right" type="button" data-ng-if="context === 'management'">
                               Delete
                             </button>
                         </div>
                     </div>
                 </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading text-right">
-                        <div class="nav">
-                            <label class="pull-left">
-                                Boken
-                            </label>
-                            <label class="pull-right">
-                                200 €
-                            </label>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                       <div class="nav">
-                            <p class="pull-left">
-                                Boken description
-                            </p>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
-                              Add to cart
-                            </button>
-                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-                              Delete
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading text-right">
-                        <div class="nav">
-                            <label class="pull-left">
-                                Shinai
-                            </label>
-                            <label class="pull-right">
-                                100 €
-                            </label>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                       <div class="nav">
-                            <p class="pull-left">
-                                Shinai description
-                            </p>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
-                              Add to cart
-                            </button>
-                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-                              Delete
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading text-right">
-                        <div class="nav">
-                            <label class="pull-left">
-                                Tutu
-                            </label>
-                            <label class="pull-right">
-                                25 €
-                            </label>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                       <div class="nav">
-                            <p class="pull-left">
-                                Tutu description
-                            </p>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
-                              Add to cart
-                            </button>
-                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
-                              Delete
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <nav>
                     <ul class="pagination">
                         <li>
-                            <a href="#" aria-label="Previous">
+                            <a href="#"ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" aria-label="Previous" class="pull-left">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li><a href="#">1</a></li>
+                        <li><a>{{currentPage+1}}/{{numberOfPages()}}</a></li>
                         <li>
-                            <a href="#" aria-label="Next">
+                            <a href="#"  ng-disabled="currentPage >= (products | filter:searchBar | orderBy:orderProps).length/pageSize - 1" ng-click="currentPage=currentPage+1" aria-label="Next" class="pull-right">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
