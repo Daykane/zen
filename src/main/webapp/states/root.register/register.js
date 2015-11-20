@@ -16,7 +16,7 @@
 
         //var self = this;
         $scope.passwordMatch=true;
-        $scope.mailError = false;
+        $scope.mailAlreadyExists = false;
 
         $scope.register = function(){
             if($scope.password == $scope.confirmPassword ){
@@ -28,14 +28,15 @@
             }
         };
 
+
+
         $scope.registerSuccess= function(){
             $state.go('root.login');
         }
 
-        $scope.registerFailure = function(data, status, headers, config){
-            if(data.data.mailError=="true"){
-                $scope.mailError= true;
-            }
+        $scope.registerFailure = function(error){
+            console.log(error);
+            $scope.mailAlreadyExists= true;
         }
 
     }
@@ -44,7 +45,7 @@
     angular.module('zen.states.register', [
         'zen.services'
     ])
-        .config(registerConfig)
-        .run(registerRun)
-        .controller('registerController', registerController);
+    .config(registerConfig)
+    .run(registerRun)
+    .controller('registerController', registerController);
 })(window, window.angular);
