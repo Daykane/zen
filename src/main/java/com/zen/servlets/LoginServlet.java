@@ -28,8 +28,8 @@ public class LoginServlet {
 	private UriInfo context;
 	private UserDao  userDao;
 	
-	//@POST 
-	@GET
+	@POST 
+	//@GET
 	public User connection(User user){
 		String mail = user.getMail();
 		String password = user.getPassword();
