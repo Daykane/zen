@@ -6,13 +6,13 @@ public class Product {
 	private String productDescr;
 	private int availableQuantity;
 	private Double memberReduction;
-	private Category categoryProduct;
+	private int categoryProduct;
 
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(String productName, String productDescr, int availableQuantity, Double memberReduction, Category categoryProduct) {
+	public Product(String productName, String productDescr, int availableQuantity, Double memberReduction, int categoryProduct) {
 		super();
 		this.productName = productName;
 		this.productDescr = productDescr;
@@ -61,11 +61,11 @@ public class Product {
 		this.memberReduction = memberReduction;
 	}
 
-	public Category getCategoryProduct() {
+	public int getCategoryProduct() {
 		return categoryProduct;
 	}
 
-	public void setCategoryProduct(Category categoryProduct) {
+	public void setCategoryProduct(int categoryProduct) {
 		this.categoryProduct = categoryProduct;
 	}
 

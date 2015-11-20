@@ -101,6 +101,7 @@ public class ProductDaoImpl  implements ProductDao {
         product.setProductDescr(resultSet.getString( "productDescr" ));
         product.setAvailableQuantity(resultSet.getInt( "availableQuantity" ));
         product.setMemberReduction(resultSet.getDouble( "memberReduction" ));
+        product.setCategoryProduct(resultSet.getInt( "categoryId" ));
  
         return product;
     }
