@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
+
 import com.zen.beans.User;
 
 public interface UserDao {
@@ -18,5 +20,5 @@ public interface UserDao {
     
     void delete(int id) throws DAOException;
 
-	User connection(String mail, String password, String token, Timestamp currentTimestamp);
+	User connection(String mail, String password, String token, Timestamp currentTimestamp) throws DAOException, LoginException;
 }

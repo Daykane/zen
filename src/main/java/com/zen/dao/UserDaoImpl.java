@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
+
 
 public class UserDaoImpl implements UserDao {
 	
@@ -110,7 +112,7 @@ public class UserDaoImpl implements UserDao {
 	private static final String SQL_INSERT_TOKEN_TIMESTAMP = "UPDATE user SET token=?,timetamps=? WHERE id=?;";
 	@SuppressWarnings("resource")
 	@Override
-	public User connection(String mail, String password,String token, Timestamp currentTimestamp) throws DAOException {
+	public User connection(String mail, String password,String token, Timestamp currentTimestamp) throws DAOException, LoginException {
 		Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -126,8 +128,12 @@ public class UserDaoImpl implements UserDao {
             if ( resultSet.next() ) {
                 user = map( resultSet );
             }
+            if(user == null){
+            	throw new LoginException("User not registrate");
+            }
             preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_TOKEN_TIMESTAMP, false, token,currentTimestamp,user.getId() );
             preparedStatement.executeUpdate();
+            
             user.setToken( resultSet.getString( "token" ) );
             user.setTimetamps( resultSet.getTimestamp("timetamps" ));
         } catch ( SQLException e ) {
