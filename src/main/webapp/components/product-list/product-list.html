@@ -60,7 +60,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-10" style="border: 2px solid #ccc; border-radius: 10px;">
+        <!--div class="col-md-10" style="border: 2px solid #ccc; border-radius: 10px;"-->
+        <div class="col-md-10">
             <div class="row">
 
 
@@ -115,18 +116,17 @@
                         </div>
                     </div>
                 </div>
+
                 <nav>
                     <ul class="pagination">
-                        <li>
-                            <a href="#"ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" aria-label="Previous" class="pull-left">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
+                        <li ng-class="prevPageDisabled()">
+                          <a href ng-click="prevPage()">«</a>
                         </li>
-                        <li><a>{{currentPage+1}}/{{numberOfPages()}}</a></li>
-                        <li>
-                            <a href="#"  ng-disabled="currentPage >= (products | filter:searchBar | orderBy:orderProps).length/pageSize - 1" ng-click="currentPage=currentPage+1" aria-label="Next" class="pull-right">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
+                        <li ng-repeat="n in [0, pageCount()] | range" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                          <a href="#">{{n+1}}</a>
+                        </li>
+                        <li ng-class="nextPageDisabled()">
+                          <a href ng-click="nextPage()">»</a>
                         </li>
                     </ul>
                 </nav>
