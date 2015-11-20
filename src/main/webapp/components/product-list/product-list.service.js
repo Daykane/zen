@@ -3,9 +3,13 @@
 
     function productListService(){
         // Private variables
+        status = null;
         
         // Private methods
-        function activate(){}
+        function activate(){
+
+            
+        }
 
         function reset(){}
         // Public variables

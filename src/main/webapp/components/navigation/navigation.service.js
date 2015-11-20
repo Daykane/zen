@@ -26,6 +26,7 @@
         function goToActivities(){
             $state.go('root.management.activities');
         }
+        
         function goToEvents(){
             $state.go('root.management.events');
         }
