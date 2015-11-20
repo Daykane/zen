@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.zen.beans.LoginInfo;
 import com.zen.beans.User;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.UserDao;
@@ -30,7 +31,7 @@ public class LoginServlet {
 	
 	@POST 
 	//@GET
-	public User connection(User user){
+	public User connection(LoginInfo user){
 		String mail = user.getMail();
 		String password = user.getPassword();
 		//String mail = "";
