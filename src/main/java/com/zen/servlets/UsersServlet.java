@@ -76,7 +76,7 @@ public class UsersServlet {
 	*/
 	@POST
 	public Response create(User user){
-		System.out.println("user : " + user.toString());
+		//System.out.println("user : " + user.toString());
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		try {
 			this.userDao.create(user);

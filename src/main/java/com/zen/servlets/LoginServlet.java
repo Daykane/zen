@@ -30,17 +30,17 @@ public class LoginServlet {
 	
 	//@POST 
 	@GET
-	public User connection(){
-		String mail = "mail";
-		String password = "password";
+	public User connection(User user){
+		String mail = user.getMail();
+		String password = user.getPassword();
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		SecureRandom random = new SecureRandom();
 		String token = new BigInteger(130, random).toString(32);
 		Calendar calendar = Calendar.getInstance();
 		Date now = calendar.getTime();		 
 		Timestamp currentTimestamp = new Timestamp(now.getTime());
-		User user = this.userDao.connection(mail, password,token,currentTimestamp);
-		return user;
+		User userC = this.userDao.connection(mail, password,token,currentTimestamp);
+		return userC;
 	}
 
 
