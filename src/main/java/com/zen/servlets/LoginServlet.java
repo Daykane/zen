@@ -28,11 +28,13 @@ public class LoginServlet {
 	private UriInfo context;
 	private UserDao  userDao;
 	
-	//@POST 
-	@GET
+	@POST 
+	//@GET
 	public User connection(User user){
 		String mail = user.getMail();
 		String password = user.getPassword();
+		//String mail = "";
+		//String password = "";
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		SecureRandom random = new SecureRandom();
 		String token = new BigInteger(130, random).toString(32);
