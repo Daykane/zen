@@ -4,6 +4,7 @@ public class Accessory {
 	
 	private int accessoryId;
 	private String accessoryName;
+	private int quantity;
 	
 	
 	public Accessory() {
@@ -11,10 +12,11 @@ public class Accessory {
 	}
 
 
-	public Accessory(int accessoryId, String accessoryName) {
+	public Accessory(int accessoryId, String accessoryName, int quantity) {
 		super();
 		this.accessoryId = accessoryId;
 		this.accessoryName = accessoryName;
+		this.quantity =  quantity;
 	}
 
 
@@ -36,5 +38,18 @@ public class Accessory {
 	public void setAccessoryName(String accessoryName) {
 		this.accessoryName = accessoryName;
 	}
+
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+	
 	
 }

@@ -29,7 +29,11 @@ public class CategoryServlet {
 	
 	@GET
     public List<Category> getAll() {
-
+		//String id = "1";
+		//String req = "";
+		//String signature = "";
+		//DAOAuthen authen = new DAOAuthen();
+		//authen.authentification(id, req, signature);
 		this.categoryDao = DAOFactory.getInstance().getCategoryDao();
 		List<Category> category = this.categoryDao.findAll();
 		return category;

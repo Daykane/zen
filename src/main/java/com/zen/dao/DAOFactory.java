@@ -37,24 +37,6 @@ public class DAOFactory {
 		System.out.println("2:"+nomUtilisateur);
 		System.out.println("3:"+motDePasse);
 
-
-		//        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		//        InputStream fichierProperties = classLoader.getResourceAsStream( FICHIER_PROPERTIES );
-		//
-		//        if ( fichierProperties == null ) {
-		//            throw new DAOConfigurationException( "Le fichier properties " + FICHIER_PROPERTIES + " est introuvable." );
-		//        }
-		//
-		//        try {
-		//            properties.load( fichierProperties );
-		//            url = properties.getProperty( PROPERTY_URL );
-		//            driver = properties.getProperty( PROPERTY_DRIVER );
-		//            nomUtilisateur = properties.getProperty( PROPERTY_NOM_UTILISATEUR );
-		//            motDePasse = properties.getProperty( PROPERTY_MOT_DE_PASSE );
-		//        } catch ( IOException e ) {
-		//            throw new DAOConfigurationException( "Impossible de charger le fichier properties " + FICHIER_PROPERTIES, e );
-		//        }
-		//
 		try {
 			Class.forName( driver );
 		} catch ( ClassNotFoundException e ) {
@@ -85,6 +67,12 @@ public class DAOFactory {
 	}
 	public EventDao getEventDao() {
 		return new EventDaoImpl(this);
+	}
+	public RoomDao getRoomDao() {
+		return new RoomDaoImpl(this);
+	}
+	public AccessoryDao getAccessoryDao() {
+		return new AccessoryDaoImpl(this);
 	}
 	
 
