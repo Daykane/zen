@@ -27,11 +27,6 @@ public class ProductsServlet {
 	
 	@GET
     public List<Product> getAll() {
-		//String id = "1";
-		//String req = "";
-		//String signature = "";
-		//DAOAuthen authen = new DAOAuthen();
-		//authen.authentification(id, req, signature);
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		List<Product> products = this.productDao.findAll();
 		return products;
