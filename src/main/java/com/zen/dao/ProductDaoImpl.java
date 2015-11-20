@@ -102,6 +102,7 @@ public class ProductDaoImpl  implements ProductDao {
         product.setAvailableQuantity(resultSet.getInt( "availableQuantity" ));
         product.setMemberReduction(resultSet.getDouble( "memberReduction" ));
         product.setCategoryProduct(resultSet.getInt( "categoryId" ));
+        product.setPrice(resultSet.getDouble("price"));
  
         return product;
     }
@@ -129,7 +130,7 @@ public class ProductDaoImpl  implements ProductDao {
 		
 	}
 
-	private static final String SQL_UPDATE = "UPDATE Product SET  productName = ?, productDescr = ?, availableQuantity = ?, memberReduction = ? WHERE productId = ?;";
+	private static final String SQL_UPDATE = "UPDATE Product SET  productName = ?, productDescr = ?, availableQuantity = ?, memberReduction = ?, price = ? WHERE productId = ?;";
 	@Override
 	public void update(int id, Product product) throws DAOException {
 		Connection connexion = null;
@@ -137,7 +138,7 @@ public class ProductDaoImpl  implements ProductDao {
 
         try {
             connexion = daoFactory.getConnection();
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true,product.getProductName(), product.getProductDescr(),product.getAvailableQuantity(),product.getMemberReduction() ,id );
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true,product.getProductName(), product.getProductDescr(),product.getAvailableQuantity(),product.getMemberReduction(),product.getPrice() ,id );
             System.out.println(preparedStatement);
             int statut = preparedStatement.executeUpdate();
             /* Analyse du statut retourne par la requete d'update */
