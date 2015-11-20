@@ -180,7 +180,9 @@ public class UserDaoImpl implements UserDao {
         user.setTown( resultSet.getString( "town" ) );
         user.setPhone( resultSet.getString( "phone" ) );
         user.setMail( resultSet.getString( "mail" ) );
-     
+        //Remove token et timestamps , juste pour les tests d auhtentifications !!*
+        user.setToken(resultSet.getString( "token" ));
+        user.setTimetamps(resultSet.getTimestamp("timetamps"));
         return user;
     }
 
