@@ -43,7 +43,7 @@ public class RoomServlet {
 		this.roomDao.create(room);
 	}
 	 */	
-	
+
 
 	@GET
 	@Path("{id}")
@@ -53,8 +53,8 @@ public class RoomServlet {
 		return room;
 
 	}
-	
-	
+
+
 	/* ok
 	@GET
 	@Path("{id}")
@@ -63,7 +63,7 @@ public class RoomServlet {
 		this.roomDao.delete(id);
 	}
 	 */
-	
+
 	@GET
 	@Path("{id}/Accessories")
 	public List<Accessory> getAccessoryRooms(@PathParam("id") String id) {
@@ -72,13 +72,16 @@ public class RoomServlet {
 
 		return accessories;
 	}
-	
+
 	@GET
 	@Path("{id}/Accessories/{idA}")
 	public Accessory getAccessoryRoomsId(@PathParam("id") String id,@PathParam("idA") String idA) {
 		this.accessoryDao = DAOFactory.getInstance().getAccessoryDao();
 		Accessory  accessory = this.accessoryDao.findByRoomById(id,idA);
-
+		/* Test pour update quantite accessoire
+				this.roomDao = DAOFactory.getInstance().getRoomDao();
+				accessory.setQuantity(accessory.getQuantity()+1);
+				this.roomDao.updateQuantityAccessoryInRoom(id, accessory);*/
 		return accessory;
 	}
 

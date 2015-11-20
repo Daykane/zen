@@ -11,6 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
 import com.zen.beans.Product;
+import com.zen.dao.DAOAuthen;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.ProductDao;
 

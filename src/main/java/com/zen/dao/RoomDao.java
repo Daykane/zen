@@ -20,7 +20,9 @@ public interface RoomDao {
     
     void delete(int id) throws DAOException;
     
-    void addAccessoryInRoom(int idRoom, Accessory accessory , int quantity);
+    void addAccessoryInRoom(String idRoom, Accessory accessory);
+    
+    public void updateQuantityAccessoryInRoom(String idRoom, Accessory accessory);
     
     void deleteAccessoryFromRoom (int idRoom, Accessory accessory );
     
