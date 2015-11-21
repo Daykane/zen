@@ -35,8 +35,19 @@
         $scope.categoryFilter = "";
 
         //$scope.categories = Categories.query();
-        $scope.categories = [{"categoryId":1,"categoryName":"CategoryName","categoryDesc":"Description","validationDate":null}, {"categoryId":2,"categoryName":"Deuxieme","categoryDesc":"Description","validationDate":null}, {"categoryId":3,"categoryName":"cat1","categoryDesc":"test1","validationDate":null}];
-        $scope.products = Products.query();
+        $scope.categories = [
+            {"categoryId":1,"categoryName":"CategoryName","categoryDesc":"Description","validationDate":null}, 
+            {"categoryId":2,"categoryName":"Deuxieme","categoryDesc":"Description","validationDate":null}, 
+            {"categoryId":3,"categoryName":"cat1","categoryDesc":"test1","validationDate":null}];
+        //$scope.products = Products.query();
+        $scope.products = [
+            {"productId":7,"productName":"NameProduct","productDescr":"Descr","availableQuantity":12,"memberReduction":20.0,"categoryProduct":1,"price":20.65},
+            {"productId":8,"productName":"Katana","productDescr":"Grand couteau qui coupe","availableQuantity":1,"memberReduction":10.0,"categoryProduct":1,"price":50.2},
+            {"productId":9,"productName":"Baton","productDescr":"Pour taper","availableQuantity":45,"memberReduction":10.0,"categoryProduct":1,"price":10.0},
+            {"productId":10,"productName":"Tapis","productDescr":"Relax !","availableQuantity":100,"memberReduction":50.0,"categoryProduct":2,"price":58.61},
+            {"productId":11,"productName":"Objet","productDescr":"Un objet random","availableQuantity":42,"memberReduction":42.0,"categoryProduct":3,"price":2.99},
+            {"productId":12,"productName":"Coussin","productDescr":"Pour aller avec le tapis","availableQuantity":50,"memberReduction":20.0,"categoryProduct":2,"price":175.99}
+        ];
 
         // Public methods
 
