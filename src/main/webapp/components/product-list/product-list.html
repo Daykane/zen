@@ -1,5 +1,4 @@
 <div id="zenProductList">
-
     <div class="row">
         <div class="col-md-2" >
 
@@ -20,50 +19,15 @@
             <p class="lead">Filters</p>
             <div class="list-group">
                 <label class="label label-success">Categories</label>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Yoga
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Kendo
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Dance
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Misc.
-                    </label>
-                </div>
-            </div>
-            <div class="list-group">
-                <label class="label label-warning">Prices</label>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> 0 < 10 €
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> 10 < 100 €
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> > 100 € 
-                    </label>
-                </div>
+                <select ng-model='categoryFilter' class="form-control">
+                    <option value=''></option>
+                    <option ng-repeat="category in categories" value='{{category.categoryId}}'>{{category.categoryName}}</option>
+                </select>
             </div>
         </div>
         <!--div class="col-md-10" style="border: 2px solid #ccc; border-radius: 10px;"-->
         <div class="col-md-10">
             <div class="row">
-
 
                 <div class="panel panel-default" data-ng-if="zenProductList.isManagement()">
                     <div class="panel-heading text-right">
@@ -87,8 +51,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="panel panel-default" ng-repeat="product in products | filter:searchBar | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize">
+                
+                <div class="panel panel-default" ng-repeat="product in products | filter:searchBar | filter: filterProducts | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">

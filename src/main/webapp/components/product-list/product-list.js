@@ -8,15 +8,21 @@
             templateUrl: 'components/product-list/product-list.html',
             scope: {},
             controller: productListController,
-            link: productListLink
+            link: productListLink,
+            comple: productListCompile
         };
+    }
+
+    function productListCompile($scope, element, attrs){
+         $scope.products = Products.query();
+        $scope.categories = [{"categoryId":1,"categoryName":"CategoryName","categoryDesc":"Description","validationDate":null},{"categoryId":2,"categoryName":"Deuxieme","categoryDesc":"Description","validationDate":null},{"categoryId":3,"categoryName":"cat1","categoryDesc":"test1","validationDate":null}];
     }
 
     function productListLink($scope, element, attrs){
         $scope.context = attrs.context;
     }
 
-    function productListController($scope, productListService, productFactory, $filter){
+    function productListController($scope, productListService, Products, $filter, Categories){
         // Private variables
         var self = this;
 
@@ -25,10 +31,18 @@
         // Public variables
         $scope.currentPage = 0;
         $scope.pageSize = 5;
-        $scope.products = productFactory.query();
+        $scope.categoryFilter = "";
+        $scope.products = Products.query();
+        $scope.categories = Categories.query();
+
+        //$scope.categories = ProductCategories.query();
 
         // Public methods
-        
+        $scope.filterProducts = function (product) {
+        return !$scope.categoryFilter ? 
+                   product : (product.categoryProduct == $scope.categoryFilter);
+        };
+
         $scope.prevPage = function() {
             if ($scope.currentPage > 0) {
                 $scope.currentPage--;
@@ -36,43 +50,52 @@
         };
 
         $scope.setPage = function(n) {
-          $scope.currentPage=n;
-      };
+            $scope.currentPage=n;
+        };
 
-      $scope.prevPageDisabled = function() {
-        return $scope.currentPage === 0 ? "disabled" : "";
-    };
+        $scope.prevPageDisabled = function() {
+            return $scope.currentPage === 0 ? "disabled" : "";
+        };
+        
+        $scope.productsFiltered = function (){
 
-    $scope.pageCount = function() {
-        return Math.ceil($scope.products.length/$scope.pageSize)-1;
-    };
 
-    $scope.nextPage = function() {
-        if ($scope.currentPage < $scope.pageCount()) {
-          $scope.currentPage++;
-      }
-  };
+        }
 
-  $scope.nextPageDisabled = function() {
-    return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
-};
+        $scope.pageCount = function() {
+            productsFiltered = $scope.products;
+            productFiltered = $filter('')
+            return Math.ceil($scope.products.length/$scope.pageSize)-1;
+        };
+
+        $scope.nextPage = function() {
+            if ($scope.currentPage < $scope.pageCount()) {
+                $scope.currentPage++;
+            }
+        };
+
+        $scope.nextPageDisabled = function() {
+            return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
+        };
         //Init
     }
 
-    productListController.$inject = ['$scope', 'productListService', 'productFactory', '$filter'];
+    productListController.$inject = ['$scope', 'productListService', 'Products', '$filter', 'Categories'];
+
 
     angular.module('zen.components.productList', [
         'zen.api.products',
+        'zen.api.categories',
         'zen.services'
         ])
     .directive('zenProductList', productList)
     .controller('productListController', productListController)
     .filter('startFrom', function() {
         return function(input, start) {
-                start = +start; //parse to int
-                return input.slice(start);
-            }
-        })
+            start = +start; //parse to int
+            return input.slice(start);
+        }
+    })
     .filter('range', function() {
         return function(input) {
             var lowBound, highBound;
