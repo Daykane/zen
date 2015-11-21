@@ -262,7 +262,7 @@ public class EventDaoImpl implements EventDao {
 		try {
 			/* Recuperation d'une connexion depuis la Factory */
 			connexion = daoFactory.getConnection();
-			preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT, false );
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_EVENT_USER, false,id );
 			resultSet = preparedStatement.executeQuery();
 			/* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
 			while ( resultSet.next() ) {           
