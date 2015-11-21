@@ -21,7 +21,9 @@ import javax.ws.rs.core.UriInfo;
 import static com.zen.dao.DAOUtilitaire.*;
 import com.zen.beans.Category;
 import com.zen.beans.Product;
+import com.zen.dao.AuthentificationException;
 import com.zen.dao.CategoryDao;
+import com.zen.dao.DAOAuthen;
 import com.zen.dao.DAOException;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.ProductDao;
@@ -57,6 +59,14 @@ public class CategoryServlet {
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 		*/
+		DAOAuthen authen = new DAOAuthen();
+		String token = "lorml4glpd0pshakk2es95j7pc";
+		int id = 0;
+		try {
+			id = authen.authenToken(token);
+		} catch (AuthentificationException e) {
+			return Response.status(403).entity(e.getMessage()).build();
+		}
 		this.categoryDao = DAOFactory.getInstance().getCategoryDao();
 		List<Category> category = this.categoryDao.findAll();
 		return category;

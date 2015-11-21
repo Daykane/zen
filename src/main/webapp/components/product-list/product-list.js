@@ -29,6 +29,8 @@
         // Private methods
 
         // Public variables
+        $scope.searchBar = "";
+        $scope.orderProps = "";
         $scope.currentPage = 0;
         $scope.pageSize = 5;
         $scope.categoryFilter = "";
@@ -58,14 +60,17 @@
         };
         
         $scope.productsFiltered = function (){
-            productsFiltered = $scope.products;
-            productFiltered = $filter('')
-
+            var productsFiltered = $scope.products;
+            productsFiltered = $filter('filter')(productsFiltered, $scope.searchBar);
+            productsFiltered = $filter('filter')(productsFiltered, $scope.filterProducts);
+            productsFiltered = $filter('orderBy')(productsFiltered, $scope.orderProps);
+            return productsFiltered
+                //product in products | filter:searchBar | filter: filterProducts | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize"
         }
 
         $scope.pageCount = function() {
-            
-            return Math.ceil($scope.products.length/$scope.pageSize)-1;
+            var products = $scope.productsFiltered();
+            return Math.ceil(products.length/$scope.pageSize)-1;
         };
 
         $scope.nextPage = function() {

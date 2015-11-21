@@ -22,4 +22,6 @@ public interface UserDao {
 	User connection(String mail, String password, String token, Timestamp currentTimestamp) throws DAOException, LoginException;
 
 	void update(User user);
+
+	User findByToken(String token);
 }

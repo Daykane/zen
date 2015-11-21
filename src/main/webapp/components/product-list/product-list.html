@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 
-                <div class="panel panel-default" ng-repeat="product in products | filter:searchBar | filter: filterProducts | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <div class="panel panel-default" ng-repeat="product in productsFiltered() | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
