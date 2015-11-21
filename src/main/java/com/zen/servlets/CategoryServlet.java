@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -39,7 +40,7 @@ public class CategoryServlet {
 
 	
 	@GET
-    public Object getAll() {
+    public Object getAll(@HeaderParam("token") String token) {
 		
 		
 		// ========== A suuprimer car recuperation id signature dans la requete ======
@@ -59,8 +60,9 @@ public class CategoryServlet {
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 		*/
+		System.out.println("token dans le header :" + token);
 		DAOAuthen authen = new DAOAuthen();
-		String token = "lorml4glpd0pshakk2es95j7pc";
+		//token = "lorml4glpd0pshakk2es95j7pc";
 		int id = 0;
 		try {
 			id = authen.authenToken(token);

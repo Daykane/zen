@@ -62,7 +62,7 @@ public class UsersServlet {
 		} catch (DAOExceptionMail e) {
 			return Response.status(400).entity("{\"mailError\": \"true\"}").build();
 		} catch (DAOException e) {
-			return Response.status(500).build();
+			return Response.status(400).build();
 		}
 		return Response.status(201).build();
 	}
