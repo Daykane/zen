@@ -17,9 +17,23 @@
         //var self = this;
     	$scope.email="";
     	$scope.password="";
-    	$scope.login= function(){
-    		authenticationService.login($scope.email, $scope.password);
+    	$scope.passwordFailed=false;
+    	function doCallback(){
+    		if(authenticationService.isConnected()){
+    			$scope.passwordFailed=true;
+    			$state.go('root.home');
+    		}
+    		else if(authenticationService.isPasswordFailed()){
+    			$scope.passwordFailed= true;
+    		}
     	}
+    	$scope.login= function(){
+    		if($scope.email!= "" && $scope.password != ""){
+    			authenticationService.login($scope.email, $scope.password, doCallback);
+    		}
+    	}
+    	
+    	
 
         // Initialization
         authenticationService.activate();
