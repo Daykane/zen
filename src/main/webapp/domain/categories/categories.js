@@ -1,17 +1,25 @@
 (function(window, angular, _){
     'use strict';
 
-    function events(){
+    function Categories($resource, apiUrl){
+
         // Init
+        var data = $resource(apiUrl + 'Categories/:categoryId', null, {
+            'update': {
+                method: 'PUT',
+                params: {categoryId: '@categoryId'}
+            },
 
-        // Private variables
-
-        // Private methods
-
-        // Public API
+        });
+        return data;
     }
 
+    Categories.$inject = ['$resource', 'apiUrl'];
+
     angular.module('zen.api.categories', [
-            'zen.services'
-        ]).factory('Events', events);
+        'ngResource',
+        'zen.services'
+        ])
+    .factory('Categories', Categories)
+
 })(window, window.angular, window._);

@@ -1,5 +1,4 @@
 <div id="zenProductList">
-
     <div class="row">
         <div class="col-md-2" >
 
@@ -20,49 +19,15 @@
             <p class="lead">Filters</p>
             <div class="list-group">
                 <label class="label label-success">Categories</label>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Yoga
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Kendo
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Dance
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> Misc.
-                    </label>
-                </div>
-            </div>
-            <div class="list-group">
-                <label class="label label-warning">Prices</label>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> 0 < 10 €
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> 10 < 100 €
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" checked> > 100 € 
-                    </label>
-                </div>
+                <select ng-model='categoryFilter' class="form-control">
+                    <option value=''></option>
+                    <option ng-repeat="category in categories" value='{{category.categoryId}}'>{{category.categoryName}}</option>
+                </select>
             </div>
         </div>
-        <div class="col-md-10" style="border: 2px solid #ccc; border-radius: 10px;">
+        <!--div class="col-md-10" style="border: 2px solid #ccc; border-radius: 10px;"-->
+        <div class="col-md-10">
             <div class="row">
-
 
                 <div class="panel panel-default" data-ng-if="zenProductList.isManagement()">
                     <div class="panel-heading text-right">
@@ -86,8 +51,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="panel panel-default" ng-repeat="product in products | filter:searchBar | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize">
+                
+                <div class="panel panel-default" ng-repeat="product in products | filter:searchBar | filter: filterProducts | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <div class="panel-heading text-right">
                         <div class="nav">
                             <label class="pull-left">
@@ -115,18 +80,17 @@
                         </div>
                     </div>
                 </div>
+
                 <nav>
                     <ul class="pagination">
-                        <li>
-                            <a href="#"ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" aria-label="Previous" class="pull-left">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
+                        <li ng-class="prevPageDisabled()">
+                          <a href ng-click="prevPage()">«</a>
                         </li>
-                        <li><a>{{currentPage+1}}/{{numberOfPages()}}</a></li>
-                        <li>
-                            <a href="#"  ng-disabled="currentPage >= (products | filter:searchBar | orderBy:orderProps).length/pageSize - 1" ng-click="currentPage=currentPage+1" aria-label="Next" class="pull-right">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
+                        <li ng-repeat="n in [0, pageCount()] | range" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                          <a href="#">{{n+1}}</a>
+                        </li>
+                        <li ng-class="nextPageDisabled()">
+                          <a href ng-click="nextPage()">»</a>
                         </li>
                     </ul>
                 </nav>

@@ -35,7 +35,6 @@
 
     angular.module('zen.services', [
         'zen.helpers',
-        'zen.api.users'
     ]);
 
     angular.module('zen', [
