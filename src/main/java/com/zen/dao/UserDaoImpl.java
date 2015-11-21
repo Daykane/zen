@@ -139,8 +139,8 @@ public class UserDaoImpl implements UserDao {
             preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_TOKEN_TIMESTAMP, false, token,currentTimestamp,user.getId() );
             preparedStatement.executeUpdate();
             
-            user.setToken( resultSet.getString( "token" ) );
-            user.setTimetamps( resultSet.getTimestamp("timetamps" ));
+            user.setToken( token);
+            user.setTimetamps(currentTimestamp);
         } catch ( SQLException e ) {
             throw new DAOException( e );
         } finally {
