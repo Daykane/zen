@@ -1,17 +1,24 @@
 (function(window, angular, _){
     'use strict';
 
-    function events(){
+    function Events($resource, apiUrl){
+
         // Init
-
-        // Private variables
-
-        // Private methods
-
-        // Public API
+        var data = $resource(apiUrl + 'Events/:eventId', null, {
+            'update': {
+                method: 'PUT',
+                params: {eventId: '@eventId'}
+            },
+        });
+        return data;
     }
 
+    Events.$inject = ['$resource', 'apiUrl'];
+
     angular.module('zen.api.events', [
-            'zen.services'
-        ]).factory('Events', events);
+        'ngResource',
+        'zen.services'
+        ])
+    .factory('Events', Events)
+
 })(window, window.angular, window._);

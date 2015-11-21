@@ -14,15 +14,14 @@
     }
 
     function productListCompile($scope, element, attrs){
-         $scope.products = Products.query();
-        $scope.categories = [{"categoryId":1,"categoryName":"CategoryName","categoryDesc":"Description","validationDate":null},{"categoryId":2,"categoryName":"Deuxieme","categoryDesc":"Description","validationDate":null},{"categoryId":3,"categoryName":"cat1","categoryDesc":"test1","validationDate":null}];
     }
 
     function productListLink($scope, element, attrs){
         $scope.context = attrs.context;
+
     }
 
-    function productListController($scope, productListService, Products, $filter, Categories){
+    function productListController($scope, productListService, $filter, Products, Categories, authenticationService, attrs){
         // Private variables
         var self = this;
 
@@ -34,12 +33,13 @@
         $scope.currentPage = 0;
         $scope.pageSize = 5;
         $scope.categoryFilter = "";
-        $scope.products = Products.query();
-        $scope.categories = Categories.query();
 
-        //$scope.categories = ProductCategories.query();
+        //$scope.categories = Categories.query();
+        $scope.categories = [{"categoryId":1,"categoryName":"CategoryName","categoryDesc":"Description","validationDate":null}, {"categoryId":2,"categoryName":"Deuxieme","categoryDesc":"Description","validationDate":null}, {"categoryId":3,"categoryName":"cat1","categoryDesc":"test1","validationDate":null}];
+        $scope.products = Products.query();
 
         // Public methods
+
         $scope.filterProducts = function (product) {
         return !$scope.categoryFilter ? 
                    product : (product.categoryProduct == $scope.categoryFilter);
@@ -85,7 +85,7 @@
         //Init
     }
 
-    productListController.$inject = ['$scope', 'productListService', 'Products', '$filter', 'Categories'];
+    productListController.$inject = ['$scope', 'productListService', '$filter','Products', 'Categories', 'authenticationService'];
 
 
     angular.module('zen.components.productList', [
