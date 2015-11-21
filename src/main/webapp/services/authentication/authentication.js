@@ -6,51 +6,27 @@
     /**
      * @description The role of this service is to manage authentication data
      */
-    function authenticationService(){    
+    function authenticationService($http, apiUrl){    
 
         return {
-            activate: function(){
+            login: function(email, password){
+            	var data = {mail: email, password: password};
+                return $http({
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    dataType: "json",
+                    url: apiUrl+'login',
+                    data: JSON.stringify(data),
+                });
             },
-
-            reset: function(){
-            },
-
-            isMember: function(){
-                return true // TODO
-            },
-            
-            isAdmin: function(){
-                return true // TODO
-            },
-
-            isManager: function(){
-                return true // TODO
-            },
-
-            isContributor: function(){
-                return true // TODO
-            },
-
-            isConnected: function(){
-                return true // TODO
-            },
-
-            isNotConnected: function(){
-                return true // TODO
-            },
-
-            getCurrentUserName: function(){
-                return "Toto"; //TODO
-            },
-            getId: function(){
-                return 1; //TODO
-            },
-            getSignature: function(){
-                return "Toto"; //TODO
-            }
+        	activate: function(){
+        		console.log("initialized");
+        	}
         };
     }
-    authenticationService.$inject = []
+    authenticationService.$inject = ['$http', 'apiUrl']
 
     angular.module('zen.services')
         .factory('authenticationService', authenticationService);

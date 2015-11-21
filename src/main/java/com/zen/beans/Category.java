@@ -13,6 +13,13 @@ public class Category {
 	public Category() {
 		super();
 	}
+	
+	public Category(String categoryName, String categoryDesc, Date validationDate) {
+		super();
+		this.categoryName = categoryName;
+		this.categoryDesc = categoryDesc;
+		this.validationDate = validationDate;
+	}
 
 
 	public Category(int categoryId, String categoryName, String categoryDesc, Date validationDate) {

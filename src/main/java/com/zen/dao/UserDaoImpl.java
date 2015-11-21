@@ -10,8 +10,9 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
+
+import javax.security.auth.login.LoginException;
 
 
 public class UserDaoImpl implements UserDao {
@@ -39,6 +40,7 @@ public class UserDaoImpl implements UserDao {
             /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
             if ( resultSet.next() ) {
                 user = map( resultSet );
+                user.setPassword( resultSet.getString("password"));
             }
         } catch ( SQLException e ) {
             throw new DAOException( e );
@@ -110,7 +112,7 @@ public class UserDaoImpl implements UserDao {
 	private static final String SQL_INSERT_TOKEN_TIMESTAMP = "UPDATE user SET token=?,timetamps=? WHERE id=?;";
 	@SuppressWarnings("resource")
 	@Override
-	public User connection(String mail, String password,String token, Timestamp currentTimestamp) throws DAOException {
+	public User connection(String mail, String password,String token, Timestamp currentTimestamp) throws DAOException, LoginException {
 		Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -126,8 +128,12 @@ public class UserDaoImpl implements UserDao {
             if ( resultSet.next() ) {
                 user = map( resultSet );
             }
+            if(user == null){
+            	throw new LoginException("User not registrate");
+            }
             preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_TOKEN_TIMESTAMP, false, token,currentTimestamp,user.getId() );
             preparedStatement.executeUpdate();
+            
             user.setToken( resultSet.getString( "token" ) );
             user.setTimetamps( resultSet.getTimestamp("timetamps" ));
         } catch ( SQLException e ) {
@@ -162,12 +168,33 @@ public class UserDaoImpl implements UserDao {
 	        }
 	}
 	
+	
+	private static final String SQL_UPDATE = "UPDATE User SET password=?,lastName=?,firstName=?,adr1=?,adr2=?,pc=?,town=?,phone=?,mail=? WHERE id=?;";
+	@Override
+	public void update(User user) {
+		Connection connexion = null;
+	     PreparedStatement preparedStatement = null;
+
+	        try {
+	 
+	            connexion = daoFactory.getConnection();
+	            preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true,user.getPassword(), user.getLastName(), user.getFirstName(), user.getAdr1(),user.getAdr2(),user.getPc(),user.getTown(),user.getPhone(),user.getMail(),user.getId() );
+	            int statut = preparedStatement.executeUpdate();
+	           
+	            if ( statut == 0 ) {
+	                throw new DAOException( "Update Fail" );
+	            }	      
+	        } catch ( SQLException e ) {
+	            throw new DAOException( e );
+	        } finally {
+	            fermeturesSilencieuses(preparedStatement, connexion );
+	        }
+		
+	}
 	   
     /*
-     * Simple methode utilitaire permettant de faire la correspondance (le
-     * mapping) entre une ligne issue de la table des utilisateurs (un
-     * ResultSet) et un bean Utilisateur.
-     */
+	* For fill user with resulSet result 
+    */
     private static User map( ResultSet resultSet ) throws SQLException {
         User user = new User();
         user.setId( resultSet.getInt( "id" ) );
@@ -185,6 +212,9 @@ public class UserDaoImpl implements UserDao {
         user.setTimetamps(resultSet.getTimestamp("timetamps"));
         return user;
     }
+
+
+	
 
 
 }
