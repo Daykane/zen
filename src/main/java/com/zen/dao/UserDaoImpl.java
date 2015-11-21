@@ -40,6 +40,7 @@ public class UserDaoImpl implements UserDao {
             /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
             if ( resultSet.next() ) {
                 user = map( resultSet );
+                user.setPassword( resultSet.getString("password"));
             }
         } catch ( SQLException e ) {
             throw new DAOException( e );
@@ -167,6 +168,29 @@ public class UserDaoImpl implements UserDao {
 	        }
 	}
 	
+	
+	private static final String SQL_UPDATE = "UPDATE User SET password=?,lastName=?,firstName=?,adr1=?,adr2=?,pc=?,town=?,phone=?,mail=? WHERE id=?;";
+	@Override
+	public void update(User user) {
+		Connection connexion = null;
+	     PreparedStatement preparedStatement = null;
+
+	        try {
+	 
+	            connexion = daoFactory.getConnection();
+	            preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true,user.getPassword(), user.getLastName(), user.getFirstName(), user.getAdr1(),user.getAdr2(),user.getPc(),user.getTown(),user.getPhone(),user.getMail(),user.getId() );
+	            int statut = preparedStatement.executeUpdate();
+	           
+	            if ( statut == 0 ) {
+	                throw new DAOException( "Update Fail" );
+	            }	      
+	        } catch ( SQLException e ) {
+	            throw new DAOException( e );
+	        } finally {
+	            fermeturesSilencieuses(preparedStatement, connexion );
+	        }
+		
+	}
 	   
     /*
 	* For fill user with resulSet result 
@@ -188,6 +212,9 @@ public class UserDaoImpl implements UserDao {
         user.setTimetamps(resultSet.getTimestamp("timetamps"));
         return user;
     }
+
+
+	
 
 
 }

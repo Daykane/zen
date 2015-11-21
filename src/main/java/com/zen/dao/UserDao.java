@@ -20,4 +20,6 @@ public interface UserDao {
     void delete(int id) throws DAOException;
 
 	User connection(String mail, String password, String token, Timestamp currentTimestamp) throws DAOException, LoginException;
+
+	void update(User user);
 }
