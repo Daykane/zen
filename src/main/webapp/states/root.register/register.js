@@ -42,7 +42,8 @@
     registerController.$inject = ['$state', '$scope', 'Users'];
 
     angular.module('zen.states.register', [
-        'zen.services'
+        'zen.services',
+        'zen.api.users'
     ])
     .config(registerConfig)
     .run(registerRun)
