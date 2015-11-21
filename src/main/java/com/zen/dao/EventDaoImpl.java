@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class EventDaoImpl implements EventDao {
@@ -84,7 +86,7 @@ public class EventDaoImpl implements EventDao {
 		event.setMaxNubr(resultSet.getInt("maxNbr"));
 		event.setDurationHours(resultSet.getDouble("durationHours"));
 		event.setActivityId(resultSet.getInt("activityId"));
-		
+		event.setContributor(resultSet.getInt("contributorId"));
 		return event;
 	}
 
@@ -200,6 +202,52 @@ public class EventDaoImpl implements EventDao {
         }
 
         return event;
+	}
+
+	private static final String SQL_INSERT_Inscription = "INSERT INTO inscriptionEvent (`userId`, `eventId`, `inscriptionDate`) VALUES (?, ?, ?);";
+	@Override
+	public void subscribeEvent(String idE, String idU) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			Date date = new Date();
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_Inscription, true, idE, idU ,new Timestamp(date.getTime()));
+			int statut = preparedStatement.executeUpdate();
+
+			if ( statut == 0 ) {
+				throw new DAOException( "echec de l'inscription à l'event, aucune ligne ajoutee dans la table." );
+			}
+
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses(preparedStatement, connexion );
+		}
+		
+	}
+
+	private static final String SQL_DELETE_Inscription = "INSERT FROM inscriptionEvent where userId = ? and eventId = ? `inscriptionDate`);";
+	@Override
+	public void unsubscribeEvent(String idE, String idU) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_Inscription, true, idU, idE );
+			int statut = preparedStatement.executeUpdate();
+
+			if ( statut == 0 ) {
+				throw new DAOException( "echec de la desinscription à l'event, aucune ligne supprimee dans la table." );
+			}
+
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses(preparedStatement, connexion );
+		}
 	}
 
 }
