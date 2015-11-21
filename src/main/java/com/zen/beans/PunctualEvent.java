@@ -14,8 +14,8 @@ public class PunctualEvent extends AbstractEvent {
 
 
 	public PunctualEvent(int eventId, String eventName, Double eventPrice, Double durationHours, int maxNubr,
-			EventType eventType,Date punctualEventDate , int activityId) {
-		super(eventId, eventName, eventPrice, durationHours, maxNubr, eventType, activityId);
+			EventType eventType,Date punctualEventDate , int activityId, int contributorId ) {
+		super(eventId, eventName, eventPrice, durationHours, maxNubr, eventType, activityId, contributorId);
 		this.punctualEventDate = punctualEventDate;
 	}
 
