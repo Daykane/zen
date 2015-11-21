@@ -57,14 +57,14 @@
             return $scope.currentPage === 0 ? "disabled" : "";
         };
         
-        // $scope.productsFiltered = function (){
+        $scope.productsFiltered = function (){
+            productsFiltered = $scope.products;
+            productFiltered = $filter('')
 
-
-        // }
+        }
 
         $scope.pageCount = function() {
-            // productsFiltered = $scope.products;
-            // productFiltered = $filter('')
+            
             return Math.ceil($scope.products.length/$scope.pageSize)-1;
         };
 
@@ -79,7 +79,7 @@
         };
         //Init
     }
-    
+
     productListController.$inject = ['$scope', 'productListService', 'Products', '$filter', 'Categories'];
 
 
