@@ -14,7 +14,7 @@
 
     function storeController(){
         // Private variables
-
+        
         // Private methods
 
         // Public variables
@@ -26,6 +26,7 @@
 
     angular.module('zen.states.store', [
         'ui.router',
+        'zen.api.products',
         'zen.components.productList',
         'zen.states.root',
         'zen.services'

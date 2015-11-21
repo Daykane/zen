@@ -13,7 +13,9 @@
     function cartRun (){
     }
 
-    function cartController(){
+    function cartController($scope, authenticationService){
+
+        $scope.products = authenticationService.cart;
         // Private variables
 
         // Private methods
@@ -24,6 +26,7 @@
 
         // Init
     }
+    cartController.$inject = ['$scope', 'authenticationService'];
 
     angular.module('zen.states.cart', [
         'ui.router',
