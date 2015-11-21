@@ -43,9 +43,26 @@ public class CategoryDaoImpl  implements CategoryDao {
 		
 	}
 
+	private static final String SQL_DELETE = "DELETE FROM Category WHERE categoryId = ?";
 	@Override
 	public void delete(Category category) throws DAOException {
-		// TODO Auto-generated method stub
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        //ResultSet valeursAutoGenerees = null;
+
+        try {
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, true, category.getCategoryId() );
+            int statut = preparedStatement.executeUpdate();
+            /* Analyse du statut retourne par la requete d'insertion */
+            if ( statut == 0 ) {
+                throw new DAOException( "Deleted failed" );
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses(preparedStatement, connexion );
+        }
 		
 	}
 

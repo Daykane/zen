@@ -8,6 +8,7 @@ import java.util.List;
 
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -103,6 +104,21 @@ public class CategoryServlet {
 		Product  product = this.productDao.findByCategoryById(id,idP);
 
 		return product;
+	}
+	
+	@DELETE
+	@Path("{id}")
+	public Response deleteCategory(@PathParam("id") String id){
+		this.categoryDao = DAOFactory.getInstance().getCategoryDao();
+		Category category = this.categoryDao.find(id);		
+		try {
+			this.categoryDao.delete(category);
+			}
+		catch (DAOException e) {
+			return Response.status(500).build();
+		}
+		return Response.status(204).build();
+		
 	}
 
 	

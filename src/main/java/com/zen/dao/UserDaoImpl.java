@@ -64,15 +64,20 @@ public class UserDaoImpl implements UserDao {
             int statut = preparedStatement.executeUpdate();
            
             if ( statut == 0 ) {
-            	System.out.println("mail already exist");
+            	
                 throw new DAOException( "echec de la creation de l'utilisateur, aucune ligne ajoutee dans la table." );
             }
+
       
-        } catch (SQLIntegrityConstraintViolationException e) {
+        } 
+        catch (SQLIntegrityConstraintViolationException e) {
+        	
         	throw new DAOExceptionMail(e);
         }
+        
         catch ( SQLException e ) {
-            throw new DAOException(e);
+        	e.printStackTrace();
+            //throw new DAOException(e);
         } finally {
             fermeturesSilencieuses(preparedStatement, connexion );
         }
