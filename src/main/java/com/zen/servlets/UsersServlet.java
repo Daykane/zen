@@ -15,10 +15,13 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import static com.zen.dao.DAOUtilitaire.*;
+
+import com.zen.beans.AbstractEvent;
 import com.zen.beans.User;
 import com.zen.dao.DAOException;
 import com.zen.dao.DAOExceptionMail;
 import com.zen.dao.DAOFactory;
+import com.zen.dao.EventDao;
 import com.zen.dao.UserDao;
 
 
@@ -29,6 +32,7 @@ public class UsersServlet {
 	@Context
 	private UriInfo context;
 	private UserDao  userDao;
+	private EventDao eventDao;
 	
 	
 	@GET
@@ -86,5 +90,14 @@ public class UsersServlet {
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		this.userDao.update(user);
 		return Response.status(204).build();
+	}
+	
+	@GET
+	@Path("{id}/Events")
+	public List<AbstractEvent> getAllEvents(@PathParam("id") String id) {
+		this.eventDao = DAOFactory.getInstance().getEventDao();
+		List<AbstractEvent> events = this.eventDao.findAllEvent(id);
+		return events;
+
 	}
 }

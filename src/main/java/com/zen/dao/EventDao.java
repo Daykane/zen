@@ -27,6 +27,8 @@ public interface EventDao {
     
     void unsubscribeEvent(String idE, String idU);
     
+    public List<AbstractEvent> findAllEvent(String id) throws DAOException;
+    
     
     
 }

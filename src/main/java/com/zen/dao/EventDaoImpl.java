@@ -204,7 +204,7 @@ public class EventDaoImpl implements EventDao {
         return event;
 	}
 
-	private static final String SQL_INSERT_Inscription = "INSERT INTO inscriptionEvent (`userId`, `eventId`, `inscriptionDate`) VALUES (?, ?, ?);";
+	private static final String SQL_INSERT_Inscription = "INSERT INTO InscriptionEvent (`userId`, `eventId`, `inscriptionDate`) VALUES (?, ?, ?);";
 	@Override
 	public void subscribeEvent(String idE, String idU) {
 		Connection connexion = null;
@@ -228,7 +228,7 @@ public class EventDaoImpl implements EventDao {
 		
 	}
 
-	private static final String SQL_DELETE_Inscription = "INSERT FROM inscriptionEvent where userId = ? and eventId = ? `inscriptionDate`);";
+	private static final String SQL_DELETE_Inscription = "INSERT FROM InscriptionEvent where userId = ? and eventId = ? `inscriptionDate`);";
 	@Override
 	public void unsubscribeEvent(String idE, String idU) {
 		Connection connexion = null;
@@ -248,6 +248,34 @@ public class EventDaoImpl implements EventDao {
 		} finally {
 			fermeturesSilencieuses(preparedStatement, connexion );
 		}
+	}
+	
+	private static final String SQL_SELECT_EVENT_USER = "SELECT event.* FROM Event, InscriptionEvent WHERE InscriptionEvent.userId = ? and InscriptionEvent.eventId = Event.eventId";
+	@Override
+	public List<AbstractEvent> findAllEvent(String id) throws DAOException {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		AbstractEvent event = null;
+		List<AbstractEvent> events = new ArrayList<AbstractEvent>();
+
+		try {
+			/* Recuperation d'une connexion depuis la Factory */
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT, false );
+			resultSet = preparedStatement.executeQuery();
+			/* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+			while ( resultSet.next() ) {           
+				event = EventDaoImpl.map( resultSet );
+				events.add(event);   
+			}
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+		}
+
+		return events;
 	}
 
 }
