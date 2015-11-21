@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 
-import static com.zen.dao.DAOUtilitaire.Sha1;
+import static com.zen.dao.DAOUtilitaire.*;
 import com.zen.beans.LoginInfo;
 import com.zen.beans.User;
 import com.zen.dao.DAOException;
@@ -48,7 +48,7 @@ public class LoginServlet {
 		try {
 			userC = this.userDao.connection(mail, password,token,currentTimestamp);
 		} catch (DAOException e) {
-			e.printStackTrace();
+			return Response.status(500).entity("error").build();
 		} catch (LoginException e) {
 			return Response.status(400).entity("{\"UserError\": \"true\"}").build();
 		}
