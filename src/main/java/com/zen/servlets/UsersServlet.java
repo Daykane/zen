@@ -3,6 +3,7 @@ package com.zen.servlets;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import static com.zen.dao.DAOUtilitaire.*;
 import com.zen.beans.User;
 import com.zen.dao.DAOException;
 import com.zen.dao.DAOExceptionMail;
@@ -44,44 +46,19 @@ public class UsersServlet {
 
 	}
 	
-	/*
-	@POST
-	public void create(@FormParam("password") String password,
-			@FormParam("lastName") String lastName,
-			@FormParam("firstName") String firstName,
-			@FormParam("adr1") String adr1,
-			@FormParam("adr2") String adr2,			
-			@FormParam("pc") String pc,
-			@FormParam("town") String town,
-			@FormParam("phone") String phone,
-			@FormParam("mail") String mail
-			){
-		System.out.println("passeword" +password);
-		System.out.println("lastName" +lastName);
-		System.out.println("firstName" +firstName);
-		System.out.println("mail" +mail);
-		User user = new User();
-		user.setPassword(password);
-		user.setLastName(lastName);
-		user.setFirstName(firstName);
-		user.setAdr1(adr1);
-		user.setAdr2(adr2);
-		user.setPc(pc);
-		user.setTown(town);
-		user.setPhone(phone);
-		user.setMail(mail);
-		this.userDao = DAOFactory.getInstance().getUserDao();
-		this.userDao.create(user);
-	}
-	*/
+
 	@POST
 	public Response create(User user){
-		//System.out.println("user : " + user.toString());
+		//Verify user is not null
+		if(user==null){
+			return Response.status(400).entity("error in json format").build();
+		}
+		user.setPassword(Sha1(user.getPassword()));
+		
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		try {
 			this.userDao.create(user);
 		} catch (DAOExceptionMail e) {
-
 			return Response.status(400).entity("{\"mailError\": \"true\"}").build();
 		} catch (DAOException e) {
 			return Response.status(500).build();
@@ -89,12 +66,11 @@ public class UsersServlet {
 		return Response.status(201).build();
 	}
 		
-	/* ok
-	@GET
+	
+	@DELETE
 	@Path("{id}")
 	public void delete(@PathParam("id") int id) {
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		this.userDao.delete(id);
 	}
-	*/
 }

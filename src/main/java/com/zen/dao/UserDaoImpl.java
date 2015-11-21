@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.security.auth.login.LoginException;
@@ -170,10 +169,8 @@ public class UserDaoImpl implements UserDao {
 	
 	   
     /*
-     * Simple methode utilitaire permettant de faire la correspondance (le
-     * mapping) entre une ligne issue de la table des utilisateurs (un
-     * ResultSet) et un bean Utilisateur.
-     */
+	* For fill user with resulSet result 
+    */
     private static User map( ResultSet resultSet ) throws SQLException {
         User user = new User();
         user.setId( resultSet.getInt( "id" ) );
