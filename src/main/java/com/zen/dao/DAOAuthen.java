@@ -13,13 +13,24 @@ public class DAOAuthen {
 
 	
 	private UserDao userDao;
-
+	/*
 	public void authentification(String id, String req, String signature) throws AuthentificationException{
 		this.userDao = DAOFactory.getInstance().getUserDao();	
 		User user = this.userDao.findById(id);	
 		checkValidityToken(user.getToken(),user.getTimetamps());
 		String mySignature = generateSignature(req,user.getToken());
 		compare(mySignature,signature);
+	}
+	*/
+	
+	public int authenToken(String token) throws AuthentificationException{
+		this.userDao = DAOFactory.getInstance().getUserDao();	
+		User user = this.userDao.findByToken(token);
+		if(user == null){
+			throw new AuthentificationException("Please reconnection");
+		}
+		checkValidityToken(user.getToken(),user.getTimetamps());
+		return user.getId();
 	}
 
 	
@@ -37,7 +48,7 @@ public class DAOAuthen {
 			throw new AuthentificationException("Please reconnection");
 		}		
 	}
-
+	/*
 	private String generateSignature(String req, String token) {
 		String reqForSign = req+":"+token;
 		  byte[] output = null;
@@ -77,7 +88,7 @@ public class DAOAuthen {
 	      }
 	      return buf.toString();
 	   }
-	
+	*/
 
 	
 }

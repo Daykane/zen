@@ -52,10 +52,13 @@ public class UserDaoImpl implements UserDao {
     }
     
     private static final String SQL_INSERT = "INSERT INTO User (`password`, `lastName`, `firstName`, `adr1`, `adr2`, `pc`, `town`, `phone`, `mail`) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?);";
-    @Override
+    private static final String SQL_CHECK_MAIL ="SELECT * FROM user where mail=?";
+    @SuppressWarnings("resource")
+	@Override
     public void create( User user ) throws DAOException, DAOExceptionMail {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
         try {
  
@@ -71,8 +74,18 @@ public class UserDaoImpl implements UserDao {
       
         } 
         catch (SQLIntegrityConstraintViolationException e) {
-        	
-        	throw new DAOExceptionMail(e);
+        	 try {
+				preparedStatement = initialisationRequetePreparee( connexion, SQL_CHECK_MAIL, true,user.getMail());
+				resultSet = preparedStatement.executeQuery();
+				//System.out.println("id du result set :" + resultSet.getInt( "id" ));
+				if(resultSet.getInt( "id" ) != 0){
+					throw new DAOExceptionMail(e);
+				}
+			} catch (SQLException e1) {
+				throw new DAOException( e1 );
+			}
+             
+        	 throw new DAOException( e );
         }
         
         catch ( SQLException e ) {
@@ -196,6 +209,33 @@ public class UserDaoImpl implements UserDao {
 	        }
 		
 	}
+	
+	 private static final String SQL_SELECT_BY_TOKEN = "SELECT * FROM User WHERE token=?";
+	    @Override
+		public
+	    User findByToken( String token ) throws DAOException {
+	        Connection connexion = null;
+	        PreparedStatement preparedStatement = null;
+	        ResultSet resultSet = null;
+	        User user = null;
+
+	        try {
+	            /* Recuperation d'une connexion depuis la Factory */
+	            connexion = daoFactory.getConnection();
+	            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_TOKEN, false, token );
+	            resultSet = preparedStatement.executeQuery();
+	            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+	            if ( resultSet.next() ) {
+	                user = map( resultSet );
+	            }
+	        } catch ( SQLException e ) {
+	            throw new DAOException( e );
+	        } finally {
+	            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+	        }
+
+	        return user;
+	    }
 	   
     /*
 	* For fill user with resulSet result 
@@ -217,6 +257,8 @@ public class UserDaoImpl implements UserDao {
         user.setTimetamps(resultSet.getTimestamp("timetamps"));
         return user;
     }
+
+	
 
 
 	
