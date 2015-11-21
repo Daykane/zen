@@ -250,7 +250,7 @@ public class EventDaoImpl implements EventDao {
 		}
 	}
 	
-	private static final String SQL_SELECT_EVENT_USER = "SELECT event.* FROM Event, InscriptionEvent WHERE InscriptionEvent.userId = ? and InscriptionEvent.eventId = Event.eventId";
+	private static final String SQL_SELECT_EVENT_USER = "SELECT Event.* FROM Event, InscriptionEvent WHERE InscriptionEvent.userId = ? and InscriptionEvent.eventId = Event.eventId";
 	@Override
 	public List<AbstractEvent> findAllEvent(String id) throws DAOException {
 		Connection connexion = null;
