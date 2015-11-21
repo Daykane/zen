@@ -26,7 +26,7 @@
 	                }).then(function successCallback(response) {
 	                	currentUser.id= response.data.id;
 	                	currentUser.email = response.data.mail;
-	                	currentUser.fisrtName = response.data.firstName;
+	                	currentUser.firstName = response.data.firstName;
 	                	currentUser.lastName= response.data.lastName;
 	                	currentUser.adr1= response.data.adr1;
 	                	currentUser.adr2= response.data.adr2;
@@ -47,7 +47,9 @@
             	
             	doLogin();
         	},
-            currentUser: currentUser,
+            getCurrentUser: function(){
+            	return currentUser;
+            },
         	cart: cart,
         	isPasswordFailed: function(){
         		return passwordFailed;

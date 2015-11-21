@@ -21,6 +21,8 @@
         // Public variables
         $scope.account = accountService;
         $scope.authentication = authenticationService;
+        
+        $scope.currentUserName=authenticationService.getCurrentUser().firstName+" "+authenticationService.getCurrentUser().lastName;
 
         // Public methods
 

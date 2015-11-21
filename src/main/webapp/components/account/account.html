@@ -1,6 +1,6 @@
 <div id="zenAccount" data-ng-if="authentication.isConnected()" class="btn-group dropdown" uib-dropdown>
 	<button class="btn btn-primary navbar-btn" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
-    	Toto <span class="caret"></span>
+    	{{currentUserName}} <span class="caret"></span>
   	</button>
   	<ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
   		<li role="menuitem"><a href="#" class="btn-link" data-ng-click="account.goToCart()">Cart <span class="badge">2</span></a></li>
