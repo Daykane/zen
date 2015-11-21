@@ -128,7 +128,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	private static final String SQL_CONNECTION = "SELECT * FROM User WHERE mail = ? AND password = ?";
-	private static final String SQL_INSERT_TOKEN_TIMESTAMP = "UPDATE user SET token=?,timetamps=? WHERE id=?;";
+	private static final String SQL_INSERT_TOKEN_TIMESTAMP = "UPDATE User SET token=?,timetamps=? WHERE id=?;";
 	@SuppressWarnings("resource")
 	@Override
 	public User connection(String mail, String password,String token, Timestamp currentTimestamp) throws DAOException, LoginException {
