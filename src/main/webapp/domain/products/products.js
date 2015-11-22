@@ -4,7 +4,7 @@
     function Products($resource, apiUrl){
 
         // Init
-        var data = $resource(apiUrl + 'Products/:productId', null, {
+        var data = $resource(apiUrl + 'Products/:productId', {productId: '@productId'}, {
             'update': {
                 method: 'PUT',
                 params: {productId: '@productId'}

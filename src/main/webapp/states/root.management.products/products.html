@@ -32,7 +32,7 @@
 	        <div class="col-md-10">
 	            <div class="row">
 	            
-	            <div class="panel panel-default" data-ng-show="true">
+	            <div class="panel panel-default">
 		                    <div class="panel-heading text-right">
 		                        <div class="nav">
 		                            <label class="pull-left">
@@ -48,8 +48,7 @@
 										</div><!-- /btn-group -->
 									</div><!-- /input-group -->
 			                    </div>
-		                    </div>
-		                    <div class="panel-body">
+			                    <div class="panel-body">
 		                        <div class="nav">
 		                            <p class="pull-left">
 		                                <input ng-model="description" type="text" class="form-control" aria-label="..." placeholder="description..." required/>
@@ -64,30 +63,10 @@
 		                            </button>
 		                        </div>
 		                    </div>
+		                    </div>
+		                    
 	                	</div>
-	
-	                <div class="panel panel-default" data-ng-show="zenProductList.isManagement()">
-	                    <div class="panel-heading text-right">
-	                        <div class="nav">
-	                            <label class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="name..."/>
-	                            </label>
-	                            <label class="pull-right">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="price..."/>
-	                            </label>
-	                        </div>
-	                    </div>
-	                    <div class="panel-body">
-	                       <div class="nav">
-	                            <p class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="..."/>
-	                            </p>
-	                            <button class="btn btn-success pull-right" type="button">
-	                              Create
-	                            </button>
-	                        </div>
-	                    </div>
-	                </div>
+
 	                
 	                <div class="panel panel-default" ng-repeat="product in productsFiltered() | startFrom:currentPage*pageSize | limitTo:pageSize">
 	                    <div class="panel-heading text-right">
@@ -106,8 +85,8 @@
 	                                {{product.productDescr}}
 	                            </p>
 	                            <div data-ng-show="authentication.isConnected()">
-	                                <button class="btn btn-warning pull-right" type="button" data-ng-click="authentication.cart.push(product)">
-	                                  Add to cart
+	                                <button class="btn btn-danger pull-right" type="button" data-ng-click="deleteProduct(product)">
+	                                  Delete
 	                                </button>
 	                            </div>
 	                        </div>

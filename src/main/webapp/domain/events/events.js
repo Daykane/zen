@@ -9,7 +9,7 @@
                     params: {eventId: '@eventId'}
                 }
             });
-            return crud;
+            return resource;
         }
 
         function subscribe(eventId){
