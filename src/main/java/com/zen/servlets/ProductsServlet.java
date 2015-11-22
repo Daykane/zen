@@ -48,10 +48,10 @@ public class ProductsServlet {
 	
 	@POST
 	public Response create(Product product,@HeaderParam("token") String token){
-		/*
+		
 		DAOAuthen authen = new DAOAuthen();
 		String idU;
-		Boolean isAdmin = false;
+		//Boolean isAdmin = false;
 		//idU ="7";
 		
 		try {
@@ -60,7 +60,7 @@ public class ProductsServlet {
 			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
-		*/
+		
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		this.productDao.create(product);
 		return Response.status(201).build();
