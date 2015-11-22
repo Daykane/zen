@@ -126,7 +126,7 @@ public class UsersServlet {
 		
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		User user = this.userDao.findById(id);
-		if(Sha1(password.getOldPassword()) != user.getPassword()){
+		if(!Sha1(password.getOldPassword()).equals(user.getPassword())){
 			return Response.status(403).entity("{\"passwordError\": \"true\"}").build();
 		}
 		String updatePassword = Sha1(password.getNewPassword());
