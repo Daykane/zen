@@ -188,7 +188,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 
-	private static final String SQL_UPDATE = "UPDATE User SET lastName=?,firstName=?,adr1=?,adr2=?,pc=?,town=?,phone=?,mail=? WHERE id=?;";
+	private static final String SQL_UPDATE = "UPDATE User SET lastName=?,firstName=?,adr1=?,adr2=?,pc=?,town=?,phone=?,mail=?, isAdmin =? WHERE id=?;";
 	@Override
 	public void update(User user) throws DAOExceptionMail {
 		Connection connexion = null;
@@ -206,7 +206,7 @@ public class UserDaoImpl implements UserDao {
 				}
 			}		
 
-			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true, user.getLastName(), user.getFirstName(), user.getAdr1(),user.getAdr2(),user.getPc(),user.getTown(),user.getPhone(),user.getMail(),user.getId() );
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true, user.getLastName(), user.getFirstName(), user.getAdr1(),user.getAdr2(),user.getPc(),user.getTown(),user.getPhone(),user.getMail(), user.getIsAdmin() ,user.getId() );
 			int statut = preparedStatement.executeUpdate();
 
 			if ( statut == 0 ) {
@@ -288,6 +288,7 @@ public class UserDaoImpl implements UserDao {
 		//Remove token et timestamps , juste pour les tests d auhtentifications !!*
 		user.setToken(resultSet.getString( "token" ));
 		user.setTimetamps(resultSet.getTimestamp("timetamps"));
+		user.setIsAdmin(resultSet.getBoolean("isAdmin"));
 		return user;
 	}
 
