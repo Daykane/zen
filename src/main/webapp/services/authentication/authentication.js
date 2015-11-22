@@ -57,6 +57,9 @@
         	isConnected: function(){
     			return loginSuccess;
     		},
+            isNotConnected: function(){
+                return !loginSuccess;
+            },
         	activate: function(){
         		console.log("initialized");
         	},

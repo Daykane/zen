@@ -22,8 +22,7 @@
         $scope.authentication = authenticationService;
         $scope.account = accountService;
 
-        $scope.nbArticles = $scope.account.getNbArticles();
-        $scope.$watch($scope.account.getNbArticles(), function(){$scope.nbArticles = $scope.account.getNbArticles();});
+        $scope.nbArticles = authenticationService.cart.length;
         $scope.currentUserName=authenticationService.getCurrentUser().firstName+" "+authenticationService.getCurrentUser().lastName;
 
         // Public methods

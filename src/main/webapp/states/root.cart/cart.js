@@ -38,7 +38,7 @@
 
         // Public methods
         $scope.order = function(){
-             if (confirm("sure to delete")) {
+             if (confirm("Are you sure to order ?")) {
             // todo code for deletion
                 window.alert("Order sent !");
                 $scope.products = [];

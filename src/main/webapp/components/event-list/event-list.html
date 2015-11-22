@@ -21,12 +21,12 @@
                     <option ng-repeat="activity in activities" value='{{activity.activityId}}'>{{activity.activityName}}</option>
                 </select>
             </div>
-            <div class="list-group" data-ng-if="authentication.isConnected()">
+            <div class="list-group" data-ng-show="authentication.isConnected()">
                 <label class="label label-warning">Subscription</label>
                 <select ng-model='subscriptionFilter' class="form-control">
                     <option value=''>all</option>
-                    <option ng-value='subscribed'>subscribed</option>
-                    <option ng-value='unsubscribed'>unsubscribed</option>
+                    <option ng-value='"subscribed"'>subscribed</option>
+                    <option ng-value='"unsubscribed"'>unsubscribed</option>
                 </select>
             </div>
         </div>
@@ -34,7 +34,6 @@
         <div class="col-md-10">
             <div class="row">
                 
-
                 <div class="panel panel-default" ng-repeat="event in eventsFiltered() | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <div class="panel-heading text-right">
                         <div class="nav">

@@ -67,17 +67,19 @@
         ];
         //$scope.events = Events.query();
         $scope.events = events(allEvents, userEvents);
-        console.log($scope.events);
-        
 
         // Public methods
 
-        $scope.filterEventsByCategory = function (event) {
+        $scope.filterEventsByActivity = function (event) {
+            console.log("event activity=" + event.activityId + "filter=" + $scope.activityFilter);
+
             return !$scope.activityFilter ? 
                    event : (event.activityId == $scope.activityFilter);
         };
 
         $scope.filterEventsBySubscription = function (event) {
+            console.log("event subscribe=" + event.subscribe + "filter=" + $scope.subscriptionFilter);
+
             var subscribe = $scope.subscriptionFilter=='subscribed';
 
             return !$scope.subscriptionFilter ? 
@@ -101,10 +103,8 @@
         $scope.eventsFiltered = function (){
             var eventsFiltered = $scope.events;
             eventsFiltered = $filter('filter')(eventsFiltered, $scope.searchBar);
-            eventsFiltered = $filter('filter')(eventsFiltered, $scope.filterEventsByCategory);
-            //console.log("eventsFilteredCat: " + eventsFiltered);
+            eventsFiltered = $filter('filter')(eventsFiltered, $scope.filterEventsByActivity);
             eventsFiltered = $filter('filter')(eventsFiltered, $scope.filterEventsBySubscription);
-            //console.log("eventsFiltered: " + eventsFiltered);
             eventsFiltered = $filter('orderBy')(eventsFiltered, $scope.orderProps);
             return eventsFiltered
                 //event in events | filter:searchBar | filter: filterEvents | orderBy:orderProps | startFrom:currentPage*pageSize | limitTo:pageSize"
@@ -126,12 +126,10 @@
         };
 
         $scope.subscribe = function(event){
-            console.log(sub);
             Users.subscribe(event.eventId);
         }
 
         $scope.unsubscribe = function(event){
-            console.log(unsub);
             Users.unsubscribe(event.eventId);
         }
 
