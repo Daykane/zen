@@ -189,33 +189,23 @@ public class UserDaoImpl implements UserDao {
 
 
 	private static final String SQL_UPDATE = "UPDATE User SET lastName=?,firstName=?,adr1=?,adr2=?,pc=?,town=?,phone=?,mail=? WHERE id=?;";
-	@SuppressWarnings("resource")
 	@Override
 	public void update(User user) throws DAOExceptionMail {
 		Connection connexion = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		
+	
 		try {
 			connexion = daoFactory.getConnection();
-		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
-			throw new DAOException( e2 );
-		}
-		try {
-			
 			preparedStatement = initialisationRequetePreparee( connexion, SQL_CHECK_MAIL, true,user.getMail());
 			resultSet = preparedStatement.executeQuery();
-				//System.out.println("id du result set :" + resultSet.getInt( "id" ));
-				if(resultSet.getInt( "id" ) != 0 && resultSet.getInt( "id" )!= user.getId() ){
+
+			if ( resultSet.next() ) {
+				if(resultSet.getInt( "id" ) != 0 && resultSet.getInt( "id" ) != user.getId()){
 					throw new DAOExceptionMail();
 				}
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			throw new DAOException( e1 );
-		}		
-		try {
-			
+			}		
+
 			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE, true, user.getLastName(), user.getFirstName(), user.getAdr1(),user.getAdr2(),user.getPc(),user.getTown(),user.getPhone(),user.getMail(),user.getId() );
 			int statut = preparedStatement.executeUpdate();
 
