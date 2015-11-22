@@ -14,4 +14,9 @@ public class DAOExceptionMail extends Exception {
 		super(e);
 	}
 
+
+	public DAOExceptionMail() {
+		super();
+	}
+
 }

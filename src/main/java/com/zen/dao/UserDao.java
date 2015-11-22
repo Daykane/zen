@@ -22,7 +22,7 @@ public interface UserDao {
 
 	User connection(String mail, String password, String token, Timestamp currentTimestamp) throws DAOException, LoginException;
 
-	void update(User user);
+	void update(User user) throws DAOExceptionMail;
 
 	User findByToken(String token);
 	

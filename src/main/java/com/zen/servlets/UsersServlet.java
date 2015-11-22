@@ -101,7 +101,11 @@ public class UsersServlet {
 		user.setId(id);
 		//user.setPassword(Sha1(user.getPassword()));
 		this.userDao = DAOFactory.getInstance().getUserDao();
-		this.userDao.update(user);
+		try {
+			this.userDao.update(user);
+		} catch (DAOExceptionMail e) {
+			return Response.status(400).entity("{\"mailError\": \"true\"}").build();
+		}
 		return Response.status(204).build();
 	}
 	
