@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.zen.beans.Product;
+import com.zen.dao.AuthentificationException;
 import com.zen.dao.DAOAuthen;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.ProductDao;
@@ -45,11 +47,20 @@ public class ProductsServlet {
 	}
 	
 	@POST
-	public Response create(Product product){
-		if (product == null){
-			return Response.status(400).entity("error in json format").build();
-		}
+	public Response create(Product product,@HeaderParam("token") String token){
+		/*
+		DAOAuthen authen = new DAOAuthen();
+		String idU;
+		Boolean isAdmin = false;
+		//idU ="7";
 		
+		try {
+			idU = Integer.toString(authen.authenToken(token));
+		} catch (AuthentificationException e) {
+			// TODO Auto-generated catch block
+			return Response.status(403).entity(e.getMessage()).build();
+		}
+		*/
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		this.productDao.create(product);
 		return Response.status(201).build();
