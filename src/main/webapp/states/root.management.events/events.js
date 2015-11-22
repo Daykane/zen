@@ -50,7 +50,7 @@
     	};
     	
     	$scope.deleteEvent = function(event){
-    		Events.crud().delete({eventId: event.eventId});
+    		Events.crud().delete({eventId: event.eventId}, function(){$scope.events=Events.crud().query();} );
     	};
         
         $scope.getNumber = function(start, end) {
@@ -77,26 +77,7 @@
         //$scope.events = events($scope.allEvents, $scope.userEvents);
         
 
-        //load events
-        function events (allEvents, userEvents){
-            var j = 0, i = 0;
-            var events = allEvents;
-            for (i = 0; i<allEvents.length; i++){
-                if (j == userEvents.length ){
-                    events[i].subscribe = false;
-                }
-                else{
-                    if (allEvents[i].eventId == userEvents[j].eventId){
-                        events[i].subscribe = true;
-                        j++;
-                    }
-                    else{
-                        events[i].subscribe = false;
-                    }
-                }
-            }
-            return events
-        }
+        
 
 
         // Public methods
