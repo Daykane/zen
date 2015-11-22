@@ -25,5 +25,7 @@ public interface UserDao {
 	void update(User user) throws DAOExceptionMail;
 
 	User findByToken(String token);
+
+	void updatePassword(String updatePassword, String idU);
 	
 }

@@ -18,6 +18,7 @@ import javax.ws.rs.core.UriInfo;
 import static com.zen.dao.DAOUtilitaire.*;
 
 import com.zen.beans.AbstractEvent;
+import com.zen.beans.Password;
 import com.zen.beans.User;
 import com.zen.dao.AuthentificationException;
 import com.zen.dao.DAOAuthen;
@@ -111,7 +112,7 @@ public class UsersServlet {
 	
 	@PUT
 	@Path("{id}/changePassword")
-	public Response changePassword(@PathParam("id") String id,@HeaderParam("token") String token){
+	public Response changePassword(Password password,@PathParam("id") String id,@HeaderParam("token") String token){
 		DAOAuthen authen = new DAOAuthen();
 		String idU;
 		//idU ="7";
@@ -122,7 +123,15 @@ public class UsersServlet {
 			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
-		return null;
+		
+		this.userDao = DAOFactory.getInstance().getUserDao();
+		User user = this.userDao.findById(id);
+		if(Sha1(password.getOldPassword()) != user.getPassword()){
+			return Response.status(403).entity("{\"passwordError\": \"true\"}").build();
+		}
+		String updatePassword = Sha1(password.getNewPassword());
+		this.userDao.updatePassword(updatePassword,idU);
+		return Response.status(204).build();
 		
 	}
 	

@@ -247,6 +247,29 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
+	private static final String SQL_UPDATE_PASSWORD = "UPDATE User SET password=? WHERE id=?;";
+	@Override
+	public void updatePassword(String updatePassword, String idU) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+	
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE_PASSWORD, true, updatePassword,idU );
+			int statut = preparedStatement.executeUpdate();
+
+			if ( statut == 0 ) {
+				throw new DAOException( "Update Fail" );
+			}	      
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses(preparedStatement, connexion );
+		}
+		
+	}
+	
 	/*
 	 * For fill user with resulSet result 
 	 */
@@ -267,6 +290,8 @@ public class UserDaoImpl implements UserDao {
 		user.setTimetamps(resultSet.getTimestamp("timetamps"));
 		return user;
 	}
+
+	
 
 
 
