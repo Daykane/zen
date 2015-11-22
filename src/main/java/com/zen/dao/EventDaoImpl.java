@@ -59,7 +59,7 @@ public class EventDaoImpl implements EventDao {
 		try {
 
 			connexion = daoFactory.getConnection();
-			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, event.getEventName(), event.getEventPrice() ,event.getMaxNubr(), event.getDurationHours(), event.getActivityId(), event.getContributor(), event.getEventDay(), event.getStartTime(), event.getEndTime());
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, event.getEventName(), event.getEventPrice() ,event.getMaxNubr(), event.getDurationHours(), event.getActivityId(), 1, event.getEventDay(), event.getStartTime(), event.getEndTime());
 			int statut = preparedStatement.executeUpdate();
 
 			if ( statut == 0 ) {
