@@ -21,7 +21,7 @@
                     <option ng-repeat="activity in activities" value='{{activity.activityId}}'>{{activity.activityName}}</option>
                 </select>
             </div>
-            <div class="list-group">
+            <div class="list-group" data-ng-if="authentication.isConnected()">
                 <label class="label label-warning">Subscription</label>
                 <select ng-model='subscriptionFilter' class="form-control">
                     <option value=''>all</option>
@@ -51,18 +51,20 @@
                             <p class="pull-left">
                                 Contributor : {{event.contributor}}
                             </p>
-                            <button class="btn btn-info pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="!event.subscribe" data-ng-click ='event.subscribe = true' data-ng-change="subscribe(event)">
-                              Subscribe
-                            </button>
-                            <button class="btn btn-danger pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="event.subscribe" data-ng-click ='event.subscribe = false' data-ng-change="unsubscribe(event)">
-                              Unsubscribe
-                            </button>
+                            <div data-ng-if="authentication.isConnected()">
+                                <button class="btn btn-info pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="!event.subscribe" data-ng-click ='event.subscribe = true' data-ng-change="subscribe(event)">
+                                  Subscribe
+                                </button>
+                                <button class="btn btn-danger pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="event.subscribe" data-ng-click ='event.subscribe = false' data-ng-change="unsubscribe(event)">
+                                  Unsubscribe
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
-                <nav>
+                <nav ng-show="pageCount()!=-1">
                     <ul class="pagination">
                         <li ng-class="prevPageDisabled()">
                           <a href ng-click="prevPage()">«</a>
@@ -75,6 +77,9 @@
                         </li>
                     </ul>
                 </nav>
+                <div class="alert alert-danger" ng-show="pageCount()==-1">
+                    no events
+                </div>
             </div>
         </div>
     </div>

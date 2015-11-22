@@ -8,7 +8,7 @@
      */
     function authenticationService($http, apiUrl){    
     	var currentUser= {id: "", email: "", firstName: "", lastName: "", adr1: "", adr2: "", postalCode: "", town: "", phone: ""};
-        var cart;
+        var cart = [];
         var loginSuccess= false;
         var passwordFailed=false;
     	return {
@@ -55,8 +55,8 @@
         		return passwordFailed;
         	},
         	isConnected: function(){
-        			return loginSuccess;
-        		},
+    			return loginSuccess;
+    		},
         	activate: function(){
         		console.log("initialized");
         	},

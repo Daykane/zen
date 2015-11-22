@@ -11,7 +11,7 @@
         };
     }
 
-    function eventListController($scope, productListService, $filter, Events, Activities, authenticationService, attrs){
+    function eventListController($scope, eventListService, $filter, Events, Activities, authenticationService, attrs){
         // Private variables
         var allEvents = [
             {"eventId":1,"eventName":"Kendo senior","eventPrice":10.0,"durationHours":2.0,"maxNubr":30,"eventType":null,"activityId":1,"contributor":0},
@@ -21,11 +21,13 @@
             {"eventId":5,"eventName":"Yoga Debutant","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0},
             {"eventId":6,"eventName":"Yoga Yolo","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0}
         ];
-        var userEvents = [
-            {"eventId":1,"eventName":"event1","eventPrice":10.0,"durationHours":2.0,"maxNubr":30,"eventType":null,"activityId":1,"contributor":0},
-            {"eventId":5,"eventName":"Yoga Debutant","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0}
-        ];
-
+        var userEvents = [];
+        if (authenticationService.isConnected()){
+                userEvents = [
+                {"eventId":1,"eventName":"event1","eventPrice":10.0,"durationHours":2.0,"maxNubr":30,"eventType":null,"activityId":1,"contributor":0},
+                {"eventId":5,"eventName":"Yoga Debutant","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0}
+            ];
+        }
         // Private methods
         function events (allEvents, userEvents){
             var j = 0, i = 0;
@@ -50,7 +52,7 @@
         
         // Public variables
 
-
+        $scope.authentication = authenticationService;
         $scope.searchBar = "";
         $scope.orderProps = "";
         $scope.currentPage = 0;
@@ -135,7 +137,7 @@
 
         // Init
     }
-    eventListController.$inject = ['$scope', 'productListService', '$filter','Events', 'Activities', 'authenticationService'];
+    eventListController.$inject = ['$scope', 'eventListService', '$filter','Events', 'Activities', 'authenticationService'];
 
     angular.module('zen.components.eventList', [
         'zen.api.activities',

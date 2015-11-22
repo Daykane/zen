@@ -28,6 +28,7 @@
         // Private methods
 
         // Public variables
+        $scope.authentication = authenticationService;
         $scope.searchBar = "";
         $scope.orderProps = "";
         $scope.currentPage = 0;
