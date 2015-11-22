@@ -46,7 +46,7 @@
     	$scope.updatePassword = function(){
     		if($scope.password!="" && $scope.newPassword!="" && $scope.newPassword == $scope.newPasswordConfirm){
     			$scope.passwordMatch= true;
-    			data={oldPassword: $scope.oldPassword, newPassword: $scope.newPassword};
+    			var data={oldPassword: $scope.password, newPassword: $scope.newPassword};
     			$http({
                     method: 'PUT',
                     headers: {
