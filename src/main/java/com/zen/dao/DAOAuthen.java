@@ -48,6 +48,15 @@ public class DAOAuthen {
 			throw new AuthentificationException("Please reconnection");
 		}		
 	}
+	
+	private boolean isAdmin(String id){
+		this.userDao = DAOFactory.getInstance().getUserDao();	
+		User user = this.userDao.findById(id);
+		if(user.getIsAdmin()){
+			return true;
+		}
+		return false;		
+	}
 	/*
 	private String generateSignature(String req, String token) {
 		String reqForSign = req+":"+token;
