@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -18,6 +19,8 @@ import static com.zen.dao.DAOUtilitaire.*;
 
 import com.zen.beans.AbstractEvent;
 import com.zen.beans.User;
+import com.zen.dao.AuthentificationException;
+import com.zen.dao.DAOAuthen;
 import com.zen.dao.DAOException;
 import com.zen.dao.DAOExceptionMail;
 import com.zen.dao.DAOFactory;
@@ -44,7 +47,17 @@ public class UsersServlet {
 	
 	@GET
 	@Path("{id}")
-	public User getOneJSON(@PathParam("id") String id) {
+	public Object getOneJSON(@PathParam("id") String id,@HeaderParam("token") String token) {
+		DAOAuthen authen = new DAOAuthen();
+		String idU;
+		//idU ="7";
+		
+		try {
+			idU = Integer.toString(authen.authenToken(token));
+		} catch (AuthentificationException e) {
+			// TODO Auto-generated catch block
+			return Response.status(403).entity(e.getMessage()).build();
+		}
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		User user = this.userDao.findById(id);
 		return user;
