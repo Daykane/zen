@@ -13,17 +13,43 @@
     function productsRun (){
     }
 
-    function productsController(){
-        // Private variables
-
-        // Private methods
-
-        // Public variables
-
-        // Public methods
-
-        // Init
+    function productsController($state, $scope, authenticationService, $http, apiUrl){
+        
+    	$scope.name="";
+    	$scope.price="";
+    	$scope.category="";
+    	$scope.quantity= "";
+    	$scope.description="";
+    	
+    	$scope.createProduct=function(){
+    		
+    		if($scope.name!="" && $scope.price!="" && $scope.category!="" && $scope.category!="" && $scope.quantity!= "" && $scope.description!="" && !isNaN($scope.price) && !isNaN($scope.quantity)){
+    			var data={productName: $scope.name, productDescr: $scope.description, availableQuantity: $scope.quantity, categoryProduct: 1, price: $scope.price};
+        		$http({
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "token": authenticationService.getCookieToken
+                    },
+                    dataType: "json",
+                    url: apiUrl+'Products',
+                    data: JSON.stringify(data),
+                }).then(function successCallback(response) {
+                	$scope.name="";
+                	$scope.price="";
+                	$scope.category="";
+                	$scope.quantity= "";
+                	$scope.description="";
+                  }, function errorCallback(response) {
+                	  
+                  });
+    		}
+    		
+    	};
+    	
     }
+    
+    productsController.$inject = ['$state', '$scope', 'authenticationService', '$http', 'apiUrl'];
 
     angular.module('zen.states.products', [
         'ui.router',

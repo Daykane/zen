@@ -58,17 +58,17 @@
 	        <div class="col-md-10">
 	            <div class="row">
 
-	            	<div class="panel panel-default" data-ng-if="true">
+	            	<div class="panel panel-default" data-ng-show="true">
 	                    <div class="panel-heading text-right">
 	                        <div class="nav">
 	                            <label class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="name..."/>
+	                                <input ng-model="name" type="text" class="form-control" aria-label="..." placeholder="name..." required/>
 	                            </label>
 	                            <label class="pull-right">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="price..."/>
+	                                <input ng-model="price" type="number" class="form-control" aria-label="..." placeholder="price..." required/>
 	                            </label>
 	                            <div class="input-group">
-							      	<input type="text" class="form-control" aria-label="..." placeholder="category..."/>
+							      	<input ng-model="category" type="text" class="form-control" aria-label="..." placeholder="category..." required/>
 						      		<div class="input-group-btn">
 							        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	
 							        		<span class="caret"></span>
@@ -86,9 +86,14 @@
 	                    <div class="panel-body">
 	                        <div class="nav">
 	                            <p class="pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
+	                                <input ng-model="description" type="text" class="form-control" aria-label="..." placeholder="description..." required/>
 	                            </p>
-	                            <button class="btn btn-success pull-right" type="button">
+	                            <p class="pull-right">
+	                                <input ng-model="quantity" type="number" class="form-control" aria-label="..." placeholder="quantity" required/>
+	                            </p>
+	                        </div>
+	                        <div class="nav">
+	                        	<button ng-click="createProduct()" class="btn btn-success pull-right" type="button">
 	                              Create
 	                            </button>
 	                        </div>

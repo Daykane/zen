@@ -12,7 +12,7 @@
 
     function loginRun(){}
 
-    function loginController(authenticationService, $state, $scope){
+    function loginController(authenticationService, $state, $scope, GooglePlus){
         // Private variables
         //var self = this;
     	$scope.email="";
@@ -32,9 +32,21 @@
     			authenticationService.login($scope.email, $scope.password, doCallback);
     		}
     	}
+    	
+    	$scope.Glogin = function () {
+            GooglePlus.login().then(function (authResult) {
+                //console.log(authResult);
+
+                GooglePlus.getUser().then(function (user) {
+                    console.log(user);
+                });
+            }, function (err) {
+                console.log(err);
+            });
+        };
 
     }
-    loginController.$inject = ['authenticationService', '$state', '$scope'];
+    loginController.$inject = ['authenticationService', '$state', '$scope', 'GooglePlus'];
 
     angular.module('zen.states.login', [
         'zen.services'
