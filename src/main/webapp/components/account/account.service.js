@@ -22,6 +22,9 @@
         function goToCart(){
             $state.go('root.cart');
         }
+        function getNbArticles(){
+            return authenticationService.cart.length;
+        }
         // Public
         return {
             activate: activate,
@@ -29,6 +32,8 @@
             logout: logout,
             goToSettings: goToSettings,
             goToCart: goToCart,
+            getNbArticles: getNbArticles
+
         };
     }
     accountService.$inject = ['authenticationService', '$state'];

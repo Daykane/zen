@@ -19,9 +19,10 @@
         // Private methods
 
         // Public variables
-        $scope.account = accountService;
         $scope.authentication = authenticationService;
-        
+        $scope.account = accountService;
+
+        $scope.nbArticles = authenticationService.cart.length;
         $scope.currentUserName=authenticationService.getCurrentUser().firstName+" "+authenticationService.getCurrentUser().lastName;
 
         // Public methods

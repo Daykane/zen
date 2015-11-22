@@ -1,20 +1,32 @@
 <div id="zenEventList">
     <div class="row">
         <div class="col-md-2">
+            <p class="lead">Search</p>
+            <div class="list-group">
+                <input ng-model='searchBar' class="form-control">
+            </div>
+
             <p class="lead">Sort by</p>
             <div class="list-group">
-                <label href="#" class="label label-info">Name</label>
-                <br/>
-                <label href="#" class="label label-success">Activity</label>
-                <br/>
-                <label href="#" class="label label-warning">Day</label>
+                <select ng-model='orderProps' class="form-control">
+                    <option value='eventName'>Name</option>
+                    <option value='eventActivity'>Category</option>
+                </select>
             </div>
             <p class="lead">Filters</p>
             <div class="list-group">
-                <label class="label label-success">Activties</label>
-                <select ng-model='categoryFilter' class="form-control">
-                    <option value=''></option>
+                <label class="label label-success">Activities</label>
+                <select ng-model='activityFilter' class="form-control">
+                    <option value=''>all</option>
                     <option ng-repeat="activity in activities" value='{{activity.activityId}}'>{{activity.activityName}}</option>
+                </select>
+            </div>
+            <div class="list-group" data-ng-show="authentication.isConnected()">
+                <label class="label label-warning">Subscription</label>
+                <select ng-model='subscriptionFilter' class="form-control">
+                    <option value=''>all</option>
+                    <option ng-value='"subscribed"'>subscribed</option>
+                    <option ng-value='"unsubscribed"'>unsubscribed</option>
                 </select>
             </div>
         </div>
@@ -22,7 +34,6 @@
         <div class="col-md-10">
             <div class="row">
                 
-
                 <div class="panel panel-default" ng-repeat="event in eventsFiltered() | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <div class="panel-heading text-right">
                         <div class="nav">
@@ -39,31 +50,35 @@
                             <p class="pull-left">
                                 Contributor : {{event.contributor}}
                             </p>
-                            <!--button class="btn btn-info pull-right" type="button" data-ng-if="context === 'store'">
-                              Subscribe
-                            </button>
-                            <button class="btn btn-danger pull-right" type="button" data-ng-if="context === 'store'">
-                              Unsubscribe
-                            </button-->
+                            <div data-ng-if="authentication.isConnected()">
+                                <button class="btn btn-info pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="!event.subscribe" data-ng-click ='event.subscribe = true' data-ng-change="subscribe(event)">
+                                  Subscribe
+                                </button>
+                                <button class="btn btn-danger pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="event.subscribe" data-ng-click ='event.subscribe = false' data-ng-change="unsubscribe(event)">
+                                  Unsubscribe
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <nav>
+
+                <nav ng-show="pageCount()!=-1">
                     <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
+                        <li ng-class="prevPageDisabled()">
+                          <a href ng-click="prevPage()">«</a>
                         </li>
-                        <li><a href="#">1</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
+                        <li ng-repeat="n in [0, pageCount()] | range" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                          <a href="#">{{n+1}}</a>
+                        </li>
+                        <li ng-class="nextPageDisabled()">
+                          <a href ng-click="nextPage()">»</a>
                         </li>
                     </ul>
                 </nav>
+                <div class="alert alert-danger" ng-show="pageCount()==-1">
+                    no events
+                </div>
             </div>
         </div>
     </div>

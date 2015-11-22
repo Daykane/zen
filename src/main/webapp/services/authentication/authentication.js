@@ -8,7 +8,7 @@
      */
     function authenticationService($http, apiUrl, ipCookie){    
     	var currentUser= {token: "", id: "", email: "", firstName: "", lastName: "", adr1: "", adr2: "", postalCode: "", town: "", phone: ""};
-        var cart;
+        var cart = [];
         var loginSuccess= false;
         var passwordFailed=false;
         var cookieToken= null;
@@ -74,6 +74,9 @@
         	getCookieToken: function(){
         		return cookieToken;
         	},
+            isNotConnected: function(){
+                return !loginSuccess;
+            },
         	activate: function(){
         		cookieToken = ipCookie("token");
         		cookieId = ipCookie("id");
