@@ -71,8 +71,8 @@ public class ProductsServlet {
 	@Path("{id}")
 	public Response delete(@PathParam("id") String id) {
 		this.productDao = DAOFactory.getInstance().getProductDao();
-		Product product = this.productDao.find(id);
-		this.productDao.delete(product);
+		//Product product = this.productDao.find(id);
+		this.productDao.delete(id);
 		return Response.status(204).build();
 	}
 	

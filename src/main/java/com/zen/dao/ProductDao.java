@@ -8,7 +8,7 @@ public interface ProductDao {
 
     void create( Product product ) throws DAOException;
     
-    void delete(Product product) throws DAOException;
+    void delete(String id) throws DAOException;
     
     void update(int id, Product product)  throws DAOException;
 

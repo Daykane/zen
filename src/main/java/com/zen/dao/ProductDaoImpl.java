@@ -109,14 +109,14 @@ public class ProductDaoImpl  implements ProductDao {
 	
 	private static final String SQL_DELETE = "DELETE FROM Product WHERE productId = ?";
 	@Override
-	public void delete(Product product) throws DAOException {
+	public void delete(String id) throws DAOException {
 		Connection connexion = null;
         PreparedStatement preparedStatement = null;
         //ResultSet valeursAutoGenerees = null;
 
         try {
             connexion = daoFactory.getConnection();
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, true, product.getProductId() );
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE, true, id );
             int statut = preparedStatement.executeUpdate();
             /* Analyse du statut retourne par la requete d'insertion */
             if ( statut == 0 ) {
