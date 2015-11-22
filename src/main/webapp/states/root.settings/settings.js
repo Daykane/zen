@@ -14,6 +14,20 @@
     }
 
     function settingsController($state, $scope, authenticationService, $http, apiUrl){
+    	
+    	$scope.wantToUpdateProfile=true;
+    	$scope.wantToUpdatePassword=false;
+    	
+    	$scope.wantChangePassword=function(){
+    		$scope.wantToUpdateProfile=false;
+        	$scope.wantToUpdatePassword=true;
+    	}
+    	
+    	$scope.wantChangeProfile=function(){
+    		$scope.wantToUpdateProfile=true;
+        	$scope.wantToUpdatePassword=false;
+    	}
+    	
     	$scope.email= authenticationService.getCurrentUser().email;
     	$scope.id= authenticationService.getCurrentUser().id;
     	$scope.firstName= authenticationService.getCurrentUser().firstName;
@@ -25,6 +39,22 @@
     	$scope.phone= authenticationService.getCurrentUser().phone;
     	
     	$scope.mailAlreadyUsed= false;
+    	$scope.newPassword= "";
+    	$scope.newPasswordConfirm="";
+    	
+    	$scope.updatePassword = function(){
+    		if($scope.newPassword == $scope.newPasswordConfirm){
+    			console.log("hello");
+    			console.log($scope.newPassword);
+    			console.log($scope.newPasswordConfirm);
+    		}
+    		else{
+    			$scope.passwordMatch= false;
+    			console.log("not hello");
+    		}
+    	};
+    	
+    	$scope.passwordMatch= true;
     	
     	$scope.updateInfos= function(){
     		var data= {mail: $scope.email, id: $scope.id, firstName: $scope.firstName, lastName: $scope.lastName, adr1: $scope.adr1, adr2: $scope.adr2, pc: $scope.postalCode, town: $scope.town, phone: $scope.phone};
