@@ -91,7 +91,7 @@ public class EventServlet {
 	public Response subscribeEvent(@PathParam("idE") String idE, @HeaderParam("token") String token) {
 		DAOAuthen authen = new DAOAuthen();
 		String idU;
-		//idU ="7";
+		//idU ="6";
 		
 		try {
 			idU = Integer.toString(authen.authenToken(token));
