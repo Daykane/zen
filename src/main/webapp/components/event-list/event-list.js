@@ -13,17 +13,19 @@
 
     function eventListController($scope, eventListService, $filter, Events, Activities, Users, authenticationService){
         // Private variables
-        var allEvents = Events.getAll();
-        var userEvents = [];
+        $scope.allEvents = Events.getAll();
+        $scope.userEvents = [];
+
         if (authenticationService.isConnected()){
-                userEvents = Users.getEvents();
+                $scope.userEvents = Users.getEvents(authenticationService.getCurrentUser().id);
         }
+
         // Private methods
         function events (allEvents, userEvents){
             var j = 0, i = 0;
             var events = allEvents;
             for (i = 0; i<allEvents.length; i++){
-                if (j == userEvents.length){
+                if (j == userEvents.length ){
                     events[i].subscribe = false;
                 }
                 else{
@@ -37,7 +39,6 @@
                 }
             }
             return events
-
         }
         
         // Public variables
@@ -51,12 +52,9 @@
         $scope.subscriptionFilter = "";
 
         //$scope.categories = Categories.query();
-        $scope.activities=[
-            {"activityId":1,"activityName":"Kendo","activityLongDesc":"LongDesc","listEvent":null,"activityShortDescr":"ShortDesc"},
-            {"activityId":2,"activityName":"Yoga","activityLongDesc":"LongDesc","listEvent":null,"activityShortDescr":"ShortDesc"}
-        ];
+        $scope.activities= Activities.query();
         //$scope.events = Events.query();
-        $scope.events = events(allEvents, userEvents);
+        $scope.events = events($scope.allEvents, $scope.userEvents);
 
         // Public methods
 

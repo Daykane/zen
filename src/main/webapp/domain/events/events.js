@@ -2,46 +2,50 @@
     'use strict';
 
     function Events(apiUrl, $http, $resource, authenticationService){
-        function crud(){
-            crud = $resource(apiUrl + 'Events/:eventId', null, {
+        function crud(callback){
+            var resource = $resource(apiUrl + 'Events/:eventId', null, {
             'update': {
                 method: 'PUT',
                 params: {eventId: '@eventId'}
             }
             });
 
-            return crud;
+            return callback(resource);
         }
 
         // Private methods
         function get(eventId){
-            return crud().get({eventId: eventId});
+            return crud(function(resource){
+                return resource.get({userId: userId});
+            });
         }
 
         function getAll(){
-            return crud().query();
+            return crud(function(resource){
+                return resource.query();
+            });
         }
 
         function subscribe(eventId){
-             var subscribe = $resource(apiUrl + 'Events/9/subscribe', null, {
+             var subscribe = $resource(apiUrl + 'Events/:eventId/subscribe', null, {
             'get': {
                 method: 'GET',
                 params: {eventId: '@eventId'},
                 headers: {'token': authenticationService.getCurrentUser().token}
             }
             });
-            subscribe.get();
+            subscribe.get({eventId: eventId});
         }
 
         function unsubscribe(eventId){
-             var unsubscribe = $resource(apiUrl + 'Events/9/unsubscribe', null, {
+             var unsubscribe = $resource(apiUrl + 'Events/:eventId/unsubscribe', null, {
             'get': {
                 method: 'GET',
                 params: {eventId: '@eventId'},
                 headers: {'token': authenticationService.getCurrentUser().token}
             }
             });
-            unsubscribe.get();
+            unsubscribe.get({eventId: eventId});
         }
 
         // Public API
