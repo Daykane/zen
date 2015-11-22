@@ -51,10 +51,10 @@
                                 Contributor : {{event.contributor}}
                             </p>
                             <div data-ng-if="authentication.isConnected()">
-                                <button class="btn btn-info pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="!event.subscribe" data-ng-click ='event.subscribe = true' data-ng-change="subscribe(event)">
+                                <button class="btn btn-info pull-right" type="button" data-ng-show="!event.subscribe" data-ng-click ='subscribe(event)'>
                                   Subscribe
                                 </button>
-                                <button class="btn btn-danger pull-right" type="button" data-ng-model="event.subscribe" data-ng-show="event.subscribe" data-ng-click ='event.subscribe = false' data-ng-change="unsubscribe(event)">
+                                <button class="btn btn-danger pull-right" type="button" data-ng-show="event.subscribe" data-ng-click ='unsubscribe(event)'>
                                   Unsubscribe
                                 </button>
                             </div>

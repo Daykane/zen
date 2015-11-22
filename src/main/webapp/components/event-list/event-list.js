@@ -11,22 +11,12 @@
         };
     }
 
-    function eventListController($scope, eventListService, $filter, Events, Activities, authenticationService, attrs){
+    function eventListController($scope, eventListService, $filter, Events, Activities, Users, authenticationService){
         // Private variables
-        var allEvents = [
-            {"eventId":1,"eventName":"Kendo senior","eventPrice":10.0,"durationHours":2.0,"maxNubr":30,"eventType":null,"activityId":1,"contributor":0},
-            {"eventId":2,"eventName":"Kendo Junior","eventPrice":10.7,"durationHours":2.5,"maxNubr":30,"eventType":null,"activityId":1,"contributor":0},
-            {"eventId":3,"eventName":"Yoga Loisir 1","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0},
-            {"eventId":4,"eventName":"Yoga Master","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0},
-            {"eventId":5,"eventName":"Yoga Debutant","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0},
-            {"eventId":6,"eventName":"Yoga Yolo","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0}
-        ];
+        var allEvents = Events.getAll();
         var userEvents = [];
         if (authenticationService.isConnected()){
-                userEvents = [
-                {"eventId":1,"eventName":"event1","eventPrice":10.0,"durationHours":2.0,"maxNubr":30,"eventType":null,"activityId":1,"contributor":0},
-                {"eventId":5,"eventName":"Yoga Debutant","eventPrice":5.5,"durationHours":10.0,"maxNubr":30,"eventType":null,"activityId":2,"contributor":0}
-            ];
+                userEvents = Users.getEvents();
         }
         // Private methods
         function events (allEvents, userEvents){
@@ -71,14 +61,12 @@
         // Public methods
 
         $scope.filterEventsByActivity = function (event) {
-            console.log("event activity=" + event.activityId + "filter=" + $scope.activityFilter);
 
             return !$scope.activityFilter ? 
                    event : (event.activityId == $scope.activityFilter);
         };
 
         $scope.filterEventsBySubscription = function (event) {
-            console.log("event subscribe=" + event.subscribe + "filter=" + $scope.subscriptionFilter);
 
             var subscribe = $scope.subscriptionFilter=='subscribed';
 
@@ -126,16 +114,20 @@
         };
 
         $scope.subscribe = function(event){
-            Users.subscribe(event.eventId);
+            console.log('sub');
+            Events.subscribe = true;
+            Events.subscribe(event.eventId);
         }
 
         $scope.unsubscribe = function(event){
-            Users.unsubscribe(event.eventId);
+           console.log('unsub');
+           Event.subscribe = false;
+           Events.unsubscribe(event.eventId);
         }
 
         // Init
     }
-    eventListController.$inject = ['$scope', 'eventListService', '$filter','Events', 'Activities', 'authenticationService'];
+    eventListController.$inject = ['$scope', 'eventListService', '$filter','Events', 'Activities', 'Users', 'authenticationService'];
 
     angular.module('zen.components.eventList', [
         'zen.api.activities',
