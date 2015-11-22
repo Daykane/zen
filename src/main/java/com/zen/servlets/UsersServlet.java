@@ -99,7 +99,7 @@ public class UsersServlet {
 			return Response.status(400).entity("error in json format").build();
 		}
 		user.setId(id);
-		user.setPassword(Sha1(user.getPassword()));
+		//user.setPassword(Sha1(user.getPassword()));
 		this.userDao = DAOFactory.getInstance().getUserDao();
 		this.userDao.update(user);
 		return Response.status(204).build();
