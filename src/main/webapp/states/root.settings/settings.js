@@ -27,7 +27,7 @@
     	$scope.mailAlreadyUsed= false;
     	
     	$scope.updateInfos= function(){
-    		var data= {mail: $scope.email, id: $scope.id, firstName: $scope.firstName, lastname: $scope.lastName, adr1: $scope.adr1, adr2: $scope.adr2, postalCode: $scope.postalCode, town: $scope.town, phone: $scope.phone};
+    		var data= {mail: $scope.email, id: $scope.id, firstName: $scope.firstName, lastName: $scope.lastName, adr1: $scope.adr1, adr2: $scope.adr2, pc: $scope.postalCode, town: $scope.town, phone: $scope.phone};
     		$http({
                 method: 'PUT',
                 headers: {
