@@ -6,8 +6,8 @@
     /**
      * @description The role of this service is to manage authentication data
      */
-    function authenticationService($http, apiUrl){    
-    	var currentUser= {id: "", email: "", firstName: "", lastName: "", adr1: "", adr2: "", postalCode: "", town: "", phone: ""};
+    function authenticationService($http, apiUrl, ipCookie){    
+    	var currentUser= {token: "", id: "", email: "", firstName: "", lastName: "", adr1: "", adr2: "", postalCode: "", town: "", phone: ""};
         var cart;
         var loginSuccess= false;
         var passwordFailed=false;
@@ -24,6 +24,7 @@
 	                    url: apiUrl+'login',
 	                    data: JSON.stringify(data),
 	                }).then(function successCallback(response) {
+	                	currentUser.token = response.data.token;
 	                	currentUser.id= response.data.id;
 	                	currentUser.email = response.data.mail;
 	                	currentUser.firstName = response.data.firstName;
@@ -33,6 +34,9 @@
 	                	currentUser.postalCode = response.data.pc;
 	                	currentUser. town = response.data.town;
 	                	currentUser.phone = response.data.phone;
+	                	
+	                	ipCookie("token", currentUser.token, { expires: 5, expirationUnit: "hours" });
+	            		ipCookie("id", currentUser.id, { expires: 5, expirationUnit: "hours" });
 	                	
 	                	loginSuccess=true;
 	                	callback();
@@ -58,14 +62,37 @@
         			return loginSuccess;
         		},
         	activate: function(){
-        		console.log("initialized");
+        		var cookieToken = ipCookie("token");
+        		var cookieId = ipCookie("id");
+        		$http({
+                    method: 'GET',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "token": cookieToken
+                    },
+                    dataType: "json",
+                    url: apiUrl+'Users/'+cookieId,
+                }).then(function successCallback(response) {
+                	currentUser.token = response.data.token;
+                	currentUser.id= response.data.id;
+                	currentUser.email = response.data.mail;
+                	currentUser.firstName = response.data.firstName;
+                	currentUser.lastName= response.data.lastName;
+                	currentUser.adr1= response.data.adr1;
+                	currentUser.adr2= response.data.adr2;
+                	currentUser.postalCode = response.data.pc;
+                	currentUser. town = response.data.town;
+                	currentUser.phone = response.data.phone;
+                	
+                	loginSuccess=true;
+                  }, function errorCallback(response) {
+                	loginSuccess= false;
+                  });
+        		
         	},
-        	getId: function(){
-        		return
-        	}
         };
     }
-    authenticationService.$inject = ['$http', 'apiUrl']
+    authenticationService.$inject = ['$http', 'apiUrl', 'ipCookie']
 
     angular.module('zen.services')
         .factory('authenticationService', authenticationService);
