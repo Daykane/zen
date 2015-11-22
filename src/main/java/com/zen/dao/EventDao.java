@@ -22,7 +22,7 @@ public interface EventDao {
 
     AbstractEvent findByActivityById(String id, String idE);
     
-    void subscribeEvent(String idE, String idU);
+    void subscribeEvent(String idE, String idU) throws DuplicateEntryException, ForeignKeyException;
     
     void unsubscribeEvent(String idE, String idU);
     

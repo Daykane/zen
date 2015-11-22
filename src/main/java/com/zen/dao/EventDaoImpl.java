@@ -4,6 +4,7 @@ import com.zen.beans.AbstractEvent;
 
 
 import static com.zen.dao.DAOUtilitaire.*;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -219,12 +220,15 @@ public class EventDaoImpl implements EventDao {
 
 		return event;
 	}
-
+	
+	private static final String SQL_SELECT_USER_INS = "select * from User where id =?;";
+	private static final String SQL_SELECT_Inscription = "select * FROM InscriptionEvent where userId = ? and eventId = ?";
 	private static final String SQL_INSERT_Inscription = "INSERT INTO InscriptionEvent (`userId`, `eventId`, `inscriptionDate`) VALUES (?, ?, ?);";
 	@Override
-	public void subscribeEvent(String idE, String idU) {
+	public void subscribeEvent(String idE, String idU) throws DuplicateEntryException, ForeignKeyException {
 		Connection connexion = null;
 		PreparedStatement preparedStatement = null;
+		ResultSet resultSet=null;
 
 		try {
 			Date date = new Date();
@@ -235,16 +239,51 @@ public class EventDaoImpl implements EventDao {
 			if ( statut == 0 ) {
 				throw new DAOException( "echec de l'inscription à l'event, aucune ligne ajoutee dans la table." );
 			}
+			
 
-		} catch ( SQLException e ) {
+		}
+		catch (SQLIntegrityConstraintViolationException e1 ) {
+			//deja inscrit
+			try {
+				preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_Inscription, true, idU, idE);
+				resultSet = preparedStatement.executeQuery();
+				if (resultSet.next()){
+					if (resultSet.getInt("eventId") != 0){
+						throw new DuplicateEntryException();
+					}
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//user n'existe pas 
+			try {
+				preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_USER_INS, true, idU);
+				resultSet = preparedStatement.executeQuery();
+				int idControl= -1;
+				if (resultSet.next()){
+					idControl = resultSet.getInt("id");
+					
+				}
+				if(idControl ==-1){throw new ForeignKeyException();}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//event n'existe pas
+			
+			
+		} 
+		catch ( SQLException e ) {
 			throw new DAOException( e );
-		} finally {
+		}
+		finally {
 			fermeturesSilencieuses(preparedStatement, connexion );
 		}
 
 	}
 
-	private static final String SQL_DELETE_Inscription = "DELETE FROM InscriptionEvent where userId = ? and eventId = ?);";
+	private static final String SQL_DELETE_Inscription = "DELETE FROM InscriptionEvent where userId = ? and eventId = ?;";
 	@Override
 	public void unsubscribeEvent(String idE, String idU) {
 		Connection connexion = null;

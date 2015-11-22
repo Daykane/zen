@@ -17,7 +17,7 @@ public class ProductDaoImpl  implements ProductDao {
 		this.daoFactory = daoFactory;
 	}
 
-	private static final String SQL_INSERT = "INSERT INTO Product (`productName`, `productDescr`, `availableQuantity`, `memberReduction`) VALUES (?, ?, ?, ?);";
+	private static final String SQL_INSERT = "INSERT INTO Product (`productName`,`categoryId`, `productDescr`, `availableQuantity`, `memberReduction`,`price`) VALUES (?,?, ?, ?, ?,?);";
 	@Override
 	public void create(Product product) throws DAOException {
 		Connection connexion = null;
@@ -26,7 +26,7 @@ public class ProductDaoImpl  implements ProductDao {
 
         try {
             connexion = daoFactory.getConnection();
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, product.getProductName(), product.getProductDescr(), product.getAvailableQuantity(),product.getMemberReduction() );
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, product.getProductName(),product.getCategoryProduct(), product.getProductDescr(), product.getAvailableQuantity(),product.getMemberReduction(),product.getPrice() );
             int statut = preparedStatement.executeUpdate();
             /* Analyse du statut retourne par la requete d'insertion */
             if ( statut == 0 ) {

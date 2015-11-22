@@ -112,6 +112,9 @@
         		
         		
         	},
+        	isAdmin: function(){
+        		return true;
+        	}
         };
     }
     authenticationService.$inject = ['$http', 'apiUrl', 'ipCookie']

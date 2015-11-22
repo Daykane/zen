@@ -1,7 +1,7 @@
 (function(window, angular, FastClick){
     'use strict';
     
-    function zenConfig($urlRouterProvider, $locationProvider, $resourceProvider){
+    function zenConfig($urlRouterProvider, $locationProvider, $resourceProvider, GooglePlusProvider){
         $urlRouterProvider.otherwise('/');
 
         $locationProvider.html5Mode({
@@ -12,8 +12,13 @@
         $locationProvider.hashPrefix('!');
 
         $resourceProvider.defaults.stripTrailingSlashes = false;
+        
+        GooglePlusProvider.init({
+            clientId: '752635541160-o691j0pko6afpm4knkrkf3kprsj92rnr.apps.googleusercontent.com',
+            apiKey: 'RR4eBuh6bNrOqkUlOTneVLpj'
+         });
     }
-    zenConfig.$inject=["$urlRouterProvider", '$locationProvider', '$resourceProvider'];
+    zenConfig.$inject=["$urlRouterProvider", '$locationProvider', '$resourceProvider', 'GooglePlusProvider'];
 
     function zenRun($state, $rootScope){
 
@@ -39,6 +44,7 @@
     ]);
 
     angular.module('zen', [
+   		'googleplus',
         'ipCookie',
         'ui.router',
         'ui.bootstrap',
@@ -57,10 +63,10 @@
         'zen.states.activities',
         'zen.states.events',
         'zen.states.rooms',
-        'zen.states.accessories'
+        'zen.states.accessories',
     ])
-    .constant('apiUrl', 'http://aiop-alaboureur.rhcloud.com/api/')
-    //.constant('apiUrl', 'http://localhost:8080/zen/api/')
+    //.constant('apiUrl', 'http://aiop-alaboureur.rhcloud.com/api/')
+    .constant('apiUrl', 'http://localhost:8080/zen/api/')
     .config(zenConfig)
     .run(zenRun);
 

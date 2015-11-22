@@ -21,7 +21,9 @@ import com.zen.dao.AuthentificationException;
 import com.zen.dao.DAOAuthen;
 import com.zen.dao.DAOException;
 import com.zen.dao.DAOFactory;
+import com.zen.dao.DuplicateEntryException;
 import com.zen.dao.EventDao;
+import com.zen.dao.ForeignKeyException;
 
 
 @Path("/Events")
@@ -101,7 +103,14 @@ public class EventServlet {
 		}
 		
 		this.eventDao = DAOFactory.getInstance().getEventDao();
-		this.eventDao.subscribeEvent(idE, idU);
+		try {
+			this.eventDao.subscribeEvent(idE, idU);
+		} catch (DuplicateEntryException e) {
+			return Response.status(403).entity("Subscribing exists already").build();
+		}
+		catch (ForeignKeyException e) {
+			return Response.status(403).entity("User don't exists ").build();
+		}
 		return Response.status(201).build();
 	}
 	

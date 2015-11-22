@@ -3,14 +3,20 @@ package com.zen.servlets;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.zen.beans.Product;
+import com.zen.dao.AuthentificationException;
 import com.zen.dao.DAOAuthen;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.ProductDao;
@@ -39,32 +45,44 @@ public class ProductsServlet {
 		Product product = this.productDao.find(id);
 		return product;
 	}
-	/* ok
-	@GET 
-	public void create(){
-		Product product = new Product("productNameServlet", "productDescrServlet", 0, 0.0);
+	
+	@POST
+	public Response create(Product product,@HeaderParam("token") String token){
+		/*
+		DAOAuthen authen = new DAOAuthen();
+		String idU;
+		Boolean isAdmin = false;
+		//idU ="7";
+		
+		try {
+			idU = Integer.toString(authen.authenToken(token));
+		} catch (AuthentificationException e) {
+			// TODO Auto-generated catch block
+			return Response.status(403).entity(e.getMessage()).build();
+		}
+		*/
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		this.productDao.create(product);
+		return Response.status(201).build();
 	}
-	*/	
+		
 	
-	/*
-	@GET ok
+	@DELETE
 	@Path("{id}")
-	public void delete(@PathParam("id") String id) {
+	public Response delete(@PathParam("id") String id) {
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		Product product = this.productDao.find(id);
 		this.productDao.delete(product);
+		return Response.status(204).build();
 	}
-	*/
-	/*
-	@GET ok
+	
+	
+	@PUT
 	@Path("{id}")
-	public void update(@PathParam("id") String id) {
-		Product product = new Product("productNameServletUpdate", "productDescrServletUpdate", 0, 0.0);
+	public void update(Product product,@PathParam("id") String id) {
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		int idInt = Integer.parseInt(id);
 		this.productDao.update(idInt,product);
 	}
-	*/
+	
 }
