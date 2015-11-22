@@ -54,7 +54,18 @@ public class EventServlet {
 	}
 	
 	@POST
-	public Response create(AbstractEvent event){
+	public Response create(AbstractEvent event, @HeaderParam("token") String token ){
+		
+		DAOAuthen authen = new DAOAuthen();
+		String idU;
+		//idU ="7";
+		
+		try {
+			idU = Integer.toString(authen.authenToken(token));
+		} catch (AuthentificationException e) {
+			// TODO Auto-generated catch block
+			return Response.status(403).entity(e.getMessage()).build();
+		}
 		//Verify activity is not null
 		if(event==null){
 			return Response.status(400).entity("error in json format").build();
