@@ -229,7 +229,7 @@ public class EventDaoImpl implements EventDao {
 		try {
 			Date date = new Date();
 			connexion = daoFactory.getConnection();
-			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_Inscription, true, idE, idU ,new Timestamp(date.getTime()));
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_Inscription, true, idU, idE ,new Timestamp(date.getTime()));
 			int statut = preparedStatement.executeUpdate();
 
 			if ( statut == 0 ) {
@@ -244,7 +244,7 @@ public class EventDaoImpl implements EventDao {
 
 	}
 
-	private static final String SQL_DELETE_Inscription = "INSERT FROM InscriptionEvent where userId = ? and eventId = ? `inscriptionDate`);";
+	private static final String SQL_DELETE_Inscription = "DELETE FROM InscriptionEvent where userId = ? and eventId = ?);";
 	@Override
 	public void unsubscribeEvent(String idE, String idU) {
 		Connection connexion = null;
