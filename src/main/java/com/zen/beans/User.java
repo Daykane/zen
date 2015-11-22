@@ -18,6 +18,7 @@ public class User {
 	private ArrayList<AbstractRole> roles;
 	private String token;
 	private Timestamp timetamps;
+	private Boolean isAdmin;
 	
 	public User() {		
 	}
@@ -37,7 +38,7 @@ public class User {
 	}
 
 	public User(String password, String lastName, String firstName, String adr1, String adr2, String pc, String town,
-			String phone, String mail, ArrayList<AbstractRole> roles) {
+			String phone, String mail, ArrayList<AbstractRole> roles, Boolean isAdmin) {
 		super();
 		this.password = password;
 		this.lastName = lastName;
@@ -49,6 +50,7 @@ public class User {
 		this.phone = phone;
 		this.mail = mail;
 		this.roles = roles;
+		this.isAdmin = isAdmin;
 	}
 
 	public int getId() {
@@ -153,6 +155,14 @@ public class User {
 
 	public void setTimetamps(Timestamp timestamp) {
 		this.timetamps = timestamp;
+	}
+
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	
 	
