@@ -95,7 +95,7 @@ public class ActivityServlet {
 			return Response.status(400).entity("error in json format").build();
 		}
 		this.activityDao = DAOFactory.getInstance().getActivityDao();
-		this.activityDao.updateActivity(activity);
+		this.activityDao.updateActivity(activity,id);
 		return Response.status(204).build();
 	}
 

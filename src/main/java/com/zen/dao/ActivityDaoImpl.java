@@ -140,14 +140,14 @@ public class ActivityDaoImpl implements ActivityDao {
 
 	private static final String SQL_UPDATE_ACTIVITY = "UPDATE Activity SET activityName=?,activityShortDesc=?,activityLongDesc=? WHERE activityId=?;";
 	@Override
-	public void updateActivity(Activity activity) {
+	public void updateActivity(Activity activity,int id) {
 		Connection connexion = null;
 		PreparedStatement preparedStatement = null;
 
 		try {
 
 			connexion = daoFactory.getConnection();
-			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE_ACTIVITY, true,activity.getActivityName(), activity.getActivityShortDescr(), activity.getActivityLongDesc() );
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE_ACTIVITY, true,activity.getActivityName(), activity.getActivityShortDescr(), activity.getActivityLongDesc(),id );
 			int statut = preparedStatement.executeUpdate();
 
 			if ( statut == 0 ) {
