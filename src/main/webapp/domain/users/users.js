@@ -1,15 +1,27 @@
 (function(window, angular, _){
     'use strict';
 
-    function Users(apiUrl, $http){
+    function Users(apiUrl, $http, $resource){
+        var crud = $resource(apiUrl + 'Users/:userId', null, {
+            'update': {
+                method: 'PUT',
+                params: {userId: '@userId'}
+            }
+        });
+        var userEvents = $resource(apiUrl + 'Users/:userId/Events', null, {
+            'update': {
+                method: 'PUT',
+                params: {userId: '@userId'}
+            }
+        });
 
         // Private methods
         function get(userId){
-            return userFactory.get({userId: userId});
+            return crud.get({userId: userId});
         }
 
         function getAll(){
-            return userFactory.query();
+            return crud.query();
         }
 
         function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
@@ -26,14 +38,8 @@
             });
         }
 
-        function update(signature, userId, lastName, firstName, adr1, adr2, pc, town, phone, email, password, id){
-            // userFactory.update();
-            //TODO
-        }
-
-        function remove(signature, userId){
-            // userFactory.delete();
-            //TODO
+        function getEvents(userId, event){
+            userEvents.query();
         }
 
         // Public API
@@ -41,11 +47,10 @@
             get: get,
             getAll: getAll,
             create: create,
-            update: update,
-            remove: remove
+            getEvents: getEvents
         }
     }
-    Users.$inject = ['apiUrl', '$http'];
+    Users.$inject = ['apiUrl', '$http', '$resource'];
 
     angular.module('zen.api.users', [
         'ngResource',
