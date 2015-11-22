@@ -16,7 +16,7 @@ public interface RoomDao {
     
     List<AbstractRoom> findAll() throws DAOException;
     
-    void update(int id, AbstractRoom abstractRoom)  throws DAOException;
+    void update(AbstractRoom room)  throws DAOException;
     
     void delete(int id) throws DAOException;
     
