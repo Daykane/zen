@@ -2,28 +2,14 @@
     'use strict';
 
     function Events(apiUrl, $http, $resource, authenticationService){
-        function crud(callback){
+        function crud(){
             var resource = $resource(apiUrl + 'Events/:eventId', null, {
-            'update': {
-                method: 'PUT',
-                params: {eventId: '@eventId'}
-            }
+                'update': {
+                    method: 'PUT',
+                    params: {eventId: '@eventId'}
+                }
             });
-
-            return callback(resource);
-        }
-
-        // Private methods
-        function get(eventId){
-            return crud(function(resource){
-                return resource.get({userId: userId});
-            });
-        }
-
-        function getAll(){
-            return crud(function(resource){
-                return resource.query();
-            });
+            return crud;
         }
 
         function subscribe(eventId){
@@ -50,10 +36,9 @@
 
         // Public API
         return {
-            get: get,
-            getAll: getAll,
             subscribe: subscribe,
-            unsubscribe: unsubscribe
+            unsubscribe: unsubscribe,
+            crud: crud
         }
     }
 

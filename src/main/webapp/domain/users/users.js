@@ -3,42 +3,21 @@
 
     function Users(apiUrl, $http, $resource){
         // Private methods
-        function crud(callback){
-            var resource = $resource(apiUrl + 'Users/:userId', null, {
+        function crud(){
+            var crud = $resource(apiUrl + 'Users/:userId', null, {
                 'update': {
                     method: 'PUT',
                     params: {userId: '@userId'}
                 }
             });
-
-            return callback(resource);
         }
-        function userEvents(callback){
-             var resource = $resource(apiUrl + 'Users/:userId/Events', null, {
+
+        function userEvents(){
+            var userEvents = $resource(apiUrl + 'Users/:userId/Events', {userId:'@userId'}, {
                 'update': {
                     method: 'PUT',
                     params: {userId: '@userId'}
                 }
-            });
-            return callback(resource);
-        }
-
-        
-        function get(userId){
-            return crud(function(resource){
-                return resource.get({userId: userId});
-            });
-        }
-
-        function getAll(){
-            return crud(function(resource){
-                return resource.query();
-            });
-        }
-        
-        function getEvents(userId){
-             return userEvents(function(resource){
-                return resource.query({userId: userId});
             });
         }
 
@@ -58,11 +37,9 @@
 
         // Public API
         return {
-            get: get,
-            getAll: getAll,
             create: create,
-            getEvents: getEvents
-
+            crud: crud,
+            userEvents: userEvents
         }
     }
     Users.$inject = ['apiUrl', '$http', '$resource'];
