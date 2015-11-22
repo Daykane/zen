@@ -114,14 +114,14 @@
         };
 
         $scope.subscribe = function(event){
-            console.log('sub');
-            Events.subscribe = true;
+            console.log('sub eventId=' + event.eventId);
+            event.subscribe = true;
             Events.subscribe(event.eventId);
         }
 
         $scope.unsubscribe = function(event){
-           console.log('unsub');
-           Event.subscribe = false;
+           console.log('unsub eventId=' + event.eventId);
+           event.subscribe = false;
            Events.unsubscribe(event.eventId);
         }
 

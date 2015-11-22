@@ -2,26 +2,28 @@
     'use strict';
 
     function Events(apiUrl, $http, $resource, authenticationService){
-        var crud = $resource(apiUrl + 'Events/:eventId', null, {
+        function crud(){
+            crud = $resource(apiUrl + 'Events/:eventId', null, {
             'update': {
                 method: 'PUT',
                 params: {eventId: '@eventId'}
             }
-        });
+            });
 
-        var unsubscribe = $resource(apiUrl + 'Events/:eventId/unsubscribe', null, {});
+            return crud;
+        }
 
         // Private methods
         function get(eventId){
-            return crud.get({eventId: eventId});
+            return crud().get({eventId: eventId});
         }
 
         function getAll(){
-            return crud.query();
+            return crud().query();
         }
 
         function subscribe(eventId){
-             var subscribe = $resource(apiUrl + 'Events/:eventId/subscribe', null, {
+             var subscribe = $resource(apiUrl + 'Events/9/subscribe', null, {
             'get': {
                 method: 'GET',
                 params: {eventId: '@eventId'},
@@ -32,7 +34,7 @@
         }
 
         function unsubscribe(eventId){
-             var unsubscribe = $resource(apiUrl + 'Events/:eventId/unsubscribe', null, {
+             var unsubscribe = $resource(apiUrl + 'Events/9/unsubscribe', null, {
             'get': {
                 method: 'GET',
                 params: {eventId: '@eventId'},

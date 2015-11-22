@@ -2,26 +2,37 @@
     'use strict';
 
     function Users(apiUrl, $http, $resource){
-        var crud = $resource(apiUrl + 'Users/:userId', null, {
-            'update': {
-                method: 'PUT',
-                params: {userId: '@userId'}
-            }
-        });
-        var userEvents = $resource(apiUrl + 'Users/:userId/Events', null, {
-            'update': {
-                method: 'PUT',
-                params: {userId: '@userId'}
-            }
-        });
+
+        function crud(){
+            var crud = $resource(apiUrl + 'Users/:userId', null, {
+                'update': {
+                    method: 'PUT',
+                    params: {userId: '@userId'}
+                }
+            });
+
+            return crud;
+        }
+
+        function userEvents(){
+             var userEvents = $resource(apiUrl + 'Users/:userId/Events', null, {
+                'update': {
+                    method: 'PUT',
+                    params: {userId: '@userId'}
+                }
+            });
+
+             return userEvents;
+        }
 
         // Private methods
         function get(userId){
-            return crud.get({userId: userId});
+            return crud().get({userId: userId});
+
         }
 
         function getAll(){
-            return crud.query();
+            return crud().query();
         }
 
         function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
@@ -38,8 +49,8 @@
             });
         }
 
-        function getEvents(userId, event){
-            userEvents.query();
+        function getEvents(userId){
+            userEvents().query({userId: userId});
         }
 
         // Public API
