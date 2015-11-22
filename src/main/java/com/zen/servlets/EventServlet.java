@@ -73,6 +73,7 @@ public class EventServlet {
 		if(event == null){
 			return Response.status(400).entity("error in json format").build();
 		}
+		event.setEventId(id);
 		this.eventDao = DAOFactory.getInstance().getEventDao();
 		this.eventDao.update(event);
 		return Response.status(204).build();
