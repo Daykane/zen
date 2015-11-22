@@ -16,4 +16,6 @@ public interface ActivityDao {
     
     void delete(int id) throws DAOException;
     
+    void updateActivity(Activity activity);
+    
 }
