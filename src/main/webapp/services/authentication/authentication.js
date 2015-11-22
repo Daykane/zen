@@ -67,30 +67,36 @@
         	activate: function(){
         		var cookieToken = ipCookie("token");
         		var cookieId = ipCookie("id");
-        		$http({
-                    method: 'GET',
-                    headers: {
-                        "Content-Type": "application/json",
-                        "token": cookieToken
-                    },
-                    dataType: "json",
-                    url: apiUrl+'Users/'+cookieId,
-                }).then(function successCallback(response) {
-                	currentUser.token = response.data.token;
-                	currentUser.id= response.data.id;
-                	currentUser.email = response.data.mail;
-                	currentUser.firstName = response.data.firstName;
-                	currentUser.lastName= response.data.lastName;
-                	currentUser.adr1= response.data.adr1;
-                	currentUser.adr2= response.data.adr2;
-                	currentUser.postalCode = response.data.pc;
-                	currentUser. town = response.data.town;
-                	currentUser.phone = response.data.phone;
-                	
-                	loginSuccess=true;
-                  }, function errorCallback(response) {
-                	loginSuccess= false;
-                  });
+        		if(cookieId != undefined){
+        			$http({
+                        method: 'GET',
+                        headers: {
+                            "Content-Type": "application/json",
+                            "token": cookieToken
+                        },
+                        dataType: "json",
+                        url: apiUrl+'Users/'+cookieId,
+                    }).then(function successCallback(response) {
+                    	currentUser.token = response.data.token;
+                    	currentUser.id= response.data.id;
+                    	currentUser.email = response.data.mail;
+                    	currentUser.firstName = response.data.firstName;
+                    	currentUser.lastName= response.data.lastName;
+                    	currentUser.adr1= response.data.adr1;
+                    	currentUser.adr2= response.data.adr2;
+                    	currentUser.postalCode = response.data.pc;
+                    	currentUser. town = response.data.town;
+                    	currentUser.phone = response.data.phone;
+                    	
+                    	loginSuccess=true;
+                      }, function errorCallback(response) {
+                    	loginSuccess= false;
+                      });
+        		}
+        		else{
+        			loginSuccess=false;
+        		}
+        		
         		
         	},
         };
