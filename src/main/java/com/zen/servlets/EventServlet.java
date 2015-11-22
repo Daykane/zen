@@ -64,6 +64,7 @@ public class EventServlet {
 			this.eventDao.create(event);
 		} 
 		catch (DAOException e) {
+			e.printStackTrace();
 			return Response.status(400).build();
 		}
 		return Response.status(201).build();

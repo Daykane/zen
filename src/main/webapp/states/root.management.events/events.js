@@ -13,17 +13,51 @@
     function eventsRun (){
     }
 
-    function eventsController(){
-        // Private variables
+    function eventsController($state, $scope, authenticationService, $http, apiUrl){
+        $scope.name= "";
+        $scope.activity="";
+        $scope.day="";
+        $scope.startTime="";
+        $scope.endTime="";
+        $scope.maxParticipants="";
+        
+        $scope.createEvent=function(){
+        	console.log("clicked")
+    		if($scope.name!="" && $scope.activity!="" && $scope.day!="" && $scope.startTime!= "" && $scope.endTime!="" && $scope.maxParticipants!=""){
 
-        // Private methods
-
-        // Public variables
-
-        // Public methods
-
-        // Init
+    			var data={eventName: $scope.name, activityId: $scope.activity, eventDay: $scope.day, startTime: $scope.startTime, endTime: $scope.endTime, maxNubr: $scope.maxParticipants};
+        		$http({
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "token": authenticationService.getCookieToken
+                    },
+                    dataType: "json",
+                    url: apiUrl+'Events',
+                    data: JSON.stringify(data),
+                }).then(function successCallback(response) {
+                    $scope.name= "";
+                    $scope.activity="";
+                    $scope.day="";
+                    $scope.startTime="";
+                    $scope.endTime="";
+                    $scope.maxParticipants="";
+                  }, function errorCallback(response) {
+                	  
+                  });
+    		}
+    		
+    	};
+        
+        $scope.getNumber = function(start, end) {
+        	var res= [start];
+        	for(var i=start+1; i<= end; i++){
+        		res.push(i);
+        	}
+        	return res;
+        }
     }
+    eventsController.$inject = ['$state', '$scope', 'authenticationService', '$http', 'apiUrl'];
 
     angular.module('zen.states.events', [
         'ui.router',

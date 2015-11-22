@@ -22,15 +22,9 @@
     	$scope.description="";
     	
     	$scope.createProduct=function(){
-    		if($scope.name!="" && $scope.price!="" && $scope.quantity!= "" && $scope.description!="" && !isNaN($scope.price) && !isNaN($scope.quantity)){
-    			var data;
-    			if($scope.category==""){
-    				data={productName: $scope.name, productDescr: $scope.description, availableQuantity: $scope.quantity, price: $scope.price};
-    			}
-    			else{
-    				data={productName: $scope.name, productDescr: $scope.description, availableQuantity: $scope.quantity, categoryProduct: $scope.category, price: $scope.price};
-    			}
-    			
+    		if($scope.name!="" && $scope.category!="" && $scope.price!="" && $scope.quantity!= "" && $scope.description!="" && !isNaN($scope.price) && !isNaN($scope.quantity)){
+
+    			var data={productName: $scope.name, productDescr: $scope.description, availableQuantity: $scope.quantity, categoryProduct: $scope.category, price: $scope.price};
         		$http({
                     method: 'POST',
                     headers: {
