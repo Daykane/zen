@@ -59,7 +59,7 @@
                                 {{product.productName}}
                             </label>
                             <label class="pull-right">
-                                {{product.price}}
+                                {{product.price}} €
                             </label>
                         </div>
                     </div>
@@ -68,21 +68,17 @@
                             <p class="pull-left">
                                 {{product.productDescr}}
                             </p>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="context === 'store'">
-                              Add to cart
-                            </button>
-                            <button class="btn btn-warning pull-right" type="button" data-ng-if="context === 'cart'">
-                              Remove from cart
-                            </button>
-                            <button class="btn btn-danger pull-right" type="button" data-ng-if="context === 'management'">
-                              Delete
-                            </button>
+                            <div data-ng-if="authentication.isConnected()">
+                                <button class="btn btn-warning pull-right" type="button" data-ng-click="authentication.cart.push(product)">
+                                  Add to cart
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <nav>
-                    <ul class="pagination">
+                    <ul class="pagination" ng-show="pageCount()!=-1">
                         <li ng-class="prevPageDisabled()">
                           <a href ng-click="prevPage()">«</a>
                         </li>
@@ -94,6 +90,9 @@
                         </li>
                     </ul>
                 </nav>
+                <div class="alert alert-danger" ng-show="pageCount()==-1">
+                    no products
+                </div>
             </div>
         </div>
     </div>

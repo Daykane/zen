@@ -1,8 +1,114 @@
 <div id="cartState">
-    <div class="container">
-        <div class="well well-sm"><label>Cart</label></div>
-        <zen-product-list context="cart"></zen-product-list>
-        <button class="btn btn-warning center-block">Order</button>
-    </div>
+	<div class="container">
+		<div class="well well-sm">
+			<label>
+				Cart
+			</label>
+		</div>
+		<div id="zenProductList">
+
+			<div class="row">
+				<div class="col-md-2" >
+
+					<p class="lead">Search</p>
+					<div class="list-group">
+						<input ng-model='searchBar' class="form-control">
+					</div>
+
+					<p class="lead">Sort by</p>
+					<div class="list-group">
+						<select ng-model='orderProps' class="form-control">
+							<option value='productName'>Name</option>
+							<option value='productCategory'>Category</option>
+							<option value='price'>Price</option>
+						</select>
+					</div>
+
+					<p class="lead">Filters</p>
+					<div class="list-group">
+						<label class="label label-success">Categories</label>
+						<select ng-model='categoryFilter' class="form-control">
+							<option value=''></option>
+							<option ng-repeat="category in categories" value='{{category.categoryId}}'>{{category.categoryName}}</option>
+						</select>
+					</div>
+				</div>
+				<!--div class="col-md-10" style="border: 2px solid #ccc; border-radius: 10px;"-->
+				<div class="col-md-10">
+					<div class="row">
+
+						<div class="panel panel-default" data-ng-if="zenProductList.isManagement()">
+							<div class="panel-heading text-right">
+								<div class="nav">
+									<label class="pull-left">
+										<input type="text" class="form-control" aria-label="..." placeholder="name..."/>
+									</label>
+									<label class="pull-right">
+										<input type="text" class="form-control" aria-label="..." placeholder="price..."/>
+									</label>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="nav">
+									<p class="pull-left">
+										<input type="text" class="form-control" aria-label="..." placeholder="..."/>
+									</p>
+									<button class="btn btn-success pull-right" type="button">
+										Create
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default" ng-repeat="product in productsFiltered() | startFrom:currentPage*pageSize | limitTo:pageSize track by $index">
+							<div class="panel-heading text-right">
+								<div class="nav">
+									<label class="pull-left">
+										{{product.productName}}
+									</label>
+									<label class="pull-right">
+										{{product.price}} €
+									</label>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="nav">
+									<p class="pull-left">
+										{{product.productDescr}}
+									</p>
+									<div data-ng-if="authentication.isConnected()">
+										<button class="btn btn-warning pull-right" type="button" data-ng-click="remove(product)">
+											Remove from cart
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<nav>
+							<ul class="pagination" ng-show="pageCount()!=-1">
+								<li ng-class="prevPageDisabled()">
+									<a href ng-click="prevPage()">«</a>
+								</li>
+								<li ng-repeat="n in [0, pageCount()] | range" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+									<a href="#">{{n+1}}</a>
+								</li>
+								<li ng-class="nextPageDisabled()">
+									<a href ng-click="nextPage()">»</a>
+								</li>
+							</ul>
+						</nav>
+
+						<div class="alert alert-danger" ng-show="pageCount()==-1">
+							no products
+						</div>
+
+						<button class="btn btn-warning center-block" ng-show="pageCount()!=-1" ng-click="order()">Order</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
