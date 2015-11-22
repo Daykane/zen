@@ -87,6 +87,9 @@ public class EventDaoImpl implements EventDao {
 		event.setDurationHours(resultSet.getDouble("durationHours"));
 		event.setActivityId(resultSet.getInt("activityId"));
 		event.setContributor(resultSet.getInt("contributorId"));
+		event.setStartTime(resultSet.getString("startTime"));
+		event.setEndTime(resultSet.getString("endTime"));
+		event.setEventDay(resultSet.getString("eventDay"));
 		return event;
 	}
 

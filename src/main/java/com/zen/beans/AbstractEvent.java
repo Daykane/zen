@@ -10,6 +10,9 @@ public class AbstractEvent {
 	private EventType eventType;
 	private int activityId;
 	private int contributorId;
+	private String eventDay;
+	private String startTime;
+	private String endTime;
 
 
 	public AbstractEvent() {
@@ -90,6 +93,30 @@ public class AbstractEvent {
 
 	public void setContributor(int contributorId) {
 		this.contributorId = contributorId;
+	}
+
+	public String getEventDay() {
+		return eventDay;
+	}
+
+	public void setEventDay(String eventDay) {
+		this.eventDay = eventDay;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	
 	
