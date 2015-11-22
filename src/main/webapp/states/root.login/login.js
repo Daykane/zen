@@ -32,11 +32,7 @@
     			authenticationService.login($scope.email, $scope.password, doCallback);
     		}
     	}
-    	
-    	
 
-        // Initialization
-        authenticationService.activate();
     }
     loginController.$inject = ['authenticationService', '$state', '$scope'];
 
