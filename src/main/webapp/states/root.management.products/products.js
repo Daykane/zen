@@ -13,7 +13,7 @@
     function productsRun (){
     }
 
-    function productsController($state, $scope, authenticationService, $http, apiUrl, productListService, $filter,Products, Categories){
+    function productsController($state, $scope, authenticationService, $http, apiUrl, $filter,Products, Categories){
         
     	$scope.name="";
     	$scope.price="";
@@ -48,6 +48,13 @@
     		
     	};
     	
+    	$scope.deleteProduct=function(product){
+    		Products.delete({productId: product.productId}, function(){$scope.products=Products.query();});
+    	};
+    	
+    	
+    	
+    	$scope.authentication= authenticationService;
     	$scope.searchBar = "";
         $scope.orderProps = "";
         $scope.currentPage = 0;
@@ -104,7 +111,7 @@
     	
     }
     
-    productsController.$inject = ['$state', '$scope', 'authenticationService', '$http', 'apiUrl', 'productListService', '$filter','Products', 'Categories',];
+    productsController.$inject = ['$state', '$scope', 'authenticationService', '$http', 'apiUrl', '$filter','Products', 'Categories',];
 
     angular.module('zen.states.products', [
         'ui.router',
