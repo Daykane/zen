@@ -72,67 +72,54 @@
 
 	        <div class="col-md-10">
 	            <div class="row">
-	                <div class="panel panel-default" data-ng-if="true">
-	                    <div class="panel-heading text-right">
+	                <div class="panel panel-default" data-ng-show="true">
+	                    <div class="panel-heading">
 	                        <div class="nav">
-	                            <input type="text" class="form-control pull-left" aria-label="..." placeholder="event name..."/>
+	                        	<label>Event name : </label>
+	                            <input ng-model="name" type="text" class="form-control pull-left" aria-label="..." placeholder="event name..."/>
 	                            <div class="input-group">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="activity..."/>
-	                                <div class="input-group-btn" uib-dropdown>
-	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
-	                                        <span class="caret"></span>
-	                                    </button>
-	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
-	                                        <li role="menuitem"><a href="#">Yoga</a></li>
-	                                        <li role="menuitem"><a href="#">Kendo</a></li>
-	                                        <li role="menuitem"><a href="#">Dance</a></li>
-	                                    </ul>
-	                                </div><!-- /btn-group -->
+	                            	<label>Activity : </label>
+	                                <input ng-model="activity" type="number" class="form-control" aria-label="..." placeholder="activity..."/>
 	                            </div><!-- /input-group -->
 	                            <div class="input-group">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="day..."/>
-	                                <div class="input-group-btn" uib-dropdown>
-	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
-	                                        <span class="caret"></span>
-	                                    </button>
-	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
-	                                        <li role="menuitem"><a href="#">Monday</a></li>
-	                                        <li role="menuitem"><a href="#">Tuesday</a></li>
-	                                        <li role="menuitem"><a href="#">Wednesday</a></li>
-	                                        <li role="menuitem"><a href="#">Thursday</a></li>
-	                                        <li role="menuitem"><a href="#">Friday</a></li>
-	                                        <li role="menuitem"><a href="#">Saturday</a></li>
-	                                        <li role="menuitem"><a href="#">Sunday</a></li>
-	                                    </ul>
-	                                </div><!-- /btn-group -->
-	                            </div><!-- /input-group -->
-	                            <input type="text" class="form-control" aria-label="..." placeholder="start time..."/>
-	                            <input type="text" class="form-control" aria-label="..." placeholder="end time..."/>
-	                        </div>
+	                            		<label>Day : </label>
+								      	<select ng-model='day' class="form-control">
+						                    <option value="Monday">Monday</option>
+						                    <option value="Tuesday">Tuesday</option>
+						                    <option value="Wednesday">Wednesday</option>
+						                    <option value="Thursday">Thursday</option>
+						                    <option value="Friday">Friday</option>
+						                    <option value="Saturday">Saturday</option>
+						                    <option value="monday">Sunday</option>
+						                </select>
+										</div><!-- /btn-group -->
+								</div><!-- /input-group -->
+								<div class="input-group">
+	                            	<label>starting Time : </label>
+							      	<select ng-model='startTime' class="form-control">
+					                    <option ng-repeat="i in getNumber(8, 22)" value='{{i}}'>{{i}}h</option>
+					                </select>
+									</div><!-- /btn-group -->
+	                            <div class="input-group">
+	                            	<label>Ending Time : </label>
+							      	<select ng-model='endTime' class="form-control">
+					                    <option ng-repeat="i in getNumber(9, 22)" value='{{i}}'>{{i}}h</option>
+					                </select>
+								</div><!-- /btn-group -->
+								<div class="input-group">
+	                            	<label>Max number of participants : </label>
+							      	<input ng-model="maxParticipants" type="number" class="form-control" aria-label="..." placeholder="Max number of participants..."/>
+								</div>
+								<div class="nav">
+		                        	<button ng-click="createEvent()" class="btn btn-success pull-right" type="button">
+		                              Create
+		                            </button>
+		                        </div>
 	                    </div>
-	                    <div class="panel-body">
-	                       <div class="nav">
-	                            <p class="">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="description..."/>
-	                            </p>
-	                            <div class="input-group pull-left">
-	                                <input type="text" class="form-control" aria-label="..." placeholder="contributor..."/>
-	                                <div class="input-group-btn" uib-dropdown>
-	                                    <button class="btn btn-default" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">    
-	                                        <span class="caret"></span>
-	                                    </button>
-	                                    <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
-	                                        <li role="menuitem"><a href="#">Toto</a></li>
-	                                        <li role="menuitem"><a href="#">Elie</a></li>
-	                                    </ul>
-	                                </div><!-- /btn-group -->
-	                            </div><!-- /input-group -->
-	                            <button class="btn btn-success pull-right navbar-btn" type="button">
-	                              Create
-	                            </button>
-	                        </div>
-	                    </div>
-	                </div>
+	                    <br/>
+	                    
+	                    
+	                    
 	                <div class="panel panel-default">
 	                    <div class="panel-heading text-right">
 	                        <div class="nav">
@@ -149,22 +136,22 @@
 	                            <p class="pull-left">
 	                                Kendo Senior Description
 	                            </p>
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-info pull-right" type="button" data-ng-show="false">
 	                              Subscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="false">
 	                              Unsubscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="false">
 	                              Delete
 	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-default pull-right" type="button" data-ng-show="false">
 	                              Modify
 	                            </button>
-	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-warning pull-right" type="button" data-ng-show="true">
 	                              Save
 	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-default pull-right" type="button" data-ng-show="true">
 	                              Discard
 	                            </button>
 	                        </div>
@@ -190,22 +177,22 @@
 	                            <!-- <p class="pull-left">
 	                                Contributor(s) : Toto
 	                            </p> -->
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-info pull-right" type="button" data-ng-show="false">
 	                              Subscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="false">
 	                              Unsubscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="true">
 	                              Delete
 	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-default pull-right" type="button" data-ng-show="true">
 	                              Modify
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="false">
 	                              Discard
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="false">
 	                              Save
 	                            </button>
 	                        </div>
@@ -231,22 +218,22 @@
 	                            <!-- <p class="pull-left">
 	                                Contributor(s) : Toto
 	                            </p> -->
-	                            <button class="btn btn-info pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-info pull-right" type="button" data-ng-show="false">
 	                              Subscribe
 	                            </button>
-	                            <button class="btn btn-warning pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-warning pull-right" type="button" data-ng-show="false">
 	                              Unsubscribe
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="true">
 	                              Delete
 	                            </button>
-	                            <button class="btn btn-default pull-right" type="button" data-ng-if="true">
+	                            <button class="btn btn-default pull-right" type="button" data-ng-show="true">
 	                              Modify
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="false">
 	                              Discard
 	                            </button>
-	                            <button class="btn btn-danger pull-right" type="button" data-ng-if="false">
+	                            <button class="btn btn-danger pull-right" type="button" data-ng-show="false">
 	                              Save
 	                            </button>
 	                        </div>
