@@ -283,7 +283,7 @@ public class EventDaoImpl implements EventDao {
 
 	}
 
-	private static final String SQL_DELETE_Inscription = "DELETE FROM InscriptionEvent where userId = ? and eventId = ?);";
+	private static final String SQL_DELETE_Inscription = "DELETE FROM InscriptionEvent where userId = ? and eventId = ?;";
 	@Override
 	public void unsubscribeEvent(String idE, String idU) {
 		Connection connexion = null;
