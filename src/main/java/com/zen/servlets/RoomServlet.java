@@ -62,6 +62,7 @@ public class RoomServlet {
 		if(room == null){
 			return Response.status(400).entity("error in json format").build();
 		}
+		room.setRoomId(id);
 		this.roomDao = DAOFactory.getInstance().getRoomDao();
 		this.roomDao.update(room);
 		return Response.status(204).build();
