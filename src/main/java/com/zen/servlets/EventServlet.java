@@ -3,9 +3,11 @@ package com.zen.servlets;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -14,8 +16,10 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.zen.beans.AbstractEvent;
+import com.zen.beans.Activity;
 import com.zen.dao.AuthentificationException;
 import com.zen.dao.DAOAuthen;
+import com.zen.dao.DAOException;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.EventDao;
 
@@ -37,14 +41,6 @@ public class EventServlet {
 		return events;
 	}
 
-	/* OK
-	@GET
-	public void create(){
-		AbstractEvent event = new Event("eventName", "eventPrice", "maxNbr", "durationHours");
-		this.eventDao = DAOFactory.getInstance().getEventDao();
-		this.eventDao.create(event);
-	}
-	 */	
 	
 
 	@GET
@@ -55,16 +51,39 @@ public class EventServlet {
 		return event;
 	}
 	
+	@POST
+	public Response create(AbstractEvent event){
+		//Verify activity is not null
+		if(event==null){
+			return Response.status(400).entity("error in json format").build();
+		}
+		this.eventDao = DAOFactory.getInstance().getEventDao();
+		try {
+			this.eventDao.create(event);
+		} 
+		catch (DAOException e) {
+			return Response.status(400).build();
+		}
+		return Response.status(201).build();
+	}
 	
+	@PUT
+	@Path("{idE}")
+	public Response update(AbstractEvent event, @PathParam("idE") int id){
+		if(event == null){
+			return Response.status(400).entity("error in json format").build();
+		}
+		this.eventDao = DAOFactory.getInstance().getEventDao();
+		this.eventDao.update(event);
+		return Response.status(204).build();
+	}
 
-	/* ok
-	@GET
+	@DELETE
 	@Path("{id}")
 	public void delete(@PathParam("id") int id) {
 		this.eventDao = DAOFactory.getInstance().getEventDao();
 		this.eventDao.delete(id);
 	}
-	 */
 	
 	@GET
 	@Path("/{idE}/subscribe")
