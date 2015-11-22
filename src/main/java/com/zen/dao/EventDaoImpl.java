@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class EventDaoImpl implements EventDao {
@@ -47,7 +49,7 @@ public class EventDaoImpl implements EventDao {
 		return event;
 	}
 
-	private static final String SQL_INSERT = "INSERT INTO Event (`eventName`, `eventPrice`, `maxNbr`, `durationHours`) VALUES (?, ?, ?,?);";
+	private static final String SQL_INSERT = "INSERT INTO Event (`eventName`, `eventPrice`, `maxNbr`, `durationHours`, `activityId`, `contributorId`, `eventDay`,`startTime`,`endTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	@Override
 	public void create(AbstractEvent event ) throws DAOException {
 		Connection connexion = null;
@@ -56,7 +58,7 @@ public class EventDaoImpl implements EventDao {
 		try {
 
 			connexion = daoFactory.getConnection();
-			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, event.getEventName(), event.getEventPrice() ,event.getMaxNubr(), event.getDurationHours());
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, event.getEventName(), event.getEventPrice() ,event.getMaxNubr(), event.getDurationHours(), event.getActivityId(), event.getContributor(), event.getEventDay(), event.getStartTime(), event.getEndTime());
 			int statut = preparedStatement.executeUpdate();
 
 			if ( statut == 0 ) {
@@ -84,7 +86,10 @@ public class EventDaoImpl implements EventDao {
 		event.setMaxNubr(resultSet.getInt("maxNbr"));
 		event.setDurationHours(resultSet.getDouble("durationHours"));
 		event.setActivityId(resultSet.getInt("activityId"));
-		
+		event.setContributor(resultSet.getInt("contributorId"));
+		event.setStartTime(resultSet.getString("startTime"));
+		event.setEndTime(resultSet.getString("endTime"));
+		event.setEventDay(resultSet.getString("eventDay"));
 		return event;
 	}
 
@@ -141,65 +146,152 @@ public class EventDaoImpl implements EventDao {
 		}
 	}
 
-
+	private static final String SQL_UPDATE_EVENT = "UPDATE Event SET eventName=?, eventPrice=?, maxNbr=?, durationHours=?, activityId=?, contributorId=?, eventDay=?, startTime=?, endTime=? WHERE eventId=?;";
 	@Override
-	public void update(int id, AbstractEvent abstractEvent) throws DAOException {
-		// TODO Auto-generated method stub
-		
+	public void update(AbstractEvent event) throws DAOException {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE_EVENT, true, event.getEventName(), event.getEventPrice(), event.getMaxNubr(), event.getDurationHours(), event.getActivityId(), event.getContributor(), event.getEventDay(), event.getStartTime(), event.getEndTime(), event.getEventId() );
+			int statut = preparedStatement.executeUpdate();
+
+			if ( statut == 0 ) {
+				throw new DAOException( "Event Update Fail" );
+			}	      
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses(preparedStatement, connexion );
+		}	
 	}
 
 	private static final String SQL_SELECT_BY_ACTIVITY = "SELECT * FROM Event WHERE activityId = ?";
 	@Override
 	public List<AbstractEvent> findByActivity(String id) {
 		Connection connexion = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        AbstractEvent event = null;
-        List<AbstractEvent> events = new ArrayList<AbstractEvent>();
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		AbstractEvent event = null;
+		List<AbstractEvent> events = new ArrayList<AbstractEvent>();
 
-        try {
-            /* Recuperation d'une connexion depuis la Factory */
-            connexion = daoFactory.getConnection();
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ACTIVITY, false,id );
-            resultSet = preparedStatement.executeQuery();
-            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
-            while ( resultSet.next() ) {           
-                event = map( resultSet );
-                events.add(event);   
-            }
-        } catch ( SQLException e ) {
-            throw new DAOException( e );
-        } finally {
-            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
-        }
+		try {
+			/* Recuperation d'une connexion depuis la Factory */
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ACTIVITY, false,id );
+			resultSet = preparedStatement.executeQuery();
+			/* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+			while ( resultSet.next() ) {           
+				event = map( resultSet );
+				events.add(event);   
+			}
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+		}
 
-        return events;
+		return events;
 	}
 
 	private static final String SQL_SELECT_BY_ACT_BY_ID = "SELECT * FROM Event WHERE activityId = ? AND eventId = ?";
 	@Override
 	public AbstractEvent findByActivityById(String id, String idE) {
 		Connection connexion = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        AbstractEvent event = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		AbstractEvent event = null;
 
-        try {
-            /* Recuperation d'une connexion depuis la Factory */
-            connexion = daoFactory.getConnection();
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ACT_BY_ID, false, id,idE);
-            resultSet = preparedStatement.executeQuery();
-            /* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
-            if ( resultSet.next() ) {
-                event = map( resultSet );
-            }
-        } catch ( SQLException e ) {
-            throw new DAOException( e );
-        } finally {
-            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
-        }
+		try {
+			/* Recuperation d'une connexion depuis la Factory */
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_BY_ACT_BY_ID, false, id,idE);
+			resultSet = preparedStatement.executeQuery();
+			/* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+			if ( resultSet.next() ) {
+				event = map( resultSet );
+			}
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+		}
 
-        return event;
+		return event;
+	}
+
+	private static final String SQL_INSERT_Inscription = "INSERT INTO InscriptionEvent (`userId`, `eventId`, `inscriptionDate`) VALUES (?, ?, ?);";
+	@Override
+	public void subscribeEvent(String idE, String idU) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			Date date = new Date();
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT_Inscription, true, idE, idU ,new Timestamp(date.getTime()));
+			int statut = preparedStatement.executeUpdate();
+
+			if ( statut == 0 ) {
+				throw new DAOException( "echec de l'inscription à l'event, aucune ligne ajoutee dans la table." );
+			}
+
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses(preparedStatement, connexion );
+		}
+
+	}
+
+	private static final String SQL_DELETE_Inscription = "INSERT FROM InscriptionEvent where userId = ? and eventId = ? `inscriptionDate`);";
+	@Override
+	public void unsubscribeEvent(String idE, String idU) {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_Inscription, true, idU, idE );
+			int statut = preparedStatement.executeUpdate();
+
+			if ( statut == 0 ) {
+				throw new DAOException( "echec de la desinscription à l'event, aucune ligne supprimee dans la table." );
+			}
+
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses(preparedStatement, connexion );
+		}
+	}
+
+	private static final String SQL_SELECT_EVENT_USER = "SELECT Event.* FROM Event, InscriptionEvent WHERE InscriptionEvent.userId = ? and InscriptionEvent.eventId = Event.eventId";
+	@Override
+	public List<AbstractEvent> findAllEvent(String id) throws DAOException {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		AbstractEvent event = null;
+		List<AbstractEvent> events = new ArrayList<AbstractEvent>();
+
+		try {
+			/* Recuperation d'une connexion depuis la Factory */
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_SELECT_EVENT_USER, false,id );
+			resultSet = preparedStatement.executeQuery();
+			/* Parcours de la ligne de donnees de l'eventuel ResulSet retourne */
+			while ( resultSet.next() ) {           
+				event = EventDaoImpl.map( resultSet );
+				events.add(event);   
+			}
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+		}
+
+		return events;
 	}
 
 }

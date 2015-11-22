@@ -1,20 +1,29 @@
 package com.zen.servlets;
 
+import static com.zen.dao.DAOUtilitaire.Sha1;
+
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.zen.beans.AbstractEvent;
 import com.zen.beans.Activity;
+import com.zen.beans.User;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.EventDao;
 import com.zen.dao.ActivityDao;
+import com.zen.dao.DAOException;
+import com.zen.dao.DAOExceptionMail;
 
 
 @Path("/Activities")
@@ -35,15 +44,6 @@ public class ActivityServlet {
 		return activities;
 	}
 
-	/* OK
-	@GET
-	public void create(){
-		Activity activity = new Activity("activityName", "activityShortDesc", "activityLongDesc");
-		this.activityDao = DAOFactory.getInstance().getActivityDao();
-		this.activityDao.create(activity);
-	}
-	 */	
-	
 
 	@GET
 	@Path("{id}")
@@ -53,7 +53,7 @@ public class ActivityServlet {
 		return activity;
 
 	}
-	
+
 	@GET
 	@Path("{id}/Events")
 	public List<AbstractEvent> getEventActivities(@PathParam("id") String id) {
@@ -62,7 +62,7 @@ public class ActivityServlet {
 
 		return events;
 	}
-	
+
 	@GET
 	@Path("{id}/Events/{idE}")
 	public AbstractEvent getEventActivitiesId(@PathParam("id") String id,@PathParam("idE") String idE) {
@@ -72,13 +72,38 @@ public class ActivityServlet {
 		return event;
 	}
 	
-	/* ok
-	@GET
+	@POST
+	public Response create(Activity activity){
+		//Verify activity is not null
+		if(activity==null){
+			return Response.status(400).entity("error in json format").build();
+		}
+		this.activityDao = DAOFactory.getInstance().getActivityDao();
+		try {
+			this.activityDao.create(activity);
+		} 
+		catch (DAOException e) {
+			return Response.status(400).build();
+		}
+		return Response.status(201).build();
+	}
+
+	@PUT
+	@Path("{idA}")
+	public Response update(Activity activity, @PathParam("idA") int id){
+		if(activity == null){
+			return Response.status(400).entity("error in json format").build();
+		}
+		this.activityDao = DAOFactory.getInstance().getActivityDao();
+		this.activityDao.updateActivity(activity,id);
+		return Response.status(204).build();
+	}
+
+	@DELETE
 	@Path("{id}")
 	public void delete(@PathParam("id") int id) {
 		this.activityDao = DAOFactory.getInstance().getActivityDao();
 		this.activityDao.delete(id);
 	}
-	 */
 
 }

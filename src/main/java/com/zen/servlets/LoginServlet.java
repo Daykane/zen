@@ -48,7 +48,8 @@ public class LoginServlet {
 		try {
 			userC = this.userDao.connection(mail, password,token,currentTimestamp);
 		} catch (DAOException e) {
-			return Response.status(500).entity("error").build();
+			e.printStackTrace();
+			//return Response.status(500).entity("error").build();
 		} catch (LoginException e) {
 			return Response.status(400).entity("{\"UserError\": \"true\"}").build();
 		}

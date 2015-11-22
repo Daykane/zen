@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.security.auth.login.LoginException;
 
+import com.zen.beans.AbstractEvent;
 import com.zen.beans.User;
 
 public interface UserDao {
@@ -24,4 +25,5 @@ public interface UserDao {
 	void update(User user);
 
 	User findByToken(String token);
+	
 }

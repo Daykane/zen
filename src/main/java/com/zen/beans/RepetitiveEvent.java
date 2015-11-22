@@ -14,8 +14,8 @@ public class RepetitiveEvent extends AbstractEvent{
 	}
 
 	public RepetitiveEvent(int eventId, String eventName, Double eventPrice, Double durationHours, int maxNubr,
-			EventType eventType, ArrayList<Date> representations, int activityId) {
-		super(eventId, eventName, eventPrice, durationHours, maxNubr, eventType, activityId);
+			EventType eventType, ArrayList<Date> representations, int activityId, int contributorId) {
+		super(eventId, eventName, eventPrice, durationHours, maxNubr, eventType, activityId, contributorId);
 		this.representations = representations;
 	}
 

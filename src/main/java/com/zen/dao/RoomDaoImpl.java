@@ -47,7 +47,7 @@ public class RoomDaoImpl implements RoomDao {
 		return room;
 	}
 
-	private static final String SQL_INSERT = "INSERT INTO Activity (`roomName`, `superficy`) VALUES (?, ?);";
+	private static final String SQL_INSERT = "INSERT INTO Room (`roomName`, `superficy`) VALUES (?, ?);";
 	@Override
 	public void create( AbstractRoom room ) throws DAOException {
 		Connection connexion = null;
@@ -138,10 +138,26 @@ public class RoomDaoImpl implements RoomDao {
 		}
 	}
 
-
+	private static final String SQL_UPDATE_ROOM = "UPDATE Room SET roomName=?, superficfy=? WHERE id=?;";
 	@Override
-	public void update(int id, AbstractRoom abstractRoom) throws DAOException {
-		// TODO Auto-generated method stub
+	public void update(AbstractRoom room) throws DAOException {
+		Connection connexion = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+
+			connexion = daoFactory.getConnection();
+			preparedStatement = initialisationRequetePreparee( connexion, SQL_UPDATE_ROOM, true, room.getRoomName(), room.getSuperficy(), room.getRoomId());
+			int statut = preparedStatement.executeUpdate();
+
+			if ( statut == 0 ) {
+				throw new DAOException( "Room Update Fail" );
+			}	      
+		} catch ( SQLException e ) {
+			throw new DAOException( e );
+		} finally {
+			fermeturesSilencieuses(preparedStatement, connexion );
+		}
 
 	}
 

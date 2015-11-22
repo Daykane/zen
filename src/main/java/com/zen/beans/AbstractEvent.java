@@ -9,14 +9,17 @@ public class AbstractEvent {
 	private int maxNubr;
 	private EventType eventType;
 	private int activityId;
-	
+	private int contributorId;
+	private String eventDay;
+	private String startTime;
+	private String endTime;
 
 
 	public AbstractEvent() {
 		super();
 	}
 	
-	public AbstractEvent(int eventId, String eventName, Double eventPrice, Double durationHours, int maxNubr, EventType eventType, int activityId) {
+	public AbstractEvent(int eventId, String eventName, Double eventPrice, Double durationHours, int maxNubr, EventType eventType, int activityId, int contributorId) {
 		super();
 		this.eventId = eventId;
 		this.eventName = eventName;
@@ -25,6 +28,7 @@ public class AbstractEvent {
 		this.maxNubr = maxNubr;
 		this.eventType = eventType;
 		this.activityId = activityId;
+		this.contributorId = contributorId ; 
 	}
 
 	public int getEventId() {
@@ -81,6 +85,38 @@ public class AbstractEvent {
 
 	public void setActivityId(int activityId) {
 		this.activityId = activityId;
+	}
+
+	public int getContributor() {
+		return contributorId;
+	}
+
+	public void setContributor(int contributorId) {
+		this.contributorId = contributorId;
+	}
+
+	public String getEventDay() {
+		return eventDay;
+	}
+
+	public void setEventDay(String eventDay) {
+		this.eventDay = eventDay;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	
 	

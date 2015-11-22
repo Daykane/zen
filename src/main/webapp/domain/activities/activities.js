@@ -1,17 +1,24 @@
 (function(window, angular, _){
     'use strict';
 
-    function activities(){
+    function Activities($resource, apiUrl){
+
         // Init
-
-        // Private variables
-
-        // Private methods
-		
-        // Public API
+        var data = $resource(apiUrl + 'Activities/:activityId', null, {
+            'update': {
+                method: 'PUT',
+                params: {activityId: '@activityId'}
+            },
+        });
+        return data;
     }
 
+    Activities.$inject = ['$resource', 'apiUrl'];
+
     angular.module('zen.api.activities', [
-            'zen.services'
-        ]).factory('Activities', activities);
+        'ngResource',
+        'zen.services'
+        ])
+    .factory('Activities', Activities)
+
 })(window, window.angular, window._);
