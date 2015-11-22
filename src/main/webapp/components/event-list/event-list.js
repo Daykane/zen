@@ -11,19 +11,50 @@
         };
     }
 
-    function eventListController($scope, eventListService, $filter, Events, Activities, Users, authenticationService){
+    function eventListController($scope, eventListService, $filter, Events, Activities, Users, authenticationService, $q, $resource, apiUrl){
         // Private variables
-        var allEvents = Events.getAll();
-        var userEvents = [];
-        if (authenticationService.isConnected()){
-                userEvents = Users.getEvents();
-        }
+        var userEvents = $resource(apiUrl + 'Users/:userId/Events', {userId: '@userId'}, {});
+
+        var eventCrud = $resource(apiUrl + 'Events/:eventId', {eventId: '@eventId'}, {
+            'update': {
+                method: 'PUT',
+                params: {eventId: '@eventId'}
+            }
+        });
+
         // Private methods
+        
+        
+        // Public variables
+
+        $scope.authentication = authenticationService;
+        $scope.searchBar = "";
+        $scope.orderProps = "";
+        $scope.currentPage = 0;
+        $scope.pageSize = 5;
+        $scope.activityFilter = "";
+        $scope.subscriptionFilter = "";
+        $scope.activities = Activities.query();
+        $scope.allEvents = [];
+        $scope.userEvents = [];
+
+        eventCrud.query(function(allEvents){
+            $scope.allEvents = allEvents;
+            userEvents.query({userId: authenticationService.getCurrentUser().id}, function(userEvents){
+                $scope.userEvents = userEvents;
+                $scope.events = events($scope.allEvents, $scope.userEvents);
+            });
+        });
+       
+        $scope.events = events($scope.allEvents, $scope.userEvents);
+        
+
+        //load events
         function events (allEvents, userEvents){
             var j = 0, i = 0;
             var events = allEvents;
             for (i = 0; i<allEvents.length; i++){
-                if (j == userEvents.length){
+                if (j == userEvents.length ){
                     events[i].subscribe = false;
                 }
                 else{
@@ -37,26 +68,8 @@
                 }
             }
             return events
-
         }
-        
-        // Public variables
 
-        $scope.authentication = authenticationService;
-        $scope.searchBar = "";
-        $scope.orderProps = "";
-        $scope.currentPage = 0;
-        $scope.pageSize = 5;
-        $scope.activityFilter = "";
-        $scope.subscriptionFilter = "";
-
-        //$scope.categories = Categories.query();
-        $scope.activities=[
-            {"activityId":1,"activityName":"Kendo","activityLongDesc":"LongDesc","listEvent":null,"activityShortDescr":"ShortDesc"},
-            {"activityId":2,"activityName":"Yoga","activityLongDesc":"LongDesc","listEvent":null,"activityShortDescr":"ShortDesc"}
-        ];
-        //$scope.events = Events.query();
-        $scope.events = events(allEvents, userEvents);
 
         // Public methods
 
@@ -127,7 +140,7 @@
 
         // Init
     }
-    eventListController.$inject = ['$scope', 'eventListService', '$filter','Events', 'Activities', 'Users', 'authenticationService'];
+    eventListController.$inject = ['$scope', 'eventListService', '$filter','Events', 'Activities', 'Users', 'authenticationService', '$q', '$resource', 'apiUrl'];
 
     angular.module('zen.components.eventList', [
         'zen.api.activities',

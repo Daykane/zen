@@ -2,7 +2,7 @@
     'use strict';
 
     function Users(apiUrl, $http, $resource){
-
+        // Private methods
         function crud(){
             var crud = $resource(apiUrl + 'Users/:userId', null, {
                 'update': {
@@ -10,29 +10,15 @@
                     params: {userId: '@userId'}
                 }
             });
-
-            return crud;
         }
 
         function userEvents(){
-             var userEvents = $resource(apiUrl + 'Users/:userId/Events', null, {
+            var userEvents = $resource(apiUrl + 'Users/:userId/Events', {userId:'@userId'}, {
                 'update': {
                     method: 'PUT',
                     params: {userId: '@userId'}
                 }
             });
-
-             return userEvents;
-        }
-
-        // Private methods
-        function get(userId){
-            return crud().get({userId: userId});
-
-        }
-
-        function getAll(){
-            return crud().query();
         }
 
         function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
@@ -49,16 +35,11 @@
             });
         }
 
-        function getEvents(userId){
-            userEvents().query({userId: userId});
-        }
-
         // Public API
         return {
-            get: get,
-            getAll: getAll,
             create: create,
-            getEvents: getEvents
+            crud: crud,
+            userEvents: userEvents
         }
     }
     Users.$inject = ['apiUrl', '$http', '$resource'];
