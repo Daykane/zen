@@ -11,6 +11,8 @@
         var cart;
         var loginSuccess= false;
         var passwordFailed=false;
+        var cookieToken= null;
+        var cookieId = null;
     	return {
             login: function(email, password, callback){
             	var data = {mail: email, password: password};
@@ -61,9 +63,20 @@
         	isConnected: function(){
         			return loginSuccess;
         		},
+        	reset: function(){
+        		ipCookie.remove("token");
+        		ipCookie.remove("id");
+        		currentUser= {token: "", id: "", email: "", firstName: "", lastName: "", adr1: "", adr2: "", postalCode: "", town: "", phone: ""};
+        		cart=null;
+                loginSuccess= false;
+                passwordFailed=false;
+        	},
+        	getCookieToken: function(){
+        		return cookieToken;
+        	},
         	activate: function(){
-        		var cookieToken = ipCookie("token");
-        		var cookieId = ipCookie("id");
+        		cookieToken = ipCookie("token");
+        		cookieId = ipCookie("id");
         		if(cookieId != undefined){
         			$http({
                         method: 'GET',
