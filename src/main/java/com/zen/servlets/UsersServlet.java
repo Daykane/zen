@@ -109,6 +109,23 @@ public class UsersServlet {
 		return Response.status(204).build();
 	}
 	
+	@PUT
+	@Path("{id}/changePassword")
+	public Response changePassword(@PathParam("id") String id,@HeaderParam("token") String token){
+		DAOAuthen authen = new DAOAuthen();
+		String idU;
+		//idU ="7";
+		
+		try {
+			idU = Integer.toString(authen.authenToken(token));
+		} catch (AuthentificationException e) {
+			// TODO Auto-generated catch block
+			return Response.status(403).entity(e.getMessage()).build();
+		}
+		return null;
+		
+	}
+	
 	@GET
 	@Path("{id}/Events")
 	public List<AbstractEvent> getAllEvents(@PathParam("id") String id) {
