@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function homeConfig($stateProvider){
         $stateProvider.state('root.home', {

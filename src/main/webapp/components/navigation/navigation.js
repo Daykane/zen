@@ -1,5 +1,4 @@
 (function(window, angular){
-   
     function navigationDirective(){
         return {
             restrict: 'E',

@@ -1,5 +1,5 @@
 (function(window, angular, _){
-    'use strict';
+    
 
     function eventList(){
         return {
@@ -37,16 +37,18 @@
         $scope.activities = Activities.query();
         $scope.allEvents = [];
         $scope.userEvents = [];
+        $scope.events = [];
 
         eventCrud.query(function(allEvents){
             $scope.allEvents = allEvents;
-            userEvents.query({userId: authenticationService.getCurrentUser().id}, function(userEvents){
-                $scope.userEvents = userEvents;
-                $scope.events = events($scope.allEvents, $scope.userEvents);
-            });
+            if (authenticationService.isConnected()){
+                userEvents.query({userId: authenticationService.getCurrentUser().id}, function(userEvents){
+                    $scope.userEvents = userEvents;
+                    $scope.events = events($scope.allEvents, $scope.userEvents);
+                });
+            }
+           $scope.events = $scope.allEvents;
         });
-       
-        $scope.events = events($scope.allEvents, $scope.userEvents);
         
 
         //load events

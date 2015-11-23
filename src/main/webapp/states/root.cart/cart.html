@@ -37,7 +37,7 @@
 				<div class="col-md-10">
 					<div class="row">
 
-						<div class="panel panel-default" data-ng-if="zenProductList.isManagement()">
+						<div class="panel panel-default" data-ng-show="zenProductList.isManagement()">
 							<div class="panel-heading text-right">
 								<div class="nav">
 									<label class="pull-left">
@@ -76,7 +76,7 @@
 									<p class="pull-left">
 										{{product.productDescr}}
 									</p>
-									<div data-ng-if="authentication.isConnected()">
+									<div data-ng-show="authentication.isConnected()">
 										<button class="btn btn-warning pull-right" type="button" data-ng-click="remove(product)">
 											Remove from cart
 										</button>

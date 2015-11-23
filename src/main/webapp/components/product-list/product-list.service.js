@@ -1,5 +1,5 @@
 (function(window, angular, _){
-    'use strict';
+    
 
     function productListService(){
         // Private variables

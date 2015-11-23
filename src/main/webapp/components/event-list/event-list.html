@@ -50,7 +50,7 @@
                             <p class="pull-left">
                                 Contributor : {{event.contributor}}
                             </p>
-                            <div data-ng-if="authentication.isConnected()">
+                            <div data-ng-show="authentication.isConnected()">
                                 <button class="btn btn-info pull-right" type="button" data-ng-show="!event.subscribe" data-ng-click ='subscribe(event)'>
                                   Subscribe
                                 </button>

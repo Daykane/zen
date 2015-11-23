@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function sha1(){
         // Private variables

@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function productsConfig($stateProvider){
         $stateProvider.state('root.management.products', {
@@ -40,7 +40,9 @@
                 	$scope.category="";
                 	$scope.quantity= "";
                 	$scope.description="";
-                	$scope.products = Products.query();
+                	Products.query(function(products){
+                        $scope.products = products;
+                    });
                   }, function errorCallback(response) {
                 	  
                   });

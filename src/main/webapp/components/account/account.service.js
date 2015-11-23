@@ -1,7 +1,7 @@
 //TODO
 
 (function(window, angular, _){
-    'use strict';
+    
 
     function accountService(authenticationService, $state){
         // Private variables

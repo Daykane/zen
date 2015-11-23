@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function registerConfig($stateProvider){
         $stateProvider.state('root.register', {

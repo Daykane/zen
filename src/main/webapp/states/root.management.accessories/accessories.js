@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function accessoriesConfig($stateProvider){
         $stateProvider.state('root.management.accessories', {

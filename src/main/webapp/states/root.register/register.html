@@ -11,7 +11,7 @@
                                 <input data-ng-model="email" type="email" maxlength="50" placeholder="Email" class="form-control" required/>
                             </div>
                         </div>
-                        <div class="form-group" ng-if="mailAlreadyExists">
+                        <div class="form-group" ng-show="mailAlreadyExists">
                             <div class="alert alert-danger">
                                 <label>Mail is already used!</label>
                             </div>
@@ -26,7 +26,7 @@
                                 <input data-ng-model="confirmPassword" type="password" placeholder="Confirm password" class="form-control" required/>
                             </div>
                         </div>
-                        <div class="form-group" ng-if="!passwordMatch">
+                        <div class="form-group" ng-show="!passwordMatch">
                             <div class="alert alert-danger">
                                 <label>Password does not match password confirmation</label>
                             </div>

@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function activitiesConfig($stateProvider){
         $stateProvider.state('root.management.activities', {

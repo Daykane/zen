@@ -1,5 +1,5 @@
 (function(window, angular, FastClick){
-    'use strict';
+    
     
     function zenConfig($urlRouterProvider, $locationProvider, $resourceProvider, GooglePlusProvider){
         $urlRouterProvider.otherwise('/');

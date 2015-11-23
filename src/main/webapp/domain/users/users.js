@@ -1,5 +1,5 @@
 (function(window, angular, _){
-    'use strict';
+    
 
     function Users(apiUrl, $http, $resource){
         // Private methods
@@ -10,6 +10,7 @@
                     params: {userId: '@userId'}
                 }
             });
+            return crud;
         }
 
         function userEvents(){
@@ -19,6 +20,7 @@
                     params: {userId: '@userId'}
                 }
             });
+            return userEvents;
         }
 
         function create(email, password, firstName, lastName, adress, additionalAdress, town, postalCode, phoneNumber){
