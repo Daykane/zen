@@ -9,8 +9,8 @@ public class Cabinet extends AbstractRoom {
 		
 	}
 
-	public Cabinet(int roomId, String roomName, int superficy, Map<Accessory, Integer> roomAccesory) {
-		super(roomId, roomName, superficy, roomAccesory);
+	public Cabinet(int roomId, String roomName, int superficy /*,Map<Accessory, Integer> roomAccesory*/) {
+		super(roomId, roomName, superficy /*,roomAccesory*/);
 		
 	}
 	

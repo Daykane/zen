@@ -7,7 +7,7 @@ public class AbstractRoom {
 	private int roomId;
 	private String roomName;
 	private int superficy;
-	private Map<Accessory,Integer> roomAccesory; // couple (Accessory, IdQuantity)
+	//private Map<Accessory,Integer> roomAccesory; // couple (Accessory, IdQuantity)
 	
 	
 	public AbstractRoom() {
@@ -15,12 +15,12 @@ public class AbstractRoom {
 	}
 
 
-	public AbstractRoom(int roomId, String roomName, int superficy, Map<Accessory, Integer> roomAccesory) {
+	public AbstractRoom(int roomId, String roomName, int superficy/*, Map<Accessory, Integer> roomAccesory*/) {
 		super();
 		this.roomId = roomId;
 		this.roomName = roomName;
 		this.superficy = superficy;
-		this.roomAccesory = roomAccesory;
+		//this.roomAccesory = roomAccesory;
 	}
 
 
@@ -53,7 +53,7 @@ public class AbstractRoom {
 		this.superficy = superficy;
 	}
 
-
+	/*
 	public Map<Accessory, Integer> getRoomAccesory() {
 		return roomAccesory;
 	}
@@ -62,7 +62,7 @@ public class AbstractRoom {
 	public void setRoomAccesory(Map<Accessory, Integer> roomAccesory) {
 		this.roomAccesory = roomAccesory;
 	}
-	
+	*/
 	
 	
 	

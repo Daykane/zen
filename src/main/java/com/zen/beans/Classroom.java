@@ -11,8 +11,8 @@ public class Classroom extends AbstractRoom {
 		
 	}
 
-	public Classroom(int roomId, String roomName, int superficy, Map<Accessory, Integer> roomAccesory, int maxNbrRoom) {
-		super(roomId, roomName, superficy, roomAccesory);
+	public Classroom(int roomId, String roomName, int superficy/*, Map<Accessory, Integer> roomAccesory*/, int maxNbrRoom) {
+		super(roomId, roomName, superficy/*, roomAccesory*/);
 		this.maxNbrRoom = maxNbrRoom;
 	}
 
