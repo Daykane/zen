@@ -8,7 +8,6 @@
 			<div class="panel-heading">
 				<div class="row">
 					<div class="col-md-9">
-					Users
 					</div>
 					<div class="col-md-3">
 			            <div class="input-group">
@@ -33,121 +32,23 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		        	<tr>
-		            <th scope="row">1</th>
-		            <td>Toto</td>
-		            <td>Big Boss</td>
-		            <td>toto@to.to</td>
-		           <td>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Admin
-			            </button>
-			             <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Manager
-			            </button>
-			             <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Contributor
-			            </button>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Salesman
-			            </button>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Member
-			            </button>
+		        	<tr ng-repeat="user in users">
+		            <th scope="row">{{user.id}}</th>
+		            <td>{{user.firstName}}</td>
+		            <td>{{user.lastName}}</td>
+		            <td>{{user.mail}}</td>
+		           	<td>
+			            <div class="checkbox">
+		                    <button class="btn btn-info pull-left" type="button" data-ng-show="user.isAdmin">
+		                        Admin
+		                    </button>
+		                    <button class="btn btn-default pull-left" type="button" data-ng-show="!user.isAdmin">
+		                        Admin
+		                    </button>
+		                </div>
 		        	</td>
 		          	</tr>
 		          	<tr>
-		            <th scope="row">2</th>
-		            <td>Larry</td>
-		            <td>the Bird</td>
-		            <td>larry@42</td>
-		           <td>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Admin
-			            </button>
-			             <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Manager
-			            </button>
-			             <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Contributor
-			            </button>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Salesman
-			            </button>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Member
-			            </button>
-		        	</td>
-		          	</tr>
-		          <tr>
-		            <th scope="row">3</th>
-		            <td>Elie</td>
-		            <td>Gallet</td>
-		            <td>elie.gallet@zen.com</td>
-		            <td>
-			            <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Admin
-			            </button>
-			             <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Manager
-			            </button>
-			             <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Contributor
-			            </button>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Salesman
-			            </button>
-			            <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Member
-			            </button>
-		        	</td>
-		          </tr>
-		          <tr>
-		            <th scope="row">4</th>
-		            <td>Arnaud</td>
-		            <td>Jacquez</td>
-		            <td>arnaud.jacquez@zen.com</td>
-		            <td>
-			            <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Admin
-			            </button>
-			             <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Manager
-			            </button>
-			             <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Contributor
-			            </button>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Salesman
-			            </button>
-			            <button class="btn btn-info pull-left" type="button" data-ng-show="true">
-			              Member
-			            </button>
-		        	</td>
-		          </tr>
-		          <tr>
-		            <th scope="row">5</th>
-		            <td>Test</td>
-		            <td>Test</td>
-		            <td>test@test.com</td>
-		            <td>
-			            <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Admin
-			            </button>
-			             <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Manager
-			            </button>
-			             <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Contributor
-			            </button>
-			            <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Salesman
-			            </button>
-			            <button class="btn btn-default pull-left" type="button" data-ng-show="true">
-			              Member
-			            </button>
-		        	</td>
-		          </tr>
 		        </tbody>
 		    </table>
 		</div>

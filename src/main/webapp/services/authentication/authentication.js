@@ -7,7 +7,7 @@
      * @description The role of this service is to manage authentication data
      */
     function authenticationService($http, apiUrl, ipCookie){    
-    	var currentUser= {token: "", id: "", email: "", firstName: "", lastName: "", adr1: "", adr2: "", postalCode: "", town: "", phone: ""};
+    	var currentUser= {token: "", id: "", email: "", firstName: "", lastName: "", adr1: "", adr2: "", postalCode: "", town: "", phone: "", isAdmin: ""};
         var cart = [];
         var loginSuccess= false;
         var passwordFailed=false;
@@ -34,8 +34,9 @@
 	                	currentUser.adr1= response.data.adr1;
 	                	currentUser.adr2= response.data.adr2;
 	                	currentUser.postalCode = response.data.pc;
-	                	currentUser. town = response.data.town;
+	                	currentUser.town = response.data.town;
 	                	currentUser.phone = response.data.phone;
+                        currentUser.isAdmin = response.data.isAdmin;
 	                	
 	                	ipCookie("token", currentUser.token, { expires: 5, expirationUnit: "hours" });
 	            		ipCookie("id", currentUser.id, { expires: 5, expirationUnit: "hours" });
@@ -55,6 +56,9 @@
         	},
             getCurrentUser: function(){
             	return currentUser;
+            },
+            isAdmin: function(){
+                return currentUser.isAdmin;
             },
         	cart: cart,
         	isPasswordFailed: function(){
@@ -100,6 +104,7 @@
                     	currentUser.postalCode = response.data.pc;
                     	currentUser. town = response.data.town;
                     	currentUser.phone = response.data.phone;
+                        currentUser.isAdmin = response.data.isAdmin;
                     	
                     	loginSuccess=true;
                       }, function errorCallback(response) {
@@ -109,12 +114,7 @@
         		else{
         			loginSuccess=false;
         		}
-        		
-        		
         	},
-        	isAdmin: function(){
-        		return true;
-        	}
         };
     }
     authenticationService.$inject = ['$http', 'apiUrl', 'ipCookie']
