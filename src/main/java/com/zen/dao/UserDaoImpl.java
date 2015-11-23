@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	private static final String SQL_INSERT = "INSERT INTO User (`password`, `lastName`, `firstName`, `adr1`, `adr2`, `pc`, `town`, `phone`, `mail`) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?);";
-	private static final String SQL_CHECK_MAIL ="SELECT * FROM user where mail=?";
+	private static final String SQL_CHECK_MAIL ="SELECT * FROM User where mail=?";
 	@SuppressWarnings("resource")
 	@Override
 	public void create( User user ) throws DAOException, DAOExceptionMail {
