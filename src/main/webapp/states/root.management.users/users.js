@@ -14,6 +14,7 @@
     }
 
     function usersController($scope, Users){
+        $scope.searchBar = ""
         $scope.users=Users.crud().query();
     }
     usersController.$inject = ['$scope', 'Users'];

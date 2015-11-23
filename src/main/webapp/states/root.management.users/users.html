@@ -1,5 +1,5 @@
-<div id="usersState" class="container">
-
+<div id="usersState">
+	<div class="container">
 	<div class="well well-sm"><label>User Management</label></div>
 	<div id="zenUserList">
 		<div class="panel panel-default">
@@ -11,7 +11,7 @@
 					</div>
 					<div class="col-md-3">
 			            <div class="input-group">
-			            <input type="text" class="form-control" placeholder="Search for...">
+                		<input ng-model='searchBar' class="form-control">
 						    <span class="input-group-btn">
 						    	<button class="btn btn-default" type="button">Search</button>
 						    </span>
@@ -32,7 +32,7 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		        	<tr ng-repeat="user in users">
+		        	<tr ng-repeat="user in users | filter:searchBar">
 		            <th scope="row">{{user.id}}</th>
 		            <td>{{user.firstName}}</td>
 		            <td>{{user.lastName}}</td>
@@ -52,5 +52,6 @@
 		        </tbody>
 		    </table>
 		</div>
+	</div>
 	</div>
 </div>

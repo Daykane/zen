@@ -20,7 +20,7 @@
             <div class="list-group">
                 <label class="label label-success">Categories</label>
                 <select ng-model='categoryFilter' class="form-control">
-                    <option value='all'></option>
+                    <option value=''>all</option>
                     <option ng-repeat="category in categories" value='{{category.categoryId}}'>{{category.categoryName}}</option>
                 </select>
             </div>
