@@ -8,7 +8,7 @@
 
 
 +function ($) {
-  'use strict';
+  
 
   // MODAL CLASS DEFINITION
   // ======================

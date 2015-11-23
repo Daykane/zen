@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function settingsConfig($stateProvider){
         $stateProvider.state('root.settings', {

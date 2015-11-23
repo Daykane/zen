@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function cartConfig($stateProvider){
         $stateProvider.state('root.cart', {

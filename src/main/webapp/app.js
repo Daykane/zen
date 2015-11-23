@@ -1,5 +1,5 @@
 (function(window, angular, FastClick){
-    'use strict';
+    
     
     function zenConfig($urlRouterProvider, $locationProvider, $resourceProvider, GooglePlusProvider){
         $urlRouterProvider.otherwise('/');
@@ -65,8 +65,8 @@
         'zen.states.rooms',
         'zen.states.accessories',
     ])
-    //.constant('apiUrl', 'http://aiop-alaboureur.rhcloud.com/api/')
-    .constant('apiUrl', 'http://localhost:8080/zen/api/')
+    .constant('apiUrl', 'http://aiop-alaboureur.rhcloud.com/api/')
+    // .constant('apiUrl', 'http://localhost:8080/zen/api/')
     .config(zenConfig)
     .run(zenRun);
 

@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function eventsConfig($stateProvider){
         $stateProvider.state('root.management.events', {
@@ -42,6 +42,9 @@
                     $scope.startTime="";
                     $scope.endTime="";
                     $scope.maxParticipants="";
+                    Events.crud().query(function(allEvents){
+                        $scope.events = allEvents;
+                    });
                   }, function errorCallback(response) {
                 	  
                   });

@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function usersConfig($stateProvider){
         $stateProvider.state('root.management.users', {

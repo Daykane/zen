@@ -8,7 +8,7 @@
 
 
 +function ($) {
-  'use strict';
+  
 
   // POPOVER PUBLIC CLASS DEFINITION
   // ===============================

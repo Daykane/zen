@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
     function navigationDirective(){
         return {
             restrict: 'E',

@@ -1,7 +1,7 @@
 //TODO
 
 (function(window, angular){
-    'use strict';
+    
 
     /**
      * @description The role of this service is to manage authentication data

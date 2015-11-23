@@ -1,7 +1,7 @@
 //TODO
 
 (function(window, angular, _){
-    'use strict';
+    
 
     function navigationService($state){
         // Private variables

@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function categoriesConfig($stateProvider){
         $stateProvider.state('root.management.categories', {
