@@ -60,7 +60,12 @@ public class ProductsServlet {
 			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
-		
+		if(product.getPrice()<0){
+			return Response.status(400).entity("{\"PriceError\": \"true\"}").build();
+		}
+		if(product.getAvailableQuantity()<0){
+			return Response.status(400).entity("{\"QuantityError\": \"true\"}").build();
+		}
 		this.productDao = DAOFactory.getInstance().getProductDao();
 		this.productDao.create(product);
 		return Response.status(201).build();
