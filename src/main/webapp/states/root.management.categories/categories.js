@@ -13,17 +13,11 @@
     function categoriesRun (){
     }
 
-    function categoriesController(){
-        // Private variables
-
-        // Private methods
-
-        // Public variables
-
-        // Public methods
-
-        // Init
+     function categoriesController($scope, Categories){
+        $scope.searchBar = ""
+        $scope.categories=Categories.getAll();
     }
+    categoriesController.$inject = ['$scope', 'Categories'];
 
     angular.module('zen.states.categories', [
         'ui.router',

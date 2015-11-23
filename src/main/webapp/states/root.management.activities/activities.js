@@ -13,17 +13,11 @@
     function activitiesRun (){
     }
 
-    function activitiesController(){
-        // Private variables
-
-        // Private methods
-
-        // Public variables
-
-        // Public methods
-
-        // Init
+    function activitiesController($scope, Activities){
+        $scope.searchBar = ""
+        $scope.activities=Activities.query();
     }
+    activitiesController.$inject = ['$scope', 'Activities'];
 
     angular.module('zen.states.activities', [
         'ui.router',
