@@ -1,7 +1,7 @@
 //TODO
 
 (function(window, angular){
-    'use strict';
+    
 
     function accountDirective(){
         return {

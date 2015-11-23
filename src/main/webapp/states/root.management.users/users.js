@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function usersConfig($stateProvider){
         $stateProvider.state('root.management.users', {
@@ -13,17 +13,10 @@
     function usersRun (){
     }
 
-    function usersController(){
-        // Private variables
-
-        // Private methods
-
-        // Public variables
-
-        // Public methods
-
-        // Init
+    function usersController($scope, Users){
+        $scope.users=Users.crud().query();
     }
+    usersController.$inject = ['$scope', 'Users'];
 
     angular.module('zen.states.users', [
         'ui.router',

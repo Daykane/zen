@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
     
     function loginConfig($stateProvider){
         $stateProvider.state('root.login', {

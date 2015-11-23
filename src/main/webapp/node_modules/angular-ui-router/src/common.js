@@ -1,6 +1,6 @@
 /*jshint globalstrict:true*/
 /*global angular:false*/
-'use strict';
+
 
 var isDefined = angular.isDefined,
     isFunction = angular.isFunction,

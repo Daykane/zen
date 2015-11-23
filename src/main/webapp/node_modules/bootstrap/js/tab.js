@@ -8,7 +8,7 @@
 
 
 +function ($) {
-  'use strict';
+  
 
   // TAB CLASS DEFINITION
   // ====================

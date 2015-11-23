@@ -1,5 +1,5 @@
 (function(window, angular){
-    'use strict';
+    
 
     function roomsConfig($stateProvider){
         $stateProvider.state('root.management.rooms', {

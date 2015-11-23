@@ -8,7 +8,7 @@
 
 
 +function ($) {
-  'use strict';
+  
 
   // ALERT CLASS DEFINITION
   // ======================
