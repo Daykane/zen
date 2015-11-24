@@ -1,7 +1,5 @@
 package com.zen.servlets;
 
-import static com.zen.dao.DAOUtilitaire.Sha1;
-
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -18,12 +16,10 @@ import javax.ws.rs.core.UriInfo;
 
 import com.zen.beans.AbstractEvent;
 import com.zen.beans.Activity;
-import com.zen.beans.User;
 import com.zen.dao.DAOFactory;
 import com.zen.dao.EventDao;
 import com.zen.dao.ActivityDao;
 import com.zen.dao.DAOException;
-import com.zen.dao.DAOExceptionMail;
 
 
 @Path("/Activities")

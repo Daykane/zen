@@ -42,35 +42,6 @@ public class CategoryServlet {
 	@GET
     public Object getAll() {
 		
-		
-		// ========== A suuprimer car recuperation id signature dans la requete ======
-	    /*
-		String req = "GET /api/Categories:htss0fia8213a8bk3d70nq20sa";	    
-	    String signature = Sha1(req);
-	    String id = "1";
-		*/
-		// =======================================================
-        /*
-		String reqForSignature ="GET /api/Categories";
-				
-		DAOAuthen authen = new DAOAuthen();
-		try {
-			authen.authentification(id, reqForSignature, signature);
-		} catch (AuthentificationException e) {
-			return Response.status(403).entity(e.getMessage()).build();
-		}
-		*/
-		//System.out.println("token dans le header :" + token);
-		//DAOAuthen authen = new DAOAuthen();
-		//token = "lorml4glpd0pshakk2es95j7pc";
-		/*
-		int id = 0;
-		try {
-			id = authen.authenToken(token);
-		} catch (AuthentificationException e) {
-			return Response.status(403).entity(e.getMessage()).build();
-		}
-		*/
 		this.categoryDao = DAOFactory.getInstance().getCategoryDao();
 		List<Category> category = this.categoryDao.findAll();
 		return category;

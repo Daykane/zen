@@ -32,7 +32,7 @@ public class AccessoryServlet {
 		return accessories;
 	}
 
-	/* OK
+	/* OK a transformer en POST et test input JSON
 	@GET
 	public void create(){
 		Accessory accessory = new Accessory("accessoryName");
@@ -52,7 +52,7 @@ public class AccessoryServlet {
 	
 	
 
-	/* ok
+	/* ok a transformer en DELETE
 	@GET
 	@Path("{id}")
 	public void delete(@PathParam("id") int id) {

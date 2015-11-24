@@ -27,7 +27,7 @@ public class DAOFactory {
 
 
 	public static DAOFactory getInstance() throws DAOConfigurationException {
-		//        Properties properties = new Properties();
+		//Recuperation des variables d'environnement
 		String driver = "com.mysql.jdbc.Driver";
 
 		String url = "jdbc:mysql://" + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":" + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/" + System.getenv("OPENSHIFT_APP_NAME");

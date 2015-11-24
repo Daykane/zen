@@ -51,13 +51,11 @@ public class ProductsServlet {
 		
 		DAOAuthen authen = new DAOAuthen();
 		String idU;
-		//Boolean isAdmin = false;
-		//idU ="7";
+
 		
 		try {
 			idU = Integer.toString(authen.authenToken(token));
 		} catch (AuthentificationException e) {
-			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 		if(product.getPrice()<0){
@@ -76,7 +74,6 @@ public class ProductsServlet {
 	@Path("{id}")
 	public Response delete(@PathParam("id") String id) {
 		this.productDao = DAOFactory.getInstance().getProductDao();
-		//Product product = this.productDao.find(id);
 		this.productDao.delete(id);
 		return Response.status(204).build();
 	}

@@ -11,10 +11,6 @@ import java.sql.Statement;
 
 public final class DAOUtilitaire {
 
-    /*
-     * Constructeur caché par défaut (car c'est une classe finale utilitaire,
-     * contenant uniquement des méthode appelées de manière statique)
-     */
     private DAOUtilitaire() {
     }
 
@@ -66,7 +62,8 @@ public final class DAOUtilitaire {
 
     /*
      * Initialise la requête préparée basée sur la connexion passée en argument,
-     * avec la requête SQL et les objets donnés.
+     * avec la requête SQL et les objets donnés
+     * returnGeneratedKey plus utilise
      */
     public static PreparedStatement initialisationRequetePreparee( Connection connexion, String sql, boolean returnGeneratedKeys, Object... objets ) throws SQLException {
         PreparedStatement preparedStatement = connexion.prepareStatement( sql, returnGeneratedKeys ? Statement.RETURN_GENERATED_KEYS : Statement.NO_GENERATED_KEYS );

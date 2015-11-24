@@ -1,6 +1,5 @@
 package com.zen.dao;
 
-import com.zen.beans.AbstractEvent;
 import com.zen.beans.User;
 import static com.zen.dao.DAOUtilitaire.*;
 

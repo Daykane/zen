@@ -120,7 +120,6 @@ public class UsersServlet {
 		try {
 			idU = Integer.toString(authen.authenToken(token));
 		} catch (AuthentificationException e) {
-			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 		

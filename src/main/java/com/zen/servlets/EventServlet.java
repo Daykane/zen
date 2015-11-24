@@ -58,12 +58,10 @@ public class EventServlet {
 		
 		DAOAuthen authen = new DAOAuthen();
 		String idU;
-		//idU ="7";
 		
 		try {
 			idU = Integer.toString(authen.authenToken(token));
 		} catch (AuthentificationException e) {
-			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 		//Verify activity is not null
@@ -105,12 +103,10 @@ public class EventServlet {
 	public Response subscribeEvent(@PathParam("idE") String idE, @HeaderParam("token") String token) {
 		DAOAuthen authen = new DAOAuthen();
 		String idU;
-		//idU ="6";
 		
 		try {
 			idU = Integer.toString(authen.authenToken(token));
 		} catch (AuthentificationException e) {
-			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 		
@@ -136,7 +132,6 @@ public class EventServlet {
 		try {
 			idU = Integer.toString(authen.authenToken(token));
 		} catch (AuthentificationException e) {
-			// TODO Auto-generated catch block
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 		

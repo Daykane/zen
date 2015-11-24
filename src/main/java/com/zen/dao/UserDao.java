@@ -16,8 +16,6 @@ public interface UserDao {
     
     List<User> findAll() throws DAOException;
     
-    //User connection(String mail,String password) throws DAOException;
-    
     void delete(int id) throws DAOException;
 
 	User connection(String mail, String password, String token, Timestamp currentTimestamp) throws DAOException, LoginException;

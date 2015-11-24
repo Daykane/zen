@@ -76,8 +76,8 @@ public class EventDaoImpl implements EventDao {
 
 	/*
 	 * Simple methode utilitaire permettant de faire la correspondance (le
-	 * mapping) entre une ligne issue de la table des activités (un
-	 * ResultSet) et un bean activité.
+	 * mapping) entre une ligne issue de la table des events (un
+	 * ResultSet) et un bean evnet.
 	 */
 	private static AbstractEvent map( ResultSet resultSet ) throws SQLException {
 		AbstractEvent event = new AbstractEvent();
